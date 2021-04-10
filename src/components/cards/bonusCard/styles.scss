@@ -1,0 +1,23 @@
+$base-gray: #DEDEDE;
+
+.bonus-card{
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    .image-container{}
+    .bonus-card-description-container{
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        .bonus-heading{
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 27px;
+        }
+        .bonus-description{
+            font-size: 18px;
+            color: $base-gray;
+            line-height: 19px;
+        }
+    }
+}

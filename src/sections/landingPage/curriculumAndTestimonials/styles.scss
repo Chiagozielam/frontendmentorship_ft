@@ -1,0 +1,66 @@
+$base-gray: #DEDEDE;
+$base-orange: #F14A03;
+
+
+.entire-curriculum-and-testimonials-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    .curriculum-container{
+        width: 83%;
+        background-color: #141D26;
+        border-radius: 20px;
+        padding: 5%;
+        z-index: 999;
+        padding-bottom: 15%;
+
+        .heading-container{
+            width: 40%;
+            margin: 0 auto;
+            margin-bottom: 5%;
+            text-align: center;
+            .header{
+                font-size: 25px;
+                font-weight: bold;
+            }
+            .sub-header{
+                color: $base-gray;
+                font-size: 18px;
+                line-height: 16px;
+                margin-top: -5%;
+            }
+        }
+        .bonus-card-container{
+            width: 70%;
+            margin: 0 auto;
+            margin-top: 5%;
+
+            .swipe-arrows-container{
+                width: 50%;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                margin-top: 10%;
+                .arrow{
+                    text-align: center;
+                    cursor: pointer;
+                    transition: .3s;
+                    :hover{
+                       color: $base-orange;  
+                    }
+                }
+            }
+        }
+    }
+    .testimonials-container{
+        background-color: #061088;
+        width: 100%;
+        margin-top: -5%;
+        padding: 8%;
+    }
+}

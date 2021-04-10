@@ -1,0 +1,38 @@
+.testimonial-card{
+    background-color: #F5F5F5;
+    padding: 10%;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 295px ;
+    border-radius: 10px;
+    margin-bottom: 3%;
+    .testimonial-card-text{
+    }
+    .person-container{
+        display: flex;
+        align-items: center;
+
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+        }
+        .person-details{
+            display: flex;
+            flex-direction: column;
+            padding-left: 10px;
+            .person-name{
+                margin-top: 10%;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            .person-job{
+                margin-top: -15%;
+                font-size: 14px;
+                font-style: italic;
+            }
+        }
+    }
+}

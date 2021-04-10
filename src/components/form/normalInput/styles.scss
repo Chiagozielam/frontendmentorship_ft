@@ -1,0 +1,30 @@
+.normal-input-container {
+    font-family: 'Montserrat', sans-serif;
+    .non-active{
+        display: block;
+        background-color: #F88A5B;
+        position: absolute;
+        font-weight: 600;
+        padding: 1% 3%;
+        margin-left: 1%;
+        border-radius: 20px;
+    }
+    .active{
+        display: block;
+        background-color: #f3520d;
+        position: absolute;
+        font-weight: 600;
+        padding: 1% 3%;
+        margin-left: 1%;
+        border-radius: 20px;
+    }
+    .input{
+        margin-top: 2.9%;
+        width: 60%;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #C4C4C4;
+        border: none;
+        padding-left: 3%;
+    }
+}

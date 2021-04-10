@@ -1,0 +1,28 @@
+$base-gray: #DEDEDE;
+
+
+
+.curriculum-card-container{
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid $base-gray;
+    border-radius: 10px;
+    width: 224px;
+    height: 117px;
+    color: white;
+    padding: 7%;
+    padding-top: 10%;
+    cursor: pointer;
+    margin-bottom: 15%;
+
+    .title{
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        width: 80%;
+        line-height: 90.9%;
+    }
+    .view-details{
+        color: $base-gray;
+        font-size: 14px;
+    }
+}

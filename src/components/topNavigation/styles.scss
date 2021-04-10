@@ -1,0 +1,15 @@
+.navigation_container{
+  display: flex;
+  justify-content: space-between;
+  background-color: white !important;
+
+  .logo {
+    font-size: 16px;
+    letter-spacing: 0.085rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+  }
+  .right-side-nav{
+    font-size: 18px;
+  }
+}

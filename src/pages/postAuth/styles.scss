@@ -1,0 +1,9 @@
+.dashboard-container{
+    .side-nav{
+        background-color: white;
+    }
+    .dashboard-content{
+        height: calc(100vh - 64px);
+        overflow-y: scroll;
+    }
+}

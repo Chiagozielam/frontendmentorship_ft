@@ -1,0 +1,19 @@
+.entire-video-section{
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .heading{
+        font-size: 35px;
+        font-family: 'Exo', sans-serif;
+        font-weight: bold;
+        width: 65%;
+        text-align: center;
+    }
+    .inner-video-container{
+        width: 65%;
+        height: 60vh;
+        background-color: gray;
+    }
+}

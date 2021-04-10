@@ -1,0 +1,33 @@
+$base-orange: #F14A03;
+$base-white: #ffffff;
+
+
+.entire-top-section{
+    background-color: $base-white;
+    height: 75vh;
+    font-family: 'Montserrat', sans-serif;
+    .flex-2{
+        padding-left: 5%;
+        padding-top: 7.5%;
+        h1{
+            font-weight: bold;
+            line-height: 49px;
+            font-size: 40px;
+        }
+        p{
+            color: #585858;
+            font-size: 18px;
+        }
+    }
+    .flex-1{
+        .image-container{
+            height: 75vh;
+            background-image: url("https://res.cloudinary.com/dcft8yhab/image/upload/v1617748176/Ada_Studio_Picture.jpg");
+            background-size: cover;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
