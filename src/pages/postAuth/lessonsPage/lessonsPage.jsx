@@ -7,10 +7,10 @@ import Acheivements from './achievements'
 
 const LessonsPage = () => {
   return (
-    <div style={{ height: '200vh' }}>
+    <div className="lessons-page-container">
       <Row>
         <Col span={14}>
-          <LessonFolders />
+           <LessonFolders />
         </Col>
         <Col span={10}>
           <Acheivements />

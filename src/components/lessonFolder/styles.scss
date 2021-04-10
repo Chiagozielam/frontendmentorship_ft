@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.lesson-folder{
+    padding: 21px 0px 25px 18px;
+    margin-top: 12px;
+    border-radius: 15px;
+    img{
+        border-radius: 10px;
+        max-width: 107px;
+    }
+    .folder-details{
+        margin-left: 15px;
+        margin-top: 13px;
+        font-family: Montserrat;
+        font-style: normal;
+        line-height: 17px;
+
+        .folder-title{
+            color: #0A1165;
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 17px;
+
+        }
+        .folder-link{
+            color: #F14A03;
+            font-weight: 600;
+            font-size: 18px;
+        }
+    }
+}
+.lessonIncompleted{
+    background: rgba(255, 255, 255, 0.86);
+}
+.lessonCompleted{
+    background: rgba(255, 255, 255, 0.46);
+}

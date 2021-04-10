@@ -1,0 +1,37 @@
+// VRIABLES
+$primary-color: #F14A03;
+
+
+// SCROLL BAR STYLES
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 20px;
+    background: #F9F9FF;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background: $primary-color;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: lighten($primary-color, 10%);
+}
+
+
+// STYLES
+.lesson-folders-container{
+    direction: rtl;
+    height: 500px;
+    overflow-y: scroll;
+    padding-left: 48px;
+
+    > div {
+        direction: ltr;
+    }
+}
