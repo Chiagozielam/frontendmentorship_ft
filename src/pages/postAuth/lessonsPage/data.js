@@ -11,13 +11,13 @@ export const lessonFoldersArray = [
     folderTitle: "Introduction to the web",
     folderImage: "https://image.slidesharecdn.com/1-160109130835/95/introduction-to-web-design-1-638.jpg?cb=1452344944",
     id: "1",
-    completed: false,
+    completed: true,
   },
   {
     folderTitle: "Introduction to the web",
     folderImage: "https://image.slidesharecdn.com/1-160109130835/95/introduction-to-web-design-1-638.jpg?cb=1452344944",
     id: "1",
-    completed: false,
+    completed: true,
   },
   {
     folderTitle: "Introduction to the web",
@@ -35,9 +35,29 @@ export const lessonFoldersArray = [
   
 ]
 
-export const acheivementsArray = [
+export const achievementsArray = [
   {
-    acheivementTItle: "",
+    achievementTItle: "First Achievement",
     locked: true,
-  }
+  },
+  {
+    achievementTItle: "Second Achievement",
+    locked: true,
+  },
+  {
+    achievementTItle: "Third Achievement",
+    locked: true,
+  },
+  {
+    achievementTItle: "Fourth Achievement",
+    locked: false,
+  },
+  {
+    achievementTItle: "5th Achievement",
+    locked: false,
+  },
+  {
+    achievementTItle: "6th Achievement",
+    locked: false,
+  },
 ]

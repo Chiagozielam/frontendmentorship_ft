@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.social-card{
+    font-family: 'Montserrat', sans-serif;
+    padding: 12px 15px;
+    background-color: white;
+    color: black;
+    margin-top: 13px;
+
+    .description{
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        margin-bottom: 4px;
+    }
+}

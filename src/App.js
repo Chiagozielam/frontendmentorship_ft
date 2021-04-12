@@ -7,7 +7,8 @@ import LandingPage from "./pages/landingPage/landingPage";
 import LoginPage from "./pages/loginPage/loginPage";
 import PostAuth from "./pages/postAuth";
 import RegisterPage from "./pages/registerPage/registerPage";
-import { LANDING_PAGE, LOGIN_PAGE, POST_AUTH_ROUTES, REGISTRATION_PAGE } from './routes';
+import CongratulationsPage from "./pages/congratulationsPage/congratulations";
+import { CONGRATULATION_PAGE, LANDING_PAGE, LOGIN_PAGE, POST_AUTH_ROUTES, REGISTRATION_PAGE } from './routes';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path={LANDING_PAGE} component={LandingPage} />
           <Route path={LOGIN_PAGE} component={LoginPage} />
           <Route path={REGISTRATION_PAGE} component={RegisterPage} />
+          <Route path={CONGRATULATION_PAGE} component={CongratulationsPage} />
           <Route path={POST_AUTH_ROUTES} component={PostAuth} />
         </Switch>
       </Router>

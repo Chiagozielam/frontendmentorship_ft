@@ -1,7 +1,8 @@
 export const LANDING_PAGE = "/" 
 export const LOGIN_PAGE = "/login"
 export const REGISTRATION_PAGE = "/register"
-export const POST_AUTH_ROUTES =  "/dashboard"
+export const POST_AUTH_ROUTES = "/dashboard"
+export const CONGRATULATION_PAGE = "/registrationsuccess"
 
 
 // Post Authentication routes
