@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.achievement{
+    height: 131px;
+    margin-bottom: 14px;
+    text-align: center;
+    padding: 21px 45px;
+    &-details{
+
+        .icon{
+            padding: 11px 16px;
+            background: rgba(255, 76, 0, 0.22);
+            border-radius: 10px 0px 20px;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .achievement-tItle{
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 10px;
+            line-height: 12px;
+            color: #000;
+        }
+    }
+}
+.achievement-unlocked{
+    border-radius: 15px;
+    background-color: white;
+}
+.achievement-locked{
+    background: rgba(194, 194, 194, 0.76);
+    border-radius: 15px;
+}
