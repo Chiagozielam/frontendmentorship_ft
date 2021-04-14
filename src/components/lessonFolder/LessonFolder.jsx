@@ -1,30 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles.scss'
 import { Row, Col } from 'antd'
+import { Link } from 'react-router-dom'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
-  faArrowCircleRight
+  faArrowCircleRight,
+  faLock
 } from "@fortawesome/free-solid-svg-icons";
 
 const LessonFolder = ({ lessonFolder }) => {
+
+  let [warning, setWarning] = useState(false)
+  let showWarning = () => {
+    setWarning(true)
+    
+    setTimeout(() => {
+      setWarning(false)
+    }, 2000);
+  }
+
+
   return (
-    <div className={`lesson-folder ${lessonFolder.completed ? 'lesson-completed':'lesson-incompleted'}`}>
-      <Row align="middle">
-        <Col span={6}>
-          <img src={lessonFolder.folderImage} alt=""/>
-        </Col>
-        <Col span={10} className="folder-details">
-          <p className="folder-title">{lessonFolder.folderTitle}</p>
-          <a href="#" className="folder-link">View lessons <FontAwesomeIcon icon={faArrowCircleRight} className="link-icon" color="#F14A03" /></a>
-        </Col>
-        <Col offset={3} span={1} value={10}>
-          {
-            lessonFolder.completed ? <FontAwesomeIcon icon={faCheck} className="check-mark" /> : ''
-          }
-        </Col>
-      </Row>
+    <div>
+       
+      <div className={`lesson-folder 
+          ${lessonFolder.locked ? 'lesson-folder-locked' : ''}  
+          ${lessonFolder.completed ? 'lesson-completed' : 'lesson-incompleted'}`}
+          onClick={() => showWarning()}
+          >
+        <div className="lesson-folder-locked-container">
+          { warning && <h3 className={`warning-text ${warning == true ? 'animate-text-in': '' }`}>Sorry, you have to finish previous lesson first</h3>}
+          { !(warning) && <FontAwesomeIcon icon={faLock} className="lock-icon" />}
+        </div>
+          <Row align="middle">
+            <Col span={6}>
+              <img src={lessonFolder.folderImage} alt=""/>
+            </Col>
+            <Col span={10} className="folder-details">
+              <p className="folder-title">{lessonFolder.folderTitle}</p>
+              <Link to={lessonFolder.link} className="folder-link">View lessons <FontAwesomeIcon icon={faArrowCircleRight} className="link-icon" color="#F14A03" /></Link>
+            </Col>
+            <Col offset={3} span={1} value={10}>
+              {
+                lessonFolder.completed ? <FontAwesomeIcon icon={faCheck} className="check-mark" /> : ''
+              }
+            </Col>
+          </Row>
+      </div>
+    
     </div>
   )
 }

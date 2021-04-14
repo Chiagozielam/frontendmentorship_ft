@@ -5,43 +5,90 @@
 }
 
 .lesson-folder{
-    font-family: 'Montserrat', sans-serif;
-    padding: 21px 0px 25px 18px;
-    margin-top: 12px;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  padding: 23px 0px 25px 18px;
+  box-sizing: border-box;
+  margin-top: 12px;
+  border-radius: 15px;
+  min-height: 136px;
+  img{
+      border-radius: 10px;
+      max-width: 107px;
+  }
+  .folder-details{
+      margin-left: 15px;
+      margin-top: 13px;
+      font-style: normal;
+      line-height: 17px;
+
+      .folder-title{
+          color: #0A1165;
+          font-weight: 600;
+          font-size: 18px;
+          margin-bottom: 17px;
+
+      }
+      .folder-link{
+          color: #F14A03;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 17px;
+      }
+      .link-icon{
+          font-size: 13px;
+      }
+  }
+  .check-mark{
+      // border: 1px solid #F14A03;
+      color: #F14A03;
+      font-size: 14px;
+  }
+  .lesson-folder-locked-container{
+    display: none;
+  }
+  &.lesson-folder-locked .lesson-folder-locked-container{
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    img{
-        border-radius: 10px;
-        max-width: 107px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    .lock-icon{
+      color: rgba(194, 194, 194, 0.76);
+      font-size: 50px;
+      opacity: 1;
     }
-    .folder-details{
-        margin-left: 15px;
-        margin-top: 13px;
-        font-style: normal;
-        line-height: 17px;
-
-        .folder-title{
-            color: #0A1165;
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 17px;
-
-        }
-        .folder-link{
-            color: #F14A03;
-            font-style: normal;
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 17px;
-        }
-        .link-icon{
-            font-size: 13px;
-        }
+    .warning-text{
+      position: relative;
+      top: -20px;
+      opacity: 0;
+      color: red;
+      font-size: 18px;
+      padding: 5px;
+      border-radius: 15px;
+      background-color: white;
+      transition: all 1s ease;
     }
-    .check-mark{
-        // border: 1px solid #F14A03;
-        color: #F14A03;
-        font-size: 14px;
+    .animate-text-in{
+      animation: animate-in .2s ease 0s 1 forwards;
     }
+    @keyframes animate-in {
+      0%{ top: -20px; opacity: 0;}
+      25%{ top: -15px; opacity: 0.25;}
+      50%{ top: -10px; opacity: 0.5;}
+      75%{ top: -5px; opacity: 0.75;}
+      100%{ top: 0px; opacity: 1;} 
+    }
+  }
 }
 .lesson-incompleted{
     background: rgba(255, 255, 255, 0.86);
@@ -49,3 +96,6 @@
 .lesson-completed{
     background: rgba(255, 255, 255, 0.46);
 }
+
+//
+

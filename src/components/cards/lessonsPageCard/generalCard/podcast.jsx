@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.scss'
+import { Link } from 'react-router-dom'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,13 +9,13 @@ import {
 
 const PodcatsCard = ({ heading, description, bgcolor, link}) => {
   return (
-        <a href={link}>
+        <Link to={link}>
           <div className="podcast-card" style={{ backgroundColor: `${bgcolor}`}}>
             <p className="heading">{heading}</p>
             <p className="description">{description}</p>
             <FontAwesomeIcon icon={faArrowCircleRight} />
           </div>
-        </a> 
+        </Link> 
      );
 }
  

@@ -6,6 +6,8 @@ import {
   faTrophy
 } from "@fortawesome/free-solid-svg-icons";
 
+import { Link } from 'react-router-dom'
+
 const Achievement = ({ achievement }) => {
 
   return (
@@ -14,7 +16,7 @@ const Achievement = ({ achievement }) => {
       {
         
         achievement.locked ?
-          <a href={achievement.link}>
+          <Link to={achievement.link}>
             <div className="achievement achievement-unlocked">
               <div className="achievement-details">
                 <div className="icon">
@@ -24,7 +26,7 @@ const Achievement = ({ achievement }) => {
                 <p className="achievement-tItle">{achievement.achievementTItle}</p>
               </div>
             </div>
-          </a>
+          </Link>
           :
           <div className="achievement achievement-locked"></div>
       }
