@@ -3,15 +3,15 @@ import { Button } from 'antd';
 import { string } from 'prop-types'
 import './styles.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from 'react-router-dom'
-const ButtonWithIcon = ({ buttonText, icon, textColor, bgcolor, iconColor,  }) => {
+
+const ButtonWithIcon = ({ buttonText, icon, textColor, fontSize, bgcolor, iconColor, iconSize, buttonRadius, onClick }) => {
   return (
-    <Link to="/" className="icon-btn">
-      <Button type="primary" className="btn" style={{ backgroundColor: `${bgcolor}`}}>
-        <span style={{color: `${iconColor}` }}><FontAwesomeIcon icon={icon}/></span>
-        <span className="btn-text" style={{color: `${textColor}` }}>{buttonText}</span>
+    <div className="icon-btn">
+      <Button onClick={onClick} type="primary" className="btn" style={{ backgroundColor: `${bgcolor}`, borderRadius: `${buttonRadius}`}}>
+        <span style={{color: `${iconColor}`, fontSize: `${iconSize}` }}><FontAwesomeIcon icon={icon}/></span>
+        <span className="btn-text" style={{color: `${textColor}`, fontSize: `${fontSize}` }}>{buttonText}</span>
       </Button>
-    </Link>
+    </div>
   )
 }
 
