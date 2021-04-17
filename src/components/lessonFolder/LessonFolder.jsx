@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import './styles.scss'
 import { Row, Col } from 'antd'
 import { Link } from 'react-router-dom'
+// import { LESSON_FOLDER_PAGE } from './routes';
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -40,7 +42,7 @@ const LessonFolder = ({ lessonFolder }) => {
             </Col>
             <Col span={10} className="folder-details">
               <p className="folder-title">{lessonFolder.folderTitle}</p>
-              <Link to={lessonFolder.link} className="folder-link">View lessons <FontAwesomeIcon icon={faArrowCircleRight} className="link-icon" color="#F14A03" /></Link>
+            <Link to={`/dashboard/lessonfolder/${lessonFolder.id}`} className="folder-link">View lessons <FontAwesomeIcon icon={faArrowCircleRight} className="link-icon" color="#F14A03" /></Link>
             </Col>
             <Col offset={3} span={1} value={10}>
               {

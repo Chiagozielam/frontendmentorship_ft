@@ -6,6 +6,7 @@ import LessonFolders from './lessonFolders'
 import Acheivements from './achievements'
 import PodcastCard from '../../../components/cards/lessonsPageCard/generalCard/podcast'
 import SocialCard from '../../../components/cards/lessonsPageCard/socialCard/socialCard'
+import Sub from '../../../components/subLesson/sublesson';
 
 
 

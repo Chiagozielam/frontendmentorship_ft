@@ -1,0 +1,24 @@
+.assignment-container{
+  width: 273px;
+  margin-top: 10px;
+  margin-left: 56px;
+  padding: 11px 0px 15px 17px;
+  background: rgba(6, 16, 136, 0.21);
+  border: 1px solid rgba(6, 16, 136, 0.62);
+  
+  h3{
+    font-style: italic;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #2D2D2C;
+  }
+  .assignment-link{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-decoration-line: underline;
+    color: #061088;
+  }
+}

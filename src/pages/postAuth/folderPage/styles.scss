@@ -1,0 +1,33 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1,h2,h3,h4,h5{
+  padding: 0;
+  margin: 0;
+}
+
+.folder-page-container{
+  padding: 15px 0px 0px 39px;
+
+  
+  .content{
+    margin-top: 14px;
+  
+    .video-lesson-details{
+      max-height: 80vh;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        display: none;
+    }
+    }
+    .lesson-description-wrapper{
+      margin: 22px 0 24px 38px;
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+    }
+  }
+}
