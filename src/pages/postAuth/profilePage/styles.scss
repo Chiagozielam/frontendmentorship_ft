@@ -91,6 +91,13 @@ $base-blue: rgba(10, 17, 101, 0.64);
                 font-weight: 600;
                 color: #0a1165;
             }
+            .edit-button-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 3%;
+            }
             .bio{
                 background-color: white;
                 padding: 4%;
@@ -109,6 +116,9 @@ $base-blue: rgba(10, 17, 101, 0.64);
                     align-items: center;
                     padding: 2%;
                     margin-bottom: 2%;
+                    .cog-icon{
+                        cursor: pointer;
+                    }
                     .inner-link-container{
                         display: flex;
                         align-items: center;

@@ -8,6 +8,7 @@ import { faCameraRetro, faCog } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import CustomModal from '../../../components/customModal/CustomModal';
 import NormalInput from '../../../components/form/normalInput/normalInput';
+import ButtonWithIcon from '../../../components/buttonWithIcon/ButtonWithIcon'
 
 const ProfilePage = () => {
   const [showEditProfileModal, setShowEditProfileModal] = useState(false)
@@ -110,15 +111,25 @@ const ProfilePage = () => {
           <div className="image-url-container" style={{backgroundImage: `url(${profileData.imageUrl})`}}></div>
           <p className="name">{profileData.fullname}</p>
           <p className="bio">{profileData.bio}</p>
-
-          <button onClick={onShowOrHideEditProfileModal}>Edit</button>
+          <div className="edit-button-container">
+            <ButtonWithIcon
+              buttonText="Edit profile"
+              icon={faCog}
+              fontSize="12px"
+              iconSize="14px"
+              bgcolor="rgba(24, 36, 67, 0.67)"
+              iconColor="white"
+              textColor="white"
+              onClick={onShowOrHideEditProfileModal}
+            />
+          </div>
           <div className="social-media-links">
             <div className="link-container">
               <div className="inner-link-container">
                 <FontAwesomeIcon icon={faGithub} className="link-icon" />
                 <p>{profileData.githubUrl}</p>
               </div>
-              <FontAwesomeIcon icon={faCog} size={20} className="link-icon" />
+              <FontAwesomeIcon onClick={onShowOrHideEditProfileModal}  icon={faCog} size={20} className="cog-icon" />
             </div>
 
             <div className="link-container">
@@ -126,7 +137,7 @@ const ProfilePage = () => {
                 <FontAwesomeIcon icon={faTwitter} className="link-icon" />
                 <p>{profileData.twitterUrl}</p>
               </div>
-              <FontAwesomeIcon icon={faCog} size={20} className="link-icon" />
+              <FontAwesomeIcon  onClick={onShowOrHideEditProfileModal} icon={faCog} size={20} className="cog-icon" />
             </div>
 
             <div className="link-container">
@@ -134,7 +145,7 @@ const ProfilePage = () => {
                 <FontAwesomeIcon icon={faLinkedin} className="link-icon" />
                 <p>{profileData.linkedInUrl}</p>
               </div>
-              <FontAwesomeIcon icon={faCog} size={20} className="link-icon" />
+              <FontAwesomeIcon  onClick={onShowOrHideEditProfileModal} icon={faCog} size={20} className="cog-icon" />
             </div>
           </div>
         </div>
