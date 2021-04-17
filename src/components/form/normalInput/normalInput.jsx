@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './styles.scss';
 
 const NormalInput = ({
-  onChange, label, type, name, formikProps, formikKey, ...rest
+  onChange, label, labelPadding, inputColor, type, name, formikProps, formikKey, ...rest
 }) => {
   const [active, setActive] = useState(false);
   const [input, setInput] = useState('');
@@ -15,9 +15,10 @@ const NormalInput = ({
   };
   return (
     <div className="normal-input-container">
-      <label className={active ? 'active' : 'non-active'}>{label}</label>
+      <label className={active ? 'active' : 'non-active'} style={{ padding: `${labelPadding}` }}>{label}</label>
       <input
         className="input"
+        style={{ backgroundColor: `${inputColor}`}}
         onFocus={() => setActive(true)}
         onBlur={handleOnBlur}
         type={type}
