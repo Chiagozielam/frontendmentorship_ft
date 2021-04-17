@@ -1,0 +1,53 @@
+.sub-lessons-folder-wrapper{
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  background-color: white;
+  border-radius: 15px;
+
+  .folder-title{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #061088 ;
+    padding: 19px 0 10px 0;
+    margin: 0 23px 0px 19px;
+    border-bottom: 3px solid rgba(6, 16, 136, 0.08);;
+  }
+  
+  .sub-lesson-wrapper{
+    margin-bottom: 30px;
+    padding: 22px 0 10px 0;
+    max-height: 56vh;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+      /* Track */
+    &::-webkit-scrollbar-track {
+      margin-top: 5px;
+      background: #C4C4C4;
+    }
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      border-radius: 30px;
+      background: #F14A03;
+    }
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+      background: lighten(#F14A03, 10%);
+    }
+
+    .sub-lesson{
+      padding: 7px 0 9px 37px;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: background .3s ease;
+    
+      &:hover, &.active{
+        background: #EAEAEA;
+      }
+    }
+  }
+
+}

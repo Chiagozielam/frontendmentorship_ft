@@ -1,0 +1,52 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.video-player-wrapper{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .video{
+    width: 100%;
+    border: none;
+    max-height: 388px;
+  }
+  
+  &:hover .video-button-wrapper{
+
+      position: absolute;
+      background-color: #061088;
+      border-radius: 20px;
+      padding: 15px 27px;
+      .video-button {
+      
+      border: 0;
+      background: transparent;
+      box-sizing: border-box;
+      width: 0;
+      height: 72px;
+    
+      border-color: transparent transparent transparent white;
+      transition: 100ms all ease;
+      cursor: pointer;
+    
+      // play state
+      border-style: solid;
+      border-width: 36px 0 36px 59px;
+    
+      &.paused {
+        border-style: double;
+        border-width: 0px 0 0px 60px;
+      }
+    
+      &:hover {
+        border-color: transparent transparent transparent white;
+      }
+    }
+  }
+
+}

@@ -2,10 +2,10 @@ import React from 'react';
 import { Button } from 'antd';
 import { string } from 'prop-types'
 
-const GeneralButton = ({ buttonText, onClick }) => {
+const GeneralButton = ({ buttonText, onClick, borderRadius = '20px', width = '200px', height = '48px', fontSize = '18px', disabled }) => {
   return (
     <div>
-      <Button onClick={onClick} type="primary" style={{backgroundColor: "#F14A03", borderRadius: "20px", border: "none", height: "48px", width: "200px", fontSize: "18px"}}>
+      <Button onClick={onClick} disabled={disabled} type="primary" style={{backgroundColor: "#F14A03", borderRadius: `${borderRadius}`, border: "none", height: `${height}`, width: `${width}`, fontSize: `${fontSize}`}}>
         {buttonText}
       </Button>
     </div>

@@ -1,0 +1,52 @@
+
+.instructor-card{
+  padding: 36px 0 41px 31px;
+  background: white;
+  border-radius: 10px;
+  max-width: 547px;
+  font-family: 'Montserrat', sans-serif;
+
+  .instructor-header{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #061088;
+    margin-bottom: 19px;
+  }
+  .instructor-details{
+    display: flex;
+
+    .instructor-image{
+      margin-right: 21px;
+      img{
+        height: 75.37px;
+        width: 75.37px;
+        border-radius: 100%;
+      
+      }
+    }
+    .instructor-name{
+      margin-right: 73px;
+
+      h3{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: #061088;
+        margin-left: 10px;
+      }
+    }
+    .instructor-social-handle{
+      align-self: flex-end;
+      font-size: 40px;
+
+      .twitter{
+        color: black;
+        margin-right: 17px;
+      }
+      .linkdin{
+        color: black;
+      }
+    }
+  }
+}
