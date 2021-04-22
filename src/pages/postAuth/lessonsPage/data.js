@@ -1,4 +1,6 @@
 import { faTrophy } from "@fortawesome/free-solid-svg-icons"
+import Achievements from "./achievements"
+import LessonFolders from "./lessonFolders"
 
 export const lessonFoldersArray = [
   {
@@ -165,4 +167,3 @@ export const achievementsArray = [
     locked: false,
   },
 ]
-

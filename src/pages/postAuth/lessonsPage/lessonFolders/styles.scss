@@ -6,32 +6,44 @@ $primary-color: #F14A03;
 
 
 // STYLES
-.lesson-folders-container{
-    direction: rtl;
-    height: 500px;
-    overflow-y: scroll;
-    padding-left: 48px;
-
-    > div {
-        direction: ltr;
+.lesson-folders-component{
+    .lesson-folders-container{
+        direction: rtl;
+        height: 500px;
+        overflow-y: scroll;
+        padding-left: 48px;
+    
+        > div {
+            direction: ltr;
+        }
+    
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+        /* Track */
+        &::-webkit-scrollbar-track {
+            margin-top: 15px;
+            border-radius: 20px;
+            background: #F9F9FF;
+        }
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            border-radius: 30px;
+            background: $primary-color;
+        }
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: lighten($primary-color, 10%);
+        }
     }
-
-    &::-webkit-scrollbar {
-        width: 6px;
-    }
-    /* Track */
-    &::-webkit-scrollbar-track {
-        margin-top: 15px;
-        border-radius: 20px;
-        background: #F9F9FF;
-    }
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-        border-radius: 30px;
-        background: $primary-color;
-    }
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-        background: lighten($primary-color, 10%);
+    @media screen and (max-width: 800px) {
+        padding: 5%;
+        padding-top: 1%;
+        .lesson-folders-container{
+            padding-left: 28px;
+            &::-webkit-scrollbar{
+            width: 3px;
+        }
+        }
     }
 }
