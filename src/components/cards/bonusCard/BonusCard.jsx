@@ -7,12 +7,12 @@ const BonusCard = ({ image, heading, description }) => {
   return (
     <div className="bonus-card">
       <Row style={{justifyContent: 'space-between'}}>
-        <Col span={10}>
+        <Col sm={24} lg={10}>
           <div className="image-container">
             <img style={{ width: "100%"}} src={image} alt=""/>
           </div>
         </Col>
-        <Col span={13}>
+        <Col span={24} lg={13}>
           <div className="bonus-card-description-container">
             <p className="bonus-heading">
               {heading}

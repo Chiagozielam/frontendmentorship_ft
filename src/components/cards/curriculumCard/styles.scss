@@ -25,4 +25,16 @@ $base-gray: #DEDEDE;
         color: $base-gray;
         font-size: 14px;
     }
+    
+    @media screen and (max-width: 500px) {
+        width: 90%;
+        height: 100px;
+        margin-left: 3%;
+        .title{
+            font-size: 14px;
+        }
+        .view-details{
+            font-size: 12px;
+        }
+    }
 }

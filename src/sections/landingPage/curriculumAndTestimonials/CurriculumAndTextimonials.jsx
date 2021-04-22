@@ -27,7 +27,7 @@ const CurriculumAndTestimonialsContainer = () => {
         <Row>
         {
           curriculumObjectArray.map( item => (
-            <Col span={6} className="flex-1">
+            <Col span={12} lg={6}>
               <CurriculumCard />
             </Col>
           ))
@@ -58,7 +58,7 @@ const CurriculumAndTestimonialsContainer = () => {
         <Row style={{ justifyContent: "space-evenly" }}>
           {
             testimonialsArray.map( testimonial => (
-              <Col span={7}>
+              <Col sm={24} lg={7}>
                 <TestimonialCard
                   testimonialText={testimonial.testimonialText}
                   image={testimonial.image}

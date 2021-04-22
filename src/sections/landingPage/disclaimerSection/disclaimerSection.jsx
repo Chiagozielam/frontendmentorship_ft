@@ -7,9 +7,9 @@ const DisclaimerSection = () => {
   return (
     <div className="entire-disclaimer-section">
       <Row>
-        <Col span={9} className="flex-1">
+        <Col sm={24} lg={9} className="flex-1">
         </Col>
-        <Col span={15} className="flex-2">
+        <Col sm={24} lg={15} className="flex-2">
           <div className="inner-disclaimer-container">
             <p className="header">No upfront payment!</p>
             <p className="text">

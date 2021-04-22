@@ -11,15 +11,17 @@ const Newsletter = () => {
           Be one of the earliest persons to know about new offers or <br/>
           other free helpful content we will provide in future!
         </p>
+        <p className="sub-header-mobile">
+          Be one of the earliest persons to know about new offers or
+          other free helpful content we will provide in future!
+        </p>
       </div>
-      <form>
-        <input
-          className="newsletter-input"
-          type="email"
-          name="email"
-          placeholder="Enter your email here..."
-        />
-      </form>
+      <input
+        className="newsletter-input"
+        type="email"
+        name="email"
+        placeholder="Enter your email here..."
+      />
       <GeneralButton
         buttonText="Subscribe"
       />
