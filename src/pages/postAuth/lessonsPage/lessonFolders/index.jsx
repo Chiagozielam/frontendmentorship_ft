@@ -5,13 +5,15 @@ import './styles.scss'
 
 const LessonFolders = () => {
   return (
-    <div className="lesson-folders-container">
-      <div>
-        {
-          lessonFoldersArray.map( lessonFolder => (
-            <LessonFolder lessonFolder={lessonFolder} />
-          ))
-        }
+    <div className="lesson-folders-component">
+      <div className="lesson-folders-container">
+        <div>
+          {
+            lessonFoldersArray.map( lessonFolder => (
+              <LessonFolder lessonFolder={lessonFolder} />
+            ))
+          }
+        </div>
       </div>
     </div>
   )

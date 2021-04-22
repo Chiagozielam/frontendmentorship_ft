@@ -1,7 +1,19 @@
 .lessons-page-container{
     padding: 34px 84px 0px 64px;
+    .lesson-page-mobile{
+        display: none;
+    }
     .cards{
         margin-top: 73px;
         margin-left: 40px;
+    }
+    @media screen and (max-width: 800px) {
+        padding: 0;
+        .lesson-page-mobile{
+            display: block;
+        }
+        .lesson-page-desktop{
+            display: none;
+        }
     }
 }

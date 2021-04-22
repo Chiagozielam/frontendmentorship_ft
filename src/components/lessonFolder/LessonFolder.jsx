@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import './styles.scss'
 import { Row, Col } from 'antd'
 import { Link } from 'react-router-dom'
@@ -14,8 +15,9 @@ import {
 
 const LessonFolder = ({ lessonFolder }) => {
 
-  let [warning, setWarning] = useState(false)
-  let showWarning = () => {
+  const [warning, setWarning] = useState(false)
+  const { push } = useHistory()
+  const showWarning = () => {
     setWarning(true)
     
     setTimeout(() => {
@@ -23,9 +25,17 @@ const LessonFolder = ({ lessonFolder }) => {
     }, 2000);
   }
 
+  const onClickOnFolder = () => {
+    if (lessonFolder.locked) {
+      return
+    }
+    push(`/dashboard/lessonfolder/${lessonFolder.id}`)
+  }
 
   return (
-    <div>
+    <div
+      onClick={onClickOnFolder}
+    >
        
       <div className={`lesson-folder 
           ${lessonFolder.locked ? 'lesson-folder-locked' : ''}  

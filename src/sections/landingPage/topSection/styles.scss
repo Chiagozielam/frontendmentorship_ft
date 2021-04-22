@@ -29,7 +29,7 @@ $base-white: #ffffff;
             background-size: cover;
         }
     }
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         .flex-container{
             flex-direction: column-reverse;
         }
