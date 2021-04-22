@@ -1,7 +1,14 @@
+.overall-nav-container{
+  height: 50px;
+}
 .navigation_container{
   display: flex;
   justify-content: space-between;
   background-color: white !important;
+  position: fixed;
+  background-color: white;
+  z-index: 9999;
+  width: 100%;
 
   .logo {
     font-size: 16px;
@@ -9,7 +16,29 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
   }
+  .hamburger-icon{
+    display: none;
+  }
   .right-side-nav{
     font-size: 18px;
   }
+  @media screen and (max-width: 500px) {
+    .logo{
+      font-size: 12px;
+      margin-left: -12%;
+    }
+    .right-side-nav{
+      display: none;
+    }
+    .hamburger-icon{
+      display: block;
+      font-size: 20px;
+      margin-top: 7%;
+    }
+  }
+}
+
+.side-drawer{
+  z-index: 999999;
+  background-color: rgba(255, 68, 0, .3);
 }

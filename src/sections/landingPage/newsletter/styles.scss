@@ -25,6 +25,14 @@ $base-gray: #DEDEDE;
             margin-top: -2%;
             margin-bottom: -1%;
         }
+        .sub-header-mobile{
+            color: #363636;
+            font-size: 12px;
+            line-height: 16px;
+            margin-top: -2%;
+            margin-bottom: 5%;
+            display: none;
+        }
     }
     .newsletter-input{
         width: 612px;
@@ -34,5 +42,28 @@ $base-gray: #DEDEDE;
         margin-top: -5%;
         margin-bottom: 2%;
         padding-left: 5%;
+    }
+
+
+    @media screen and (max-width: 500px) {
+        width: 90%;
+        .heading-container{
+            width: 90%;
+            .header{
+                font-size: 20px;
+                line-height: 24px;
+            }
+            .sub-header{
+                display: none;
+            }
+            .sub-header-mobile{
+                display: block;
+            }
+        }
+        .newsletter-input{
+            width: 100%;
+            height: 50px;
+            margin-bottom: 5%;
+        }
     }
 }

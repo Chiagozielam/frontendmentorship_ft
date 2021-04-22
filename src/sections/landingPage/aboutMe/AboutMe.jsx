@@ -7,11 +7,11 @@ const AboutMe = () => {
   return (
     <div className="about-me-section">
       <Row style={{ justifyContent: "space-between" }}>
-        <Col span={9}>
+        <Col sm={24} lg={9}>
           <img className="image" src="https://res.cloudinary.com/dcft8yhab/image/upload/v1617819068/My_Image.png" alt=""/>
         </Col>
-        <Col span={14}>
-          <p className="heading">Hi, I'm Daniel Don,</p>
+        <Col sm={24} lg={14}>
+          <p className="heading">Hi, <br/> I'm Daniel Don,</p>
           <div className="body">
             <p>
               I’ll be your lead instructor throughout this mentorship program. <br/>

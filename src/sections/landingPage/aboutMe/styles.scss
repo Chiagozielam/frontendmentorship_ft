@@ -1,23 +1,38 @@
 .about-me-section{
-    font-family: 'Montserrat', sans-serif;
-    width: 65%;
-    margin: 7% auto;
-    padding-bottom: 7%;
-    .image{
-        width: 100%;
-        margin-top: -10%;
+  font-family: 'Montserrat', sans-serif;
+  width: 65%;
+  margin: 7% auto;
+  padding-bottom: 7%;
+  .image{
+    width: 100%;
+    margin-top: -10%;
+  }
+  .heading{
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+  }
+  .body{
+    margin-top: -3%;
+    p{
+      font-size: 18px;
+      line-height: 23px;
+      color: #625D5D;
     }
-    .heading{
-        font-size: 36px;
-        font-weight: 600;
-        line-height: 44px;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 85%;
+    .image{
+      width: 80%;
+      margin-bottom: 10%;
+      margin-left: 5%;
+      
     }
     .body{
-        margin-top: -3%;
-        p{
-            font-size: 18px;
-            line-height: 23px;
-            color: #625D5D;
-        }
+      p{
+        font-size: 16px;
+      }
     }
+  }
 }

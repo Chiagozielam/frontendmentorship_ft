@@ -10,52 +10,52 @@ $base-orange: #F14A03;
     font-family: 'Montserrat', sans-serif;
     color: white;
     .curriculum-container{
-        width: 83%;
-        background-color: #141D26;
-        border-radius: 20px;
-        padding: 5%;
-        z-index: 999;
-        padding-bottom: 15%;
+      width: 83%;
+      background-color: #141D26;
+      border-radius: 20px;
+      padding: 5%;
+      z-index: 999;
+      padding-bottom: 15%;
 
-        .heading-container{
-            width: 40%;
-            margin: 0 auto;
-            margin-bottom: 5%;
+      .heading-container{
+        width: 40%;
+        margin: 0 auto;
+        margin-bottom: 5%;
+        text-align: center;
+        .header{
+          font-size: 25px;
+          font-weight: bold;
+        }
+        .sub-header{
+          color: $base-gray;
+          font-size: 18px;
+          line-height: 16px;
+          margin-top: -5%;
+        }
+      }
+      .bonus-card-container{
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 5%;
+
+        .swipe-arrows-container{
+          width: 50%;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          margin-top: 10%;
+          .arrow{
             text-align: center;
-            .header{
-                font-size: 25px;
-                font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+            :hover{
+              color: $base-orange;  
             }
-            .sub-header{
-                color: $base-gray;
-                font-size: 18px;
-                line-height: 16px;
-                margin-top: -5%;
-            }
+          }
         }
-        .bonus-card-container{
-            width: 70%;
-            margin: 0 auto;
-            margin-top: 5%;
-
-            .swipe-arrows-container{
-                width: 50%;
-                margin: 0 auto;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                margin-top: 10%;
-                .arrow{
-                    text-align: center;
-                    cursor: pointer;
-                    transition: .3s;
-                    :hover{
-                       color: $base-orange;  
-                    }
-                }
-            }
-        }
+      }
     }
     .testimonials-container{
         background-color: #061088;
@@ -63,4 +63,35 @@ $base-orange: #F14A03;
         margin-top: -5%;
         padding: 8%;
     }
+
+
+
+
+
+
+
+
+
+  @media screen and (max-width: 500px) {
+    .curriculum-container{
+      margin-top: 15%;
+      width: 100%;
+      border-radius: 0;
+      .heading-container{
+        width: 70%;
+        .header{
+          font-size: 16px;
+        }
+        .sub-header{
+          font-size: 12px;
+        }
+      }
+      .bonus-card-container{
+        width: 90%;
+      }
+    }
+    .testimonials-container{
+      padding-top: 15%;
+    }
+  }
 }
