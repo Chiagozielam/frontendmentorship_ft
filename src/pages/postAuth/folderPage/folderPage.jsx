@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import './styles.scss'
 import { Row, Col, } from 'antd'

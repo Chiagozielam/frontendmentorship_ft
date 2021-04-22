@@ -43,7 +43,7 @@ const LessonVideo = ({ link }) => {
       <div className="video-button-wrapper" onClick={toggleVideo}>
         <div
         className={`video-button
-        ${ paused == true ? '' : 'paused'}`}
+        ${ paused === true ? '' : 'paused'}`}
         ></div>
       </div>
     </div>

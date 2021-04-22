@@ -21,10 +21,10 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <Row>
-        <Col span={9}>
+        <Col sm={24} lg={9}>
           <div className="image-container"></div>
         </Col>
-        <Col span={15}>
+        <Col sm={24} lg={15}>
           <div className="form-container">
             <Formik
               initialValues={{ email: '', password: '' }}
@@ -62,9 +62,22 @@ const LoginPage = () => {
                           // <Spinner />
                           <p>Submitting...</p>
                         ) : (
-                          <GeneralButton buttonText="Login"
-                            onClick={formikProps.handleSubmit}
-                          />
+                          <div>
+                            <div className="submit-btn">
+                              <GeneralButton buttonText="Login"
+                                onClick={formikProps.handleSubmit}
+                              />
+                            </div>
+                            <div className="mobile-submit-btn">
+                              <GeneralButton buttonText="Login"
+                                onClick={formikProps.handleSubmit}
+                                borderRadius="10px"
+                                width="100%"
+                                height="54.84px"
+                                fontSize="16px"
+                              />
+                            </div>
+                          </div>
                         )
                       }
                     </Form>
@@ -72,7 +85,8 @@ const LoginPage = () => {
                       Don&rsquo;t have an account yet?
                       {' '}
                       <Link to={REGISTRATION_PAGE}>Create a free acount here</Link>
-                      <br />
+                    </p>
+                    <p className="forgot-password">
                       Forgot your password?
                       {' '}
                       <a href="!#">Reset password</a>

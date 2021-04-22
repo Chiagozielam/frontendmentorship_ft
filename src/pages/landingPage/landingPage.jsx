@@ -1,5 +1,4 @@
 import React from 'react';
-import TopNavigation from '../../components/topNavigation/topNavigation';
 import Footer from '../../sections/footer/Footer';
 import AboutMe from '../../sections/landingPage/aboutMe/AboutMe';
 import CurriculumAndTestimonialsContainer from '../../sections/landingPage/curriculumAndTestimonials/CurriculumAndTextimonials';
