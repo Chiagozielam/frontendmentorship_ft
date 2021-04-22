@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Menu } from 'antd'
 import { object } from 'prop-types'
 import './styles.scss'
@@ -7,7 +7,6 @@ import './styles.scss'
 const { Item } = Menu
 
 const SideNavItem = ({properties}) => {
-  const { push } = useHistory()
   return (
     <div className="side-nav-item-container">
       <Item icon={properties.icon} key={properties.path}>

@@ -11,6 +11,7 @@
     .form-container{
         padding-left: 5%;
         margin-top: 10%;
+        width: 80%;
 
         h3{
             font-weight: bold;
@@ -19,6 +20,33 @@
         .create-account{
             margin-top: 4%;
             font-weight: 600;
+        }
+        .forgot-password{
+            font-weight: 500;
+        }
+        .mobile-submit-btn{
+            display: none;
+            padding: 3%;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .form-container{
+            padding-left: 0 !important;
+            padding: 2% !important;
+            padding-top: 0 !important;
+            width: 100%;
+            h3{
+                font-size: 25px !important;
+            }
+            .create-account{
+                font-weight: 500;
+            }
+            .mobile-submit-btn{
+                display: block;
+            }
+            .submit-btn{
+                display: none;
+            }
         }
     }
 }

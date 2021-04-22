@@ -33,7 +33,7 @@ const LessonFolder = ({ lessonFolder }) => {
           onClick={() => showWarning()}
           >
         <div className="lesson-folder-locked-container">
-          { warning && <h3 className={`warning-text ${warning == true ? 'animate-text-in': '' }`}>Sorry, you have to finish previous lesson first</h3>}
+          { warning && <h3 className={`warning-text ${warning === true ? 'animate-text-in': '' }`}>Sorry, you have to finish previous lesson first</h3>}
           { !(warning) && <FontAwesomeIcon icon={faLock} className="lock-icon" />}
         </div>
           <Row align="middle">

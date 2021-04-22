@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { Menu, Layout, Drawer } from 'antd';
-import { MailOutlined, AppstoreOutlined, BookOutlined } from '@ant-design/icons';
 import './styles.scss';
 import GeneralButton from '../GeneralButton';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,7 +13,6 @@ const TopNavigation = () => {
 
   const { push } = useHistory()
 
-  const { SubMenu } = Menu;
   const { Header } = Layout
 
   const handleClick = e => {

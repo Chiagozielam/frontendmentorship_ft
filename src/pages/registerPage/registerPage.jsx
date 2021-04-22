@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import NormalInput from '../../components/form/normalInput/normalInput';
 import GeneralButton from '../../components/GeneralButton';
-import { REGISTRATION_PAGE } from '../../routes';
+import { LOGIN_PAGE, REGISTRATION_PAGE } from '../../routes';
 import './styles.scss'
 
 
@@ -21,12 +21,12 @@ const validationSchema = yup.object().shape({
 
 const RegisterPage = () => {
   return (
-    <div className="login-page">
+    <div className="registration-page">
       <Row>
-        <Col span={9}>
+        <Col sm={24} lg={9}>
           <div className="image-container"></div>
         </Col>
-        <Col span={15}>
+        <Col sm={24} lg={15}>
           <div className="form-container">
             <Formik
               initialValues={{ fullname: '', email: '', password: '', gender: '' }}
@@ -84,20 +84,29 @@ const RegisterPage = () => {
                           // <Spinner />
                           <p>Submitting...</p>
                         ) : (
-                          <GeneralButton buttonText="Create account"
-                            onClick={formikProps.handleSubmit}
-                          />
+                          <div>
+                            <div className="submit-btn">
+                              <GeneralButton buttonText="Create account"
+                                onClick={formikProps.handleSubmit}
+                              />
+                            </div>
+                            <div className="mobile-submit-btn">
+                              <GeneralButton buttonText="Create a free account"
+                                onClick={formikProps.handleSubmit}
+                                borderRadius="10px"
+                                width="100%"
+                                height="54.84px"
+                                fontSize="16px"
+                              />
+                            </div>
+                          </div>
                         )
                       }
                     </Form>
                     <p className="create-account">
-                      Don&rsquo;t have an account yet?
+                      Already have an account?
                       {' '}
-                      <Link to={REGISTRATION_PAGE}>Create a free acount here</Link>
-                      <br />
-                      Forgot your password?
-                      {' '}
-                      <a href="!#">Reset password</a>
+                      <Link to={LOGIN_PAGE}>Login</Link>
                     </p>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-.login-page{
+.registration-page{
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
     .image-container{
@@ -11,6 +11,7 @@
     .form-container{
         padding-left: 5%;
         margin-top: 10%;
+        width: 80%;
 
         h3{
             font-weight: bold;
@@ -19,6 +20,10 @@
         .create-account{
             margin-top: 4%;
             font-weight: 600;
+        }
+        .mobile-submit-btn{
+            display: none;
+            padding: 3%;
         }
         .gender-container{
             .gender-label{
@@ -31,6 +36,30 @@
                 margin-left: 1%;
                 margin-bottom: 1%;
                 border-radius: 20px;
+            }
+        }
+    }
+    @media screen and (max-width: 500px) {
+        .form-container{
+            width: 98vw;
+            padding-left: 0 !important;
+            padding: 2% !important;
+            padding-right: 4% !important;
+            padding-top: 0 !important;
+            h3{
+                font-size: 25px !important;
+            }
+            .create-account{
+                font-weight: 500;
+                span{
+                    margin-top: 5% !important;
+                }
+            }
+            .submit-btn{
+                display: none;
+            }
+            .mobile-submit-btn{
+                display: block;
             }
         }
     }
