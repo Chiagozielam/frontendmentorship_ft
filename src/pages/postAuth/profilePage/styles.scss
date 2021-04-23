@@ -135,4 +135,31 @@ $base-blue: rgba(10, 17, 101, 0.64);
             }
         }
     }
+    @media screen and (max-width: 800px) {
+        .profile-page{
+            .inner-profile{
+                width: 80%;
+                padding-top: 10%;
+                .bio{
+                    font-size: 12px;
+                }
+                .social-media-links{
+                    p{
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .edit-profile-modal{
+            .input-fields-container{
+                width: 85%;
+                margin-top: 5%;
+            }
+            .button-container{
+                position: absolute;
+                left: 55%;
+                margin-top: 3%;
+            }
+        }
+    }
 }

@@ -16,12 +16,29 @@
     letter-spacing: 0.085rem;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
+    cursor: pointer;
   }
   .hamburger-icon{
     display: none;
   }
   .right-side-nav{
     font-size: 18px;
+  }
+  .user-avatar-container{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+  }
+  .user-avatar-container-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px
+  }
+  .user-avatar-container-name{
+    padding-left: 8%;
+    padding-top: 10%;
+    width: 100px;
   }
   @media screen and (max-width: 800px) {
     .logo{
@@ -35,6 +52,17 @@
       display: block;
       font-size: 20px;
       margin-top: 7%;
+    }
+    .user-avatar-container{
+      width: 30px;
+    }
+    .user-avatar-container-img{
+      width: 30px;
+      height: 30px;
+      border-radius: 15px
+    }
+    .user-avatar-container-name{
+      display: none;
     }
   }
 }
