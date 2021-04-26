@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Form, Row, Col } from 'antd'
 import { Formik } from 'formik';
 import * as yup from 'yup';
@@ -18,6 +18,8 @@ const validationSchema = yup.object().shape({
 });
 
 const LoginPage = () => {
+
+  const { push } = useHistory()
   return (
     <div className="login-page">
       <Row>
@@ -30,6 +32,7 @@ const LoginPage = () => {
               initialValues={{ email: '', password: '' }}
               onSubmit={async (values, actions) => {
                 console.log("submitting...")
+                push('/dashboard')
               }}
               validationSchema={validationSchema}
             >
