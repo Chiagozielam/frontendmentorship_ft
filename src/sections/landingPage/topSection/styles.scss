@@ -13,10 +13,12 @@ $base-white: #ffffff;
             font-weight: bold;
             line-height: 49px;
             font-size: 40px;
+            color: #061088;
         }
         p{
             color: #585858;
             font-size: 18px;
+            min-height: 60px;
         }
         .small-screen-button{
             display: none;
@@ -47,6 +49,7 @@ $base-white: #ffffff;
             }
             .small-screen-button{
                 display: block;
+                margin-top: -5%;
             }
         }
         .flex-1{
