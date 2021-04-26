@@ -12,6 +12,7 @@ import TabsComponent from '../../../components/tabs/Tabs'
 
 const bonusCardDescription = 'Access all the bonus crash courses by clicking on this card'
 const socialCardDescription = 'Join the community on telegram'
+
 const lessonPageTabs = [
   {
     tabName: 'Lesson Folders',
@@ -45,11 +46,11 @@ const LessonsPage = () => {
       </div>
       
       <div className="lesson-page-desktop">
-        <Row>
+        <Row justify="space-between">
           <Col sm={24} lg={14}>
             <LessonFolders />
           </Col>
-          <Col offset={2} span={8}>
+          <Col sm={24} lg={8}>
             <Acheivements />
           </Col>
         </Row>
@@ -59,7 +60,7 @@ const LessonsPage = () => {
               <Col span={11}>
                 <PodcastCard heading="Bonuses" description={bonusCardDescription} bgcolor="#141D26" />
               </Col>
-              <Col sm={24} lg={11}>
+              <Col  span={11}>
                 <PodcastCard heading="Prodcast" description={bonusCardDescription} bgcolor="#F14A03" />
               </Col>
             </Row>

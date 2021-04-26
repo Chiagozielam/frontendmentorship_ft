@@ -12,12 +12,14 @@ h1,h2,h3,h4,h5{
 .folder-page-container{
   padding: 15px 0px 0px 39px;
 
-  
+  .folder-page-mobile{
+    display: none;
+  }
   .content{
     margin-top: 14px;
   
     .video-lesson-details{
-      max-height: 80vh;
+      max-height: 78vh;
       overflow-y: scroll;
 
       &::-webkit-scrollbar {
@@ -28,6 +30,20 @@ h1,h2,h3,h4,h5{
       margin: 22px 0 24px 38px;
       font-family: 'Montserrat', sans-serif;
       font-style: normal;
+    }
+  }
+  @media (max-width:800px){
+    padding: 10px;
+    .folder-page-desktop{
+      display: none;
+    }
+    .folder-page-mobile{
+      display: block;
+
+      .instructor-mobile-card-wrapper{
+        max-width: 547px;
+        width: 100%;
+      }
     }
   }
 }

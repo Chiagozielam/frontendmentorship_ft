@@ -7,10 +7,29 @@ import {
   faTwitterSquare,
   faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
+import { useEffect, useState } from 'react';
 
-const InstructorCard = ({ instructor}) => {
+const InstructorCard = ({ instructor, cardColor = 'white' }) => {
+  
+
+  let [size, setSize] = useState(window.innerWidth)
+    
+
+  useEffect(() => {
+      window.addEventListener('resize', checksize)
+
+      return () => {
+          window.removeEventListener('resize', checksize)
+      }
+  })
+  function checksize() {
+       setSize(window.innerWidth)
+
+  }
+
+
   return (
-    <div className="instructor-card">
+    <div style={{backgroundColor: `${cardColor}`}} className="instructor-card">
       <h4 className="instructor-header">Instructor</h4>
 
       <div className="instructor-details">
@@ -19,15 +38,15 @@ const InstructorCard = ({ instructor}) => {
         </div>
         <div className="instructor-name">
           <h3>{instructor.name}</h3>
-          <GeneralButton buttonText="Ask A Question" borderRadius="5px" width="172px" height="39px" fontSize="14px" />
+          <GeneralButton buttonText="Ask A Question" borderRadius="5px" height={size <= 425 ? '26px' : '39px'} fontSize={size <= 425 ? '10px' : '14px'} width={size <= 425 ? '121px' : '172px' }/>
         </div>
         <div className="instructor-social-handle">
-          <Link to={instructor.twitter}>
+          <a href={instructor.twitter}>
             <FontAwesomeIcon icon={faTwitterSquare} className="twitter" />
-          </Link>
-          <Link to={instructor.linkdin}>
+          </a>
+          <a href={instructor.linkdin}>
             <FontAwesomeIcon icon={faLinkedin} className="linkdin" />
-          </Link>
+          </a>
         </div>
       </div>
     </div>

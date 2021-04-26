@@ -52,7 +52,7 @@ const LessonFolder = ({ lessonFolder }) => {
             </Col>
             <Col span={10} className="folder-details">
               <p className="folder-title">{lessonFolder.folderTitle}</p>
-            <Link to={`/dashboard/lessonfolder/${lessonFolder.id}`} className="folder-link">View lessons <FontAwesomeIcon icon={faArrowCircleRight} className="link-icon" color="#F14A03" /></Link>
+              <Link to={`/dashboard/lessonfolder/${lessonFolder.id}`} className="folder-link">View lessons <FontAwesomeIcon icon={faArrowCircleRight} className="link-icon" color="#F14A03" /></Link>
             </Col>
             <Col offset={3} span={1} value={10}>
               {

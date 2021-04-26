@@ -13,6 +13,7 @@
   border-radius: 15px;
   height: 136px;
   img{
+      width: 100%;
       border-radius: 10px;
       max-width: 107px;
   }
@@ -71,11 +72,12 @@
       top: -20px;
       opacity: 0;
       color: red;
-      font-size: 18px;
+      font-size: 90%;
       padding: 10px;
       border-radius: 15px;
       background-color: white;
       transition: all 1s ease;
+
     }
     .animate-text-in{
       animation: animate-in .2s ease 0s 1 forwards;
@@ -93,9 +95,6 @@
     height: 100.28px !important;
     padding-top: 5%;
     padding: 1%;
-    img{
-      width: 60px;
-    }
     .folder-details{
       .folder-title{
         font-size: 16px;
