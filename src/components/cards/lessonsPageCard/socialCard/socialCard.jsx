@@ -10,8 +10,8 @@ const SocialCard = ({ description, link }) => {
   return (
       <Link href={link}>
         <div className="social-card">
-          <p className="description">{description}</p>
-          <FontAwesomeIcon icon={faArrowCircleRight} />
+          <p className="description">{description} <FontAwesomeIcon icon={faArrowCircleRight} /> </p>
+          
         </div>
       </Link> 
      );
