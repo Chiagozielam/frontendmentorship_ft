@@ -11,9 +11,11 @@ const PodcatsCard = ({ heading, description, bgcolor, link}) => {
   return (
         <Link to={link}>
           <div className="podcast-card" style={{ backgroundColor: `${bgcolor}`}}>
-            <p className="heading">{heading}</p>
-            <p className="description">{description}</p>
-            <FontAwesomeIcon icon={faArrowCircleRight} />
+            <div className="podcast-details">
+              <p className="heading">{heading}</p>
+              <p className="description">{description}</p>
+              <FontAwesomeIcon icon={faArrowCircleRight} />
+            </div>
           </div>
         </Link> 
      );

@@ -43,7 +43,6 @@
   @media screen and (max-width: 760px) {
     .logo{
       font-size: 12px;
-      margin-left: -12%;
     }
     .right-side-nav{
       display: none;
@@ -51,7 +50,7 @@
     .hamburger-icon{
       display: block;
       font-size: 20px;
-      margin-top: 7%;
+      margin-top: 100%;
     }
     .user-avatar-container{
       width: 30px;
@@ -66,7 +65,11 @@
     }
   }
 }
-
+@media screen and (max-width: 425px){
+  .logo{
+    margin-left: -12%;
+  }
+}
 .side-drawer{
   z-index: 999999;
   background-color: rgba(255, 68, 0, .3);

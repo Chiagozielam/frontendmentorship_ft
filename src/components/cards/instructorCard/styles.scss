@@ -1,7 +1,6 @@
 
 .instructor-card{
   padding: 36px 0 41px 31px;
-  background: white;
   border-radius: 10px;
   max-width: 547px;
   font-family: 'Montserrat', sans-serif;
@@ -15,18 +14,23 @@
   }
   .instructor-details{
     display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
 
     .instructor-image{
       margin-right: 21px;
       img{
         height: 75.37px;
         width: 75.37px;
-        border-radius: 100%;
-      
+        border-radius: 50%;
+
+        @media (max-width: 425px) {
+          height: 34px;
+          width: 34px;
+        }
       }
     }
     .instructor-name{
-      margin-right: 73px;
 
       h3{
         font-weight: 500;
@@ -34,19 +38,31 @@
         line-height: 17px;
         color: #061088;
         margin-left: 10px;
+
+        @media (max-width: 425px) {
+          font-size: 10px;
+        }
       }
     }
     .instructor-social-handle{
-      align-self: flex-end;
+      margin-left: auto;
+      margin-right: auto;
       font-size: 40px;
-
+      line-height: 0;
+      @media (max-width: 425px) {
+        font-size: 20px;
+      }
       .twitter{
         color: black;
         margin-right: 17px;
       }
       .linkdin{
         color: black;
-      }
+      }  
     }
+
+    
   }
 }
+
+

@@ -1,39 +1,38 @@
+.details{
+  display: flex;
+  align-items: flex-end;
+  
+  .check-mark{
+    color: #F14A03;
+    margin-right: 15px;
+    min-width: 12px;
+    max-width: 12px;
+  }
+  .lesson-details{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
 
-    .details{
-      display: flex;
-      align-items: flex-end;
-      
-      .check-mark{
-        color: #F14A03;
-        margin-right: 15px;
-        min-width: 12px;
-        max-width: 12px;
-      }
-      .lesson-details{
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 17px;
-        color: #000000;
-  
-        .lesson-index{
-          margin-right: 10px;
-        }
-      }
+    .lesson-index{
+      margin-right: 10px;
     }
-    .video-details{
-      margin-left: 44px;
-      color: rgba(45, 45, 44, 0.81);
-      margin-top: 7px;
-  
-      .play-icon{
-        width: 13px;
-        height: 13px;
-      }
-      .lesson-duration{
-        font-weight: normal;
-        font-size: 12px;
-        line-height: 15px;
-        margin-left: 8px;
-      }
-    }
+  }
+}
+.video-details{
+  margin-left: 44px;
+  color: rgba(45, 45, 44, 0.81);
+  margin-top: 7px;
+
+  .play-icon{
+    width: 13px;
+    height: 13px;
+  }
+  .lesson-duration{
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    margin-left: 8px;
+  }
+}
 

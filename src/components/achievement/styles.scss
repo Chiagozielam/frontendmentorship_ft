@@ -5,17 +5,28 @@
 }
 .achievement{
     height: 131px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 14px;
-    text-align: center;
-    padding: 21px 45px;
+   
     &-details{
-
+        text-align: center;
+        padding: 0px 10px;
         .icon{
-            padding: 11px 16px;
+            width: 44px;
+            height: 40px;
+            margin-left: auto;
+            margin-right: auto;
             background: rgba(255, 76, 0, 0.22);
             border-radius: 10px 0px 20px;
             margin-bottom: 10px;
             font-size: 20px;
+
+            .fa-trophy{
+                width: 13.4px;
+                height: 16px;
+            }
         }
         .achievement-tItle{
             font-family: 'Montserrat', sans-serif;

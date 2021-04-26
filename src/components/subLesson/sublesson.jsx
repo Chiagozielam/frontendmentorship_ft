@@ -10,7 +10,7 @@ const SubLesson = ({ subLesson, index }) => {
 
 
   return (
-          <div>
+          <div style={{marginLeft: 'auto', width: '90%'}}>
             <div className="details">
               <div className="check-mark">
                 {subLesson.completed && <FontAwesomeIcon icon={faCheck} style={{width: '100%'}} /> }

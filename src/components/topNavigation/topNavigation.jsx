@@ -46,7 +46,7 @@ const TopNavigation = () => {
               </div>
             </div>
           ) : (
-            <span style={{ marginTop: '7%'}}>
+            <span>
               <FontAwesomeIcon onClick={toggleDrawer} className="hamburger-icon" icon={faBars} />
               <Menu onClick={handleClick} className="right-side-nav" selectedKeys={[current]} mode="horizontal">
                 <Menu.Item>
