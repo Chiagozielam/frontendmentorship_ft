@@ -10,6 +10,7 @@ import SubLessonsFolders from './subLessonsFolder/subLessonsFolder'
 import { lessonFoldersArray } from '../../postAuth/lessonsPage/data'
 
 import {
+  faArrowCircleRight,
   faArrowCircleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import TabsComponent from '../../../components/tabs/Tabs'
@@ -37,7 +38,7 @@ const FolderPageComponent = () => {
 
   const folderPageTabs = [
     {
-      tabName: 'Lesson',
+      tabName: 'Lessons',
       tabContent: <SubLessonsFolders lessonFolder={lessonFoldersArray[`${id}`]} changeDescription={descriptionChanged} changeVideo={videoChanged} />,
       tabIndex: 1
     },
@@ -65,7 +66,9 @@ const FolderPageComponent = () => {
     <div className="folder-page-container">
       
       <div className="folder-page-mobile">
-        <Video link={videolink} />
+        <div style={{padding: '34px 14px'}}>
+          <Video link={videolink} />
+        </div>
         <TabsComponent tabBarColor="transparent" tabItems={folderPageTabs} marginLeft="auto" marginRight="auto" />      
       </div>
       
