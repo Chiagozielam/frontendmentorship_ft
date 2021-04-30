@@ -10,6 +10,7 @@ import RegisterPage from "./pages/registerPage/registerPage";
 import CongratulationsPage from "./pages/congratulationsPage/congratulations";
 import { CONGRATULATION_PAGE, LANDING_PAGE, LOGIN_PAGE, POST_AUTH_ROUTES, REGISTRATION_PAGE } from './routes';
 
+
 function App() {
   return (
     <div className="App">

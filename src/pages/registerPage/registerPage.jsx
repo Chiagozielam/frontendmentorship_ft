@@ -1,17 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Form, Row, Col, Radio } from 'antd'
+import React, { useEffect, useContext } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import { Form, Row, Col, Radio, Spin } from 'antd'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import NormalInput from '../../components/form/normalInput/normalInput';
 import GeneralButton from '../../components/GeneralButton';
-import { LOGIN_PAGE, REGISTRATION_PAGE } from '../../routes';
+import { CONGRATULATION_PAGE, LESSON_FOLDER_PAGE, LOGIN_PAGE, REGISTRATION_PAGE } from '../../routes';
+import AuthContext from '../../context/authContext/AuthContext'
 import './styles.scss'
 
 
 const validationSchema = yup.object().shape({
   fullname: yup.string().required('You cannot leave the name field blank'),
   email: yup.string().required().email('Email must be a valid email address'),
+  phoneNumber: yup
+  .number()
+  .required('The phone number should be valid')
+  .min(6, 'The phone number should be valid'),
   password: yup
     .string()
     .required()
@@ -20,6 +25,25 @@ const validationSchema = yup.object().shape({
 });
 
 const RegisterPage = () => {
+  const { push } = useHistory()
+  const authContext = useContext(AuthContext)
+  const { registerUser } = authContext
+
+  const checkStatus = () => {
+    const user = localStorage.getItem("user")
+    const userToken = localStorage.getItem("user-token")
+    if(user && userToken){
+      push(LESSON_FOLDER_PAGE)
+    }
+    if(user && !userToken){
+      push(CONGRATULATION_PAGE)
+    }
+    return
+  }
+  useEffect(() => {
+    checkStatus()
+  }, [])
+
   return (
     <div className="registration-page">
       <Row>
@@ -29,9 +53,18 @@ const RegisterPage = () => {
         <Col sm={24} lg={15}>
           <div className="form-container">
             <Formik
-              initialValues={{ fullname: '', email: '', password: '', gender: '' }}
-              onSubmit={async (values, actions) => {
-                console.log("submitting...")
+              initialValues={{ fullname: '', email: '', password: '', gender: '', phoneNumber: null }}
+              onSubmit={(values, actions) => {
+                const { fullname, email, password, gender, phoneNumber } = values
+                const submitObject = {
+                  fullname,
+                  email,
+                  phoneNumber,
+                  password,
+                  gender
+                }
+                actions.setSubmitting(true)
+                registerUser(submitObject, actions, push)
               }}
               validationSchema={validationSchema}
             >
@@ -42,10 +75,9 @@ const RegisterPage = () => {
                     <Form>
                       <NormalInput
                         label="Full Name"
-                        iconName="mail"
-                        type="email"
+                        type="text"
                         onChange={(event) => {
-                          formikProps.handleChange('email')(event);
+                          formikProps.handleChange('fullname')(event);
                         }}
                       />
                       <p style={{ color: 'red', textAlign: 'left' }}>{formikProps.errors.fullname}</p>
@@ -58,6 +90,16 @@ const RegisterPage = () => {
                         }}
                       />
                       <p style={{ color: 'red', textAlign: 'left' }}>{formikProps.errors.email}</p>
+
+                      <NormalInput
+                        label="Phone Number"
+                        iconName="phone"
+                        type="number"
+                        onChange={(event) => {
+                          formikProps.handleChange('phoneNumber')(event);
+                        }}
+                      />
+                      <p style={{ color: 'red', textAlign: 'left' }}>{formikProps.errors.phoneNumber}</p>
 
                       <NormalInput
                         label="Password"
@@ -81,8 +123,7 @@ const RegisterPage = () => {
                       </div>
                       {
                         formikProps.isSubmitting ? (
-                          // <Spinner />
-                          <p>Submitting...</p>
+                          <Spin tip="Loading..." />
                         ) : (
                           <div>
                             <div className="submit-btn">

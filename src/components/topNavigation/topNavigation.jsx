@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LOGIN_PAGE, REGISTRATION_PAGE } from '../../routes';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import AuthContext from '../../context/authContext/AuthContext';
+import GeneralContext from '../../context/generalContext/GeneralContext'
 import { dashRoutes } from '../../pages/postAuth/dashRoutes'
 import SideNavItem from '../sideNav/item';
 
@@ -14,9 +15,9 @@ const TopNavigation = () => {
   const [current, setCurrent] = useState('mail')
   const [drawerVisible, setDrawerVisible] = useState(false)
   const { isLoading, isSignout, userToken} = useContext(AuthContext)
+  const { generalState } = useContext(GeneralContext)
 
   const { push } = useHistory()
-
 
   const { Header } = Layout
 
@@ -29,19 +30,17 @@ const TopNavigation = () => {
     setDrawerVisible(!drawerVisible)
   }
 
-  const user = JSON.parse(localStorage.getItem('user'))
-  console.log(user)
   return (
     <div className="overall-nav-container">
       <Header className="navigation_container">
         <p className="logo" onClick={() => push('/')}>FRONTEND MENTORSHIP</p>
         {
-          user ? (
+          generalState.user ? (
             <div className="user-avatar-container" onClick={toggleDrawer}>
-              <img className="user-avatar-container-img" src={user.profileImage} />
+              <img className="user-avatar-container-img" src={generalState.user.profilePhoto} />
               <div>
                 <p className="user-avatar-container-name">
-                  {user.fullName}
+                  {generalState.user.fullname}
                 </p>
               </div>
             </div>
@@ -76,7 +75,7 @@ const TopNavigation = () => {
         visible={drawerVisible}
       >
         {
-          user ? (
+          generalState.user ? (
             <div>
               {
                 dashRoutes.map(dashRoute => (

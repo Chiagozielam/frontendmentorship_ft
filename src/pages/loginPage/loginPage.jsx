@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { Form, Row, Col } from 'antd'
+import { Form, Row, Col, Spin } from 'antd'
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import NormalInput from '../../components/form/normalInput/normalInput';
 import GeneralButton from '../../components/GeneralButton';
-import { REGISTRATION_PAGE } from '../../routes';
+import { CONGRATULATION_PAGE, REGISTRATION_PAGE } from '../../routes';
+import AuthContext from '../../context/authContext/AuthContext'
+import { LESSON_FOLDER_PAGE } from '../../routes';
 import './styles.scss'
 
 
@@ -20,6 +22,25 @@ const validationSchema = yup.object().shape({
 const LoginPage = () => {
 
   const { push } = useHistory()
+
+  const authContext = useContext(AuthContext)
+  const { loginUser } = authContext
+
+  const checkStatus = () => {
+    const user = localStorage.getItem("user")
+    const userToken = localStorage.getItem("user-token")
+    if(user && userToken){
+      push(LESSON_FOLDER_PAGE)
+    }
+    if(user && !userToken){
+      push(CONGRATULATION_PAGE)
+    }
+    return
+  }
+  useEffect(() => {
+    checkStatus()
+  }, [])
+
   return (
     <div className="login-page">
       <Row>
@@ -30,9 +51,14 @@ const LoginPage = () => {
           <div className="form-container">
             <Formik
               initialValues={{ email: '', password: '' }}
-              onSubmit={async (values, actions) => {
-                console.log("submitting...")
-                push('/dashboard')
+              onSubmit={(values, actions) => {
+                const submitObject = {
+                  email: values.email,
+                  password: values.password
+                }
+                actions.setSubmitting(true)
+                loginUser(submitObject, actions, push)
+                // push('/dashboard')
               }}
               validationSchema={validationSchema}
             >
@@ -62,8 +88,7 @@ const LoginPage = () => {
                       <p style={{ color: 'red', textAlign: 'left' }}>{formikProps.errors.password}</p>
                       {
                         formikProps.isSubmitting ? (
-                          // <Spinner />
-                          <p>Submitting...</p>
+                          <Spin tip="Loading..." />
                         ) : (
                           <div>
                             <div className="submit-btn">

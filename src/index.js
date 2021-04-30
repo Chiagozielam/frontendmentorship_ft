@@ -5,12 +5,30 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 import AuthState from './context/authContext/AuthState';
+import GeneneralState from './context/generalContext/GeneralState'
+import { transitions, positions, Provider as AlertProvider } from 'react-alert'
+import AlertTemplate from 'react-alert-template-basic'
+
+
+// optional configuration
+const options = {
+  // you can also just use 'bottom center'
+  position: positions.BOTTOM_CENTER,
+  timeout: 5000,
+  offset: '30px',
+  // you can also just use 'scale'
+  transition: transitions.SCALE
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthState>
-      <App />
-    </AuthState>
+    <AlertProvider template={AlertTemplate} {...options}>
+      <GeneneralState>
+        <AuthState>
+          <App />
+        </AuthState>
+      </GeneneralState>
+    </AlertProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
