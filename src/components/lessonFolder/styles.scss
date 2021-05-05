@@ -62,10 +62,22 @@
     align-items: center;
     flex-direction: column;
     cursor: pointer;
-    .lock-icon{
-      color: rgba(194, 194, 194, 0.76);
-      font-size: 50px;
-      opacity: 1;
+    .lock-icon-container{
+      background-color: #F14A03;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: 80%;
+      margin-top: 10%;
+      .lock-icon{
+        color: white;
+        font-size: 15px;
+        opacity: 1;
+      }
     }
     .warning-text{
       position: relative;

@@ -44,7 +44,7 @@ const LessonFolder = ({ lessonFolder }) => {
           >
         <div className="lesson-folder-locked-container">
           { warning && <h3 className={`warning-text ${warning === true ? 'animate-text-in': '' }`}>Sorry, you have to finish previous lesson first</h3>}
-          { !(warning) && <FontAwesomeIcon icon={faLock} className="lock-icon" />}
+          { !(warning) && <div className="lock-icon-container"><FontAwesomeIcon icon={faLock} className="lock-icon" /></div>}
         </div>
           <Row align="middle">
             <Col span={6}>

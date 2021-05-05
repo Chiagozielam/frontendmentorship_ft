@@ -1,5 +1,5 @@
-import React from 'react'
-import { withRouter } from 'react-router'
+import React, { useEffect } from 'react'
+import { withRouter, useHistory } from 'react-router'
 import { Row, Col, } from 'antd'
 import './styles.scss'
 import LessonFolders from './lessonFolders'
@@ -8,6 +8,7 @@ import PodcastCard from '../../../components/cards/lessonsPageCard/generalCard/p
 import SocialCard from '../../../components/cards/lessonsPageCard/socialCard/socialCard'
 import Sub from '../../../components/subLesson/sublesson';
 import TabsComponent from '../../../components/tabs/Tabs'
+import { CONGRATULATION_PAGE, LOGIN_PAGE } from '../../../routes'
 
 
 const bonusCardDescription = 'Access all the bonus crash courses by clicking on this card'
@@ -38,6 +39,21 @@ const lessonPageTabs = [
 ]
 
 const LessonsPage = () => {
+  const { push } = useHistory()
+  const checkStatus = () => {
+    const user = localStorage.getItem("user")
+    const userToken = localStorage.getItem("user-token")
+    if(!user && !userToken){
+      push(LOGIN_PAGE)
+    }
+    if(user && !userToken){
+      push(CONGRATULATION_PAGE)
+    }
+    return
+  }
+  useEffect(() => {
+    checkStatus()
+  }, [])
 
   return (
     <div className="lessons-page-container">

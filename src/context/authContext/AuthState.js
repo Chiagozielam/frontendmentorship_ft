@@ -5,8 +5,10 @@ import GeneralContext from '../generalContext/GeneralContext'
 import * as api from '../../constants/baseUri'
 import AuthReducer from './AuthReducer'
 import axios from 'axios'
-import { CONGRATULATION_PAGE, LESSON_FOLDER_PAGE } from '../../routes';
+import { CONGRATULATION_PAGE, POST_AUTH_ROUTES } from '../../routes';
 
+
+// const AWS_DB_VARIABLE = "http://18.221.186.251:5000/api/v1/user/login"
 
 const AuthState = (props) => {
 
@@ -45,9 +47,8 @@ const AuthState = (props) => {
 
 
   const loginUser = async (submitObject, actions, push) => {
-    console.log(submitObject)
     try{
-      const userDataReturned = await axios.post("http://18.221.186.251:5000/api/v1/user/login", submitObject)
+      const userDataReturned = await axios.post("http://localhost:5000/api/v1/user/login", submitObject)
       const stringifiedUserObject = JSON.stringify(userDataReturned.data.user)
       const token = userDataReturned.data.token
 
@@ -58,7 +59,7 @@ const AuthState = (props) => {
       setGeneralState({userToken: token, user: userDataReturned.data.user})
       actions.setSubmitting(false)
       // Once everything is done, now we can push to the dashboard
-      push(LESSON_FOLDER_PAGE)
+      push(POST_AUTH_ROUTES)
     }catch(err){
       // Use the 403 http status code check if the user has confirmed their email
       if(err.response.status == 403){
@@ -74,7 +75,7 @@ const AuthState = (props) => {
       if(err.response.status == 409){
         alert.error("The email or password you entered is incorrect")
       }
-      console.log(err.response.data.message)
+      console.log(err.response)
       actions.setSubmitting(false)
       return
     }
@@ -111,6 +112,29 @@ const AuthState = (props) => {
     }
   }
 
+  const verifyUserEmail = async (token, setState, push) => {
+    console.log("The verifyEmail function is being called")
+    try{
+      const sendRequest = await axios.post(`http://localhost:5000/api/v1/user/verifyemail?token=${token}`)
+
+      //  Set the state that holds the message to display to the screen in our verifyEmail.jsx component
+      setState(sendRequest.data.message)
+      const stringifiedUserObject = JSON.stringify(sendRequest.data.user)
+      const returnedToken = sendRequest.data.token
+      // Save the user and the token to localStorage
+      localStorage.setItem("user", stringifiedUserObject)
+      localStorage.setItem("user-token", returnedToken)
+
+      // Set the user object and the token to our general state
+      setGeneralState({...generalState, userToken: token, user: sendRequest.data.user})
+      push(POST_AUTH_ROUTES)
+    } catch(err){
+      //  Set the state that holds the message to display to the screen in our verifyEmail.jsx component
+      setState(err.response.data.message)
+      return
+    }
+  }
+
 
   return (
     <AuthContext.Provider
@@ -121,6 +145,7 @@ const AuthState = (props) => {
         userToken: state.userToken,
         loginUser,
         registerUser,
+        verifyUserEmail,
       }}
     >
       {props.children}

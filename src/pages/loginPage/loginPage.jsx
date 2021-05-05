@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 import * as yup from 'yup';
 import NormalInput from '../../components/form/normalInput/normalInput';
 import GeneralButton from '../../components/GeneralButton';
-import { CONGRATULATION_PAGE, REGISTRATION_PAGE } from '../../routes';
+import { CONGRATULATION_PAGE, POST_AUTH_ROUTES, REGISTRATION_PAGE } from '../../routes';
 import AuthContext from '../../context/authContext/AuthContext'
 import { LESSON_FOLDER_PAGE } from '../../routes';
 import './styles.scss'
@@ -30,7 +30,7 @@ const LoginPage = () => {
     const user = localStorage.getItem("user")
     const userToken = localStorage.getItem("user-token")
     if(user && userToken){
-      push(LESSON_FOLDER_PAGE)
+      push(POST_AUTH_ROUTES)
     }
     if(user && !userToken){
       push(CONGRATULATION_PAGE)
