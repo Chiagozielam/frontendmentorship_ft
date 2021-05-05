@@ -5,17 +5,22 @@ import './styles.scss';
 import GeneralButton from '../GeneralButton';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LOGIN_PAGE, REGISTRATION_PAGE } from '../../routes';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faLockOpen } from '@fortawesome/free-solid-svg-icons';
 import AuthContext from '../../context/authContext/AuthContext';
 import GeneralContext from '../../context/generalContext/GeneralContext'
 import { dashRoutes } from '../../pages/postAuth/dashRoutes'
 import SideNavItem from '../sideNav/item';
+import ButtonWithIcon from '../buttonWithIcon/ButtonWithIcon';
 
 const TopNavigation = () => {
   const [current, setCurrent] = useState('mail')
   const [drawerVisible, setDrawerVisible] = useState(false)
   const { isLoading, isSignout, userToken} = useContext(AuthContext)
-  const { generalState } = useContext(GeneralContext)
+  const { generalState, setPaymentModalOpened, paymentModalOpened } = useContext(GeneralContext)
+
+  const togglePaymentModal = () => {
+    setPaymentModalOpened(!paymentModalOpened)
+  }
 
   const { push } = useHistory()
 
@@ -36,12 +41,21 @@ const TopNavigation = () => {
         <p className="logo" onClick={() => push('/')}>FRONTEND MENTORSHIP</p>
         {
           generalState.user ? (
-            <div className="user-avatar-container" onClick={toggleDrawer}>
-              <img className="user-avatar-container-img" src={generalState.user.profilePhoto} />
-              <div>
-                <p className="user-avatar-container-name">
-                  {generalState.user.fullname}
-                </p>
+            <div style={{ display: "flex" }}>
+              {
+                generalState.user?.paid == false ? (
+                  <div className="payment-button-container">
+                    <ButtonWithIcon onClick={togglePaymentModal} icon={faLockOpen} buttonText="Unlock the full package" padding="10% 5% 15% 5%" bgcolor="#2F2F2F" buttonRadius="0" />
+                  </div>
+                  ) : ''
+              }
+              <div className="user-avatar-container" onClick={toggleDrawer}>
+                <img className="user-avatar-container-img" src={generalState.user.profilePhoto} />
+                <div>
+                  <p className="user-avatar-container-name">
+                    {generalState.user.fullname}
+                  </p>
+                </div>
               </div>
             </div>
           ) : (
@@ -86,6 +100,23 @@ const TopNavigation = () => {
                     }}
                   >{dashRoute.name}</p>
                 ))
+              }
+              {
+                generalState.user?.paid == false ? (
+                  <div className="payment-button-container">
+                    <ButtonWithIcon
+                      onClick={() => {
+                        togglePaymentModal()
+                        toggleDrawer()
+                      }}
+                      icon={faLockOpen}
+                      buttonText="Unlock the full package"
+                      padding="10% 5% 15% 5%"
+                      bgcolor="#2F2F2F"
+                      buttonRadius="0"
+                    />
+                  </div>
+                  ) : ''
               }
             </div>
           ) : (
