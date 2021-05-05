@@ -62,17 +62,17 @@ const AuthState = (props) => {
       push(POST_AUTH_ROUTES)
     }catch(err){
       // Use the 403 http status code check if the user has confirmed their email
-      if(err.response.status == 403){
-        localStorage.setItem("user", JSON.stringify(err.response.data.user))
+      if(err.response?.status == 403){
+        localStorage.setItem("user", JSON.stringify(err.response?.data.user))
 
         // Set the user object to the general state
-        setGeneralState({...generalState, user: err.response.data.user})
+        setGeneralState({...generalState, user: err.response?.data.user})
         alert.show("Please confirm your email to login")
         push(CONGRATULATION_PAGE)
       }
 
       // User the 409 status code to if the email or password is incorrect
-      if(err.response.status == 409){
+      if(err.response?.status == 409){
         alert.error("The email or password you entered is incorrect")
       }
       console.log(err.response)
@@ -98,15 +98,15 @@ const AuthState = (props) => {
       push(CONGRATULATION_PAGE)
     }catch(err){
       // Use the 403 http status code check if in input validation failed
-      if(err.response.status == 403){
-        alert.error(err.response.data.message)
+      if(err.response?.status == 403){
+        alert.error(err.response?.data.message)
       }
 
       // User the 409 status code to if the email already exists
       if(err.response.status == 409){
-        alert.error(err.response.data.message)
+        alert.error(err.response?.data.message)
       }
-      console.log(err.response.data.message)
+      console.log(err.response?.data.message)
       actions.setSubmitting(false)
       return
     }
@@ -130,7 +130,7 @@ const AuthState = (props) => {
       push(POST_AUTH_ROUTES)
     } catch(err){
       //  Set the state that holds the message to display to the screen in our verifyEmail.jsx component
-      setState(err.response.data.message)
+      setState(err.response?.data.message)
       return
     }
   }

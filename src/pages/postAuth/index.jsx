@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom'
 import { Row, Col, Layout } from 'antd'
 import SideNav from '../../components/sideNav/SideNav'
 import { LESSON_FOLDER_PAGE } from '../../routes'
 import { dashRoutes } from './dashRoutes'
 import FolderPage from "./folderPage/folderPage";
-
 import './styles.scss'
+import PaymentModal from '../../components/modals/paymentModal/PaymentModal'
 
 const { Content, Sider } = Layout
+
 const PostAuth = () => {
   return (
     <Layout className="dashboard-container">
+      <PaymentModal />
       <Sider className="side-nav">
         <SideNav routes={dashRoutes} />
       </Sider>

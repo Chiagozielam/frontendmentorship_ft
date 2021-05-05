@@ -7,6 +7,7 @@ const GeneralState = (props) => {
     user: null,
     userToken: null,
   })
+  const [paymentModalOpened, setPaymentModalOpened] = useState(false)
 
   const getValuesFromLocalStorage = async() => {
     const user = await JSON.parse(localStorage.getItem("user"))
@@ -14,6 +15,9 @@ const GeneralState = (props) => {
 
     // Set the values gotten to the state
     setGeneralState({user: user, userToken: userToken})
+    if(!user?.paid){
+      setPaymentModalOpened(true)
+    }
   }
 
   useEffect(() => {
@@ -24,7 +28,9 @@ const GeneralState = (props) => {
     <GeneralContext.Provider
       value={{
         generalState,
-        setGeneralState
+        setGeneralState,
+        paymentModalOpened,
+        setPaymentModalOpened
       }}
     >
       {props.children}
