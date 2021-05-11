@@ -7,7 +7,6 @@ import NormalInput from '../../components/form/normalInput/normalInput';
 import GeneralButton from '../../components/GeneralButton';
 import { CONGRATULATION_PAGE, POST_AUTH_ROUTES, REGISTRATION_PAGE } from '../../routes';
 import AuthContext from '../../context/authContext/AuthContext'
-import { LESSON_FOLDER_PAGE } from '../../routes';
 import './styles.scss'
 
 
