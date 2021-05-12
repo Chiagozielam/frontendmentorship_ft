@@ -16,7 +16,7 @@ const TopNavigation = () => {
   const [current, setCurrent] = useState('mail')
   const [drawerVisible, setDrawerVisible] = useState(false)
   const { isLoading, isSignout, userToken} = useContext(AuthContext)
-  const { generalState, setPaymentModalOpened, paymentModalOpened } = useContext(GeneralContext)
+  const { generalState, setPaymentModalOpened, paymentModalOpened, logOut } = useContext(GeneralContext)
 
   const togglePaymentModal = () => {
     setPaymentModalOpened(!paymentModalOpened)
@@ -94,6 +94,7 @@ const TopNavigation = () => {
               {
                 dashRoutes.map(dashRoute => (
                   <p
+                    style={{cursor: 'pointer'}}
                     onClick={() => {
                       push(dashRoute.path)
                       toggleDrawer()
@@ -101,6 +102,12 @@ const TopNavigation = () => {
                   >{dashRoute.name}</p>
                 ))
               }
+              <p
+                style={{cursor: 'pointer'}}
+                onClick={() => {
+                toggleDrawer()
+                logOut(push)
+              }}>LogOut</p>
               {
                 generalState.user?.paid == false ? (
                   <div className="payment-button-container">

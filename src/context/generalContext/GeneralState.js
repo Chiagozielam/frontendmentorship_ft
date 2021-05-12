@@ -26,7 +26,7 @@ const GeneralState = (props) => {
       setPaymentModalOpened(true)
     }
   }
-
+  
   const logOut = (push) => {
     setGeneralState({})
     localStorage.clear()
