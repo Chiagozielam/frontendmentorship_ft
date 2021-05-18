@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState, useContext, useEffect } from 'react'
+import { useParams, useLocation } from 'react-router-dom'
 import './styles.scss'
 import { Row, Col, } from 'antd'
 import BackButton from '../../../components/buttonWithIcon/ButtonWithIcon'
@@ -8,6 +8,7 @@ import Description from '../../../components/lessonDescription/lessonDescription
 import Instructor from '../../../components/cards/instructorCard/instructorCard'
 import SubLessonsFolders from './subLessonsFolder/subLessonsFolder'
 import { lessonFoldersArray } from '../../postAuth/lessonsPage/data'
+import CourseContext from "../../../context/course-context/CourseContext"
 
 import {
   faArrowCircleRight,
@@ -17,13 +18,30 @@ import TabsComponent from '../../../components/tabs/Tabs'
 
 const FolderPageComponent = () => {
 
-  const { id } = useParams()
+  const { id: lessonFolderId } = useParams()
+  const { state: { lessonFolder } } = useLocation()
+
+  const { getUserLessonsForALessonFolder } = useContext(CourseContext)
+
+  // Store the lessons array in this state
+  const [lessonsArray, setLessonsArray] = useState([])
+
+  const onGetLessons = async () => {
+    const userLessons = await getUserLessonsForALessonFolder(lessonFolderId)
+    setLessonsArray(userLessons)
+    console.log(userLessons)
+  }
+  useEffect(() => {
+    onGetLessons().finally( () => {
+      console.log(lessonsArray)
+    })
+  }, [])
 
   // stroe lesson description in a state (passed as prop to lesson description component)
   const [description, setDescription] = useState()
 
   // stroe video link in a state (passed as prop to lesson video component)
-  const [videolink, setVideolink] = useState()
+  const [videolink, setVideolink] = useState(null)
 
   // fuction called when description changes 
   const descriptionChanged = (e) => {
@@ -31,7 +49,7 @@ const FolderPageComponent = () => {
   }
 
   // fuction called whwn video link changes
-  const videoChanged = (e) => {
+  const onVideoChange = (e) => {
     setVideolink(e)
   }
 
@@ -39,7 +57,7 @@ const FolderPageComponent = () => {
   const folderPageTabs = [
     {
       tabName: 'Lessons',
-      tabContent: <SubLessonsFolders lessonFolder={lessonFoldersArray[`${id}`]} changeDescription={descriptionChanged} changeVideo={videoChanged} />,
+      tabContent: <SubLessonsFolders folderTitle={lessonFolder.folderDetails[0]?.folderTitle} lessons={lessonsArray} changeDescription={descriptionChanged} changeVideo={onVideoChange} />,
       tabIndex: 1
     },
     {
@@ -55,7 +73,7 @@ const FolderPageComponent = () => {
       tabContent:
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <div className="instructor-mobile-card-wrapper">
-            <Instructor cardColor="rgba(255, 255, 255, 0.47)" instructor={lessonFoldersArray[`${id}`].instuctor} />
+            <Instructor cardColor="rgba(255, 255, 255, 0.47)" instructor={lessonFolder.folderDetails[0]?.instructor} />
           </div>
         </div>,
       tabIndex: 3
@@ -69,7 +87,7 @@ const FolderPageComponent = () => {
         <div style={{padding: '34px 14px'}}>
           <Video link={videolink} />
         </div>
-        <TabsComponent tabBarColor="transparent" tabItems={folderPageTabs} marginLeft="auto" marginRight="auto" />      
+        {/* <TabsComponent tabBarColor="transparent" tabItems={folderPageTabs} marginLeft="auto" marginRight="auto" />       */}
       </div>
       
       <div className="folder-page-desktop">
@@ -87,14 +105,14 @@ const FolderPageComponent = () => {
 
             {/* instructor card */}
             <div className="insructor-card-wrapper">
-              <Instructor instructor={lessonFoldersArray[`${id}`].instuctor} />
+              <Instructor instructor={lessonFolder.folderDetails[0]?.instructor} />
             </div>
 
           </Col>
 
           <Col offset={1} span={8}>
             {/* sub lesson folder component  */}
-            <SubLessonsFolders lessonFolder={lessonFoldersArray[`${id}`]} changeDescription={descriptionChanged} changeVideo={videoChanged} />
+            <SubLessonsFolders folderTitle={lessonFolder.folderDetails[0]?.folderTitle} lessons={lessonsArray} changeDescription={descriptionChanged} changeVideo={onVideoChange} />
           </Col>
         </Row>
       </div>

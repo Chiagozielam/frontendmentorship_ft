@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { withRouter, useHistory } from 'react-router'
 import { Row, Col, } from 'antd'
 import './styles.scss'
@@ -9,6 +9,7 @@ import SocialCard from '../../../components/cards/lessonsPageCard/socialCard/soc
 import Sub from '../../../components/subLesson/sublesson';
 import TabsComponent from '../../../components/tabs/Tabs'
 import { CONGRATULATION_PAGE, LOGIN_PAGE } from '../../../routes'
+import CourseContext from '../../../context/course-context/CourseContext'
 
 
 const bonusCardDescription = 'Access all the bonus crash courses by clicking on this card'
@@ -54,6 +55,11 @@ const LessonsPage = () => {
   useEffect(() => {
     checkStatus()
   }, [])
+  useEffect(() => {
+    getAllUserLessonFolders()
+  }, [])
+
+  const { getAllUserLessonFolders, userLessonFolders } = useContext(CourseContext)
 
   return (
     <div className="lessons-page-container">

@@ -3,6 +3,7 @@ export const LOGIN_PAGE = "/login";
 export const REGISTRATION_PAGE = "/register";
 export const POST_AUTH_ROUTES = "/dashboard";
 export const CONGRATULATION_PAGE = "/registrationsuccess";
+export const PAYMENT_VERIFICATION_PAGE = "/paymentverification"
 
 // Post Authentication routes
 const dashboardEntry = "/dashboard";

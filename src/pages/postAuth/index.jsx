@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route, withRouter } from 'react-router-dom'
 import { Row, Col, Layout } from 'antd'
 import SideNav from '../../components/sideNav/SideNav'
 import { LESSON_FOLDER_PAGE } from '../../routes'
 import { dashRoutes } from './dashRoutes'
+import GeneralContext from '../../context/generalContext/GeneralContext'
 import FolderPage from "./folderPage/folderPage";
 import './styles.scss'
 import PaymentModal from '../../components/modals/paymentModal/PaymentModal'
@@ -11,6 +12,10 @@ import PaymentModal from '../../components/modals/paymentModal/PaymentModal'
 const { Content, Sider } = Layout
 
 const PostAuth = () => {
+  const { checkThatUserHasPaid } = useContext(GeneralContext)
+  useEffect(() => {
+    checkThatUserHasPaid()
+  }, [])
   return (
     <Layout className="dashboard-container">
       <PaymentModal />

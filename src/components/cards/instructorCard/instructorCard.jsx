@@ -37,7 +37,7 @@ const InstructorCard = ({ instructor, cardColor = 'white' }) => {
           <img src={instructor.image} alt=""/>
         </div>
         <div className="instructor-name">
-          <h3>{instructor.name}</h3>
+          <h3>{instructor.fullname}</h3>
           <GeneralButton buttonText="Ask A Question" borderRadius="5px" height={size <= 425 ? '26px' : '39px'} fontSize={size <= 425 ? '10px' : '14px'} width={size <= 425 ? '121px' : '172px' }/>
         </div>
         <div className="instructor-social-handle">

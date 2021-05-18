@@ -8,8 +8,9 @@ import LoginPage from "./pages/loginPage/loginPage";
 import PostAuth from "./pages/postAuth";
 import RegisterPage from "./pages/registerPage/registerPage";
 import CongratulationsPage from "./pages/congratulationsPage/congratulations";
-import { CONGRATULATION_PAGE, LANDING_PAGE, LOGIN_PAGE, POST_AUTH_ROUTES, REGISTRATION_PAGE } from './routes';
+import { CONGRATULATION_PAGE, LANDING_PAGE, LOGIN_PAGE, POST_AUTH_ROUTES, REGISTRATION_PAGE, PAYMENT_VERIFICATION_PAGE } from './routes';
 import VerifyEmailPage from "./pages/verifyEmailPage/verifyEmailPage";
+import PaymentVerificationPage from "./pages/payment-verification-page/paymentVerificationPage";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path={CONGRATULATION_PAGE} component={CongratulationsPage} />
           <Route path="/verify" component={VerifyEmailPage} />
           <Route path={POST_AUTH_ROUTES} component={PostAuth} />
+          <Route path={PAYMENT_VERIFICATION_PAGE} component={PaymentVerificationPage} />
         </Switch>
       </Router>
     </div>

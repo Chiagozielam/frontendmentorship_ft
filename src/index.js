@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 import AuthState from './context/authContext/AuthState';
 import GeneneralState from './context/generalContext/GeneralState'
+import CourseState from './context/course-context/CourseState'
 import { transitions, positions, Provider as AlertProvider } from 'react-alert'
 import AlertTemplate from 'react-alert-template-basic'
 
@@ -25,7 +26,9 @@ ReactDOM.render(
     <AlertProvider template={AlertTemplate} {...options}>
       <GeneneralState>
         <AuthState>
-          <App />
+          <CourseState>
+            <App />
+          </CourseState>
         </AuthState>
       </GeneneralState>
     </AlertProvider>

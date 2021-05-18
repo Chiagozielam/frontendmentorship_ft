@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import './styles.scss'
 import { Row, Col } from 'antd'
 import { Link } from 'react-router-dom'
 // import { LESSON_FOLDER_PAGE } from './routes';
+import GeneralContext from "../../context/generalContext/GeneralContext"
+
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,9 +16,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const LessonFolder = ({ lessonFolder }) => {
-
   const [warning, setWarning] = useState(false)
   const { push } = useHistory()
+  const { generalState: { user }, setPaymentModalOpened, paymentModalOpened } = useContext(GeneralContext) 
+
   const showWarning = () => {
     setWarning(true)
     
@@ -25,11 +28,17 @@ const LessonFolder = ({ lessonFolder }) => {
     }, 2000);
   }
 
+  const togglePaymentModal = () => {
+    setPaymentModalOpened(!paymentModalOpened)
+  }
   const onClickOnFolder = () => {
     if (lessonFolder.locked) {
       return
     }
-    push(`/dashboard/lessonfolder/${lessonFolder.id}`)
+    push({
+      pathname: `/dashboard/lessonfolder/${lessonFolder._id}`,
+      state: {lessonFolder}
+    })
   }
 
   return (
@@ -40,7 +49,13 @@ const LessonFolder = ({ lessonFolder }) => {
       <div className={`lesson-folder 
           ${lessonFolder.locked ? 'lesson-folder-locked' : ''}  
           ${lessonFolder.completed ? 'lesson-completed' : 'lesson-incompleted'}`}
-          onClick={() => showWarning()}
+          onClick={() => {
+            if(!user?.paid){
+              togglePaymentModal()
+              return
+            }
+            showWarning()
+          }}
           >
         <div className="lesson-folder-locked-container">
           { warning && <h3 className={`warning-text ${warning === true ? 'animate-text-in': '' }`}>Sorry, you have to finish previous lesson first</h3>}
@@ -48,10 +63,10 @@ const LessonFolder = ({ lessonFolder }) => {
         </div>
           <Row align="middle">
             <Col span={6}>
-              <img src={lessonFolder.folderImage} alt=""/>
+              <img src={lessonFolder.folderDetails[0].folderImage} alt=""/>
             </Col>
             <Col span={10} className="folder-details">
-              <p className="folder-title">{lessonFolder.folderTitle}</p>
+              <p className="folder-title">{lessonFolder.folderDetails[0].folderTitle}</p>
               <Link to={`/dashboard/lessonfolder/${lessonFolder.id}`} className="folder-link">View lessons <FontAwesomeIcon icon={faArrowCircleRight} className="link-icon" color="#F14A03" /></Link>
             </Col>
             <Col offset={3} span={1} value={10}>

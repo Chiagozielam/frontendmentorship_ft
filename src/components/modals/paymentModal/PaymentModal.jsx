@@ -4,12 +4,16 @@ import GeneralContext from '../../../context/generalContext/GeneralContext'
 import './styles.scss'
 import { faClock, faLockOpen } from '@fortawesome/free-solid-svg-icons'
 import ButtonWithIcon from '../../buttonWithIcon/ButtonWithIcon'
+import CourseContext from '../../../context/course-context/CourseContext'
 
 const PaymentModal = () => {
     const { paymentModalOpened, setPaymentModalOpened } = useContext(GeneralContext)
+    const { initializePayment } = useContext(CourseContext)
+
     const togglePaymentModal = () => {
       setPaymentModalOpened(!paymentModalOpened)
     }
+
     return (
       <Modal
         visible={paymentModalOpened}
@@ -59,6 +63,7 @@ const PaymentModal = () => {
                   color: "white",
                   marginTop: "4%"
                 }}
+                onClick={() => initializePayment()}
               >Proceed to pay</Button>
               <Button
                 style={{

@@ -9,18 +9,32 @@ import { CONGRATULATION_PAGE, POST_AUTH_ROUTES } from "../../routes";
 
 // const AWS_DB_VARIABLE = "http://18.221.186.251:5000/api/v1/user/login"
 
+<<<<<<< HEAD
 const AuthState = props => {
   const { REACT_APP_BASE_URI } = process.env;
   const alert = useAlert();
+=======
+const AuthState = (props) => {
+
+  const { REACT_APP_BASE_URI } = process.env
+  const BASE_URI = "http://18.221.186.251:5000"
+  const alert = useAlert()
+>>>>>>> 2d9de1b... add payment implementation and bug fixes
 
   const { generalState, setGeneralState } = useContext(GeneralContext);
 
   const initialState = {
     isLoading: true,
     isSignout: false,
+<<<<<<< HEAD
     userToken: null,
     user: null
   };
+=======
+    userToken: localStorage.getItem('user-token') || null,
+    user: null,
+  } 
+>>>>>>> 2d9de1b... add payment implementation and bug fixes
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
@@ -41,6 +55,7 @@ const AuthState = props => {
   };
 
   const loginUser = async (submitObject, actions, push) => {
+<<<<<<< HEAD
     try {
       const userDataReturned = await axios.post(
         "http://18.221.186.251:5000/api/v1/user/login",
@@ -48,6 +63,12 @@ const AuthState = props => {
       );
       const stringifiedUserObject = JSON.stringify(userDataReturned.data.user);
       const token = userDataReturned.data.token;
+=======
+    try{
+      const userDataReturned = await axios.post(`${BASE_URI}/api/v1/user/login`, submitObject)
+      const stringifiedUserObject = JSON.stringify(userDataReturned.data.user)
+      const token = userDataReturned.data.token
+>>>>>>> 2d9de1b... add payment implementation and bug fixes
 
       localStorage.setItem("user", stringifiedUserObject);
       localStorage.setItem("user-token", token);
@@ -79,6 +100,7 @@ const AuthState = props => {
   };
 
   const registerUser = async (submitObject, actions, push) => {
+<<<<<<< HEAD
     console.log(submitObject);
     try {
       const userDataReturned = await axios.post(
@@ -87,6 +109,13 @@ const AuthState = props => {
       );
       console.log(userDataReturned.data);
       const stringifiedUserObject = JSON.stringify(userDataReturned.data.user);
+=======
+    console.log(submitObject)
+    try{
+      const userDataReturned = await axios.post(`${BASE_URI}/api/v1/user/register`, submitObject)
+      console.log(userDataReturned.data)
+      const stringifiedUserObject = JSON.stringify(userDataReturned.data.user)
+>>>>>>> 2d9de1b... add payment implementation and bug fixes
 
       localStorage.setItem("user", stringifiedUserObject);
 
@@ -112,11 +141,17 @@ const AuthState = props => {
   };
 
   const verifyUserEmail = async (token, setState, push) => {
+<<<<<<< HEAD
     console.log("The verifyEmail function is being called");
     try {
       const sendRequest = await axios.post(
         `http://18.221.186.251:5000/api/v1/user/verifyemail?token=${token}`
       );
+=======
+    console.log("The verifyEmail function is being called")
+    try{
+      const sendRequest = await axios.post(`${BASE_URI}/api/v1/user/verifyemail?token=${token}`)
+>>>>>>> 2d9de1b... add payment implementation and bug fixes
 
       //  Set the state that holds the message to display to the screen in our verifyEmail.jsx component
       setState(sendRequest.data.message);
@@ -138,6 +173,7 @@ const AuthState = props => {
       setState(err.response?.data.message);
       return;
     }
+<<<<<<< HEAD
   };
 
   const resendVerification = async () => {
@@ -156,6 +192,9 @@ const AuthState = props => {
       return alert.errror(err.response.data.message);
     }
   };
+=======
+  }
+>>>>>>> 2d9de1b... add payment implementation and bug fixes
 
   return (
     <AuthContext.Provider
