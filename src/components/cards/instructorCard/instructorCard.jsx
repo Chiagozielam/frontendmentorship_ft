@@ -42,7 +42,6 @@ const InstructorCard = ({ instructor, cardColor = 'white' }) => {
         </div>
         <div className="instructor-social-handle">
           <a href={instructor.twitter}>
-            <FontAwesomeIcon icon={faTwitterSquare} className="twitter" />
           </a>
           <a href={instructor.linkdin}>
             <FontAwesomeIcon icon={faLinkedin} className="linkdin" />

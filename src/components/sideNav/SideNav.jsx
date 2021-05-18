@@ -3,11 +3,27 @@ import SideNavItem from './item'
 import { Menu } from 'antd'
 import './styles.scss'
 import ButtonWithIcon from '../buttonWithIcon/ButtonWithIcon'
-import { faLockOpen } from '@fortawesome/free-solid-svg-icons'
+import { faLockOpen, faPowerOff } from '@fortawesome/free-solid-svg-icons'
 import GeneralContext from '../../context/generalContext/GeneralContext'
+import { Link } from 'react-router-dom'
+import AuthContext from '../../context/authContext/AuthContext'
+import { LOGIN_PAGE } from "../../routes";
+import { useHistory } from 'react-router-dom'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
+const { Item } = Menu
  
  const SideNav = ({ routes }) => {
-   const { generalState, setPaymentModalOpened, paymentModalOpened  } = useContext(GeneralContext)
+   const { generalState, setPaymentModalOpened, paymentModalOpened, logOut} = useContext(GeneralContext)
+  // const { resendVerification } = useContext(AuthContext)
+
+   
+  const { push } = useHistory()
+   
+   let hover = () => {
+    console.log('hover');
+  }  
 
    const togglePaymentModal = () => {
      setPaymentModalOpened(!paymentModalOpened)
@@ -19,7 +35,12 @@ import GeneralContext from '../../context/generalContext/GeneralContext'
           routes.map( dashRoute => (
             <SideNavItem properties={dashRoute} />
           ))
-        }
+         }
+         <div className="side-nav-item-container" style={{marginTop: '30px'}} >
+            <Item icon={<FontAwesomeIcon icon={faPowerOff} />} key="1" onClick={()=> logOut(push)} onItemHover={hover}>
+              <Link className="side-nav-item-link">LogOut</Link>
+            </Item>
+          </div>
         {
           generalState.user?.paid == false ? (
             <div className="payment-button-container">

@@ -1,11 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+import GeneralButton from '../../components/GeneralButton'
 import { LESSON_FOLDER_PAGE, LOGIN_PAGE } from '../../routes'
+import AuthContext from '../../context/authContext/AuthContext'
 import './styles.scss'
 
 // import { Row, Col, } from 'antd'
 const CongratulationsPage = () => {
   const { push } = useHistory()
+
+
+  const { resendVerification } = useContext(AuthContext)
 
   const checkStatus = () => {
     const user = localStorage.getItem("user")
@@ -30,6 +35,7 @@ const CongratulationsPage = () => {
       <h2>Congratulations...</h2>
       <p className="description-text">Your registration is complete. Now head on to your email and click on the email confirmation link sent to your mail and get access to your dashboard!</p>
       <p>you can close this page now.</p>
+      <GeneralButton buttonText="Resend Email" borderRadius="10px" fontSize="18px" width="295px" height="54.84px" onClick={resendVerification} />
     </div>
    );
 }

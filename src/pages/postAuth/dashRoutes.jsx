@@ -1,14 +1,15 @@
 import React from "react";
-import { LESSONS_PAGE, PROFILE_PAGE } from "../../routes";
+import { LESSONS_PAGE, PROFILE_PAGE, LOGIN_PAGE } from "../../routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUserCircle,
   faHouseUser,
   faShoppingBag,
-  faPodcast
+  faPodcast,
 } from "@fortawesome/free-solid-svg-icons";
 import LessonsPage from "./lessonsPage/lessonsPage";
 import ProfilePage from "./profilePage/profilePage";
+
 
 export const dashRoutes = [
   {
@@ -38,5 +39,5 @@ export const dashRoutes = [
     path: PROFILE_PAGE,
     component: ProfilePage,
     exact: false
-  }
+  },
 ];
