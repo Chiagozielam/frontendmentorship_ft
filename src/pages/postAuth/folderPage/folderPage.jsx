@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams, useLocation, useHistory } from 'react-router-dom'
 import './styles.scss'
 import { Row, Col, } from 'antd'
 import BackButton from '../../../components/buttonWithIcon/ButtonWithIcon'
@@ -15,11 +15,13 @@ import {
   faArrowCircleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import TabsComponent from '../../../components/tabs/Tabs'
+import { POST_AUTH_ROUTES } from '../../../routes'
 
 const FolderPageComponent = () => {
 
   const { id: lessonFolderId } = useParams()
   const { state: { lessonFolder } } = useLocation()
+  const { push } = useHistory()
 
   const { getUserLessonsForALessonFolder } = useContext(CourseContext)
 
@@ -87,11 +89,11 @@ const FolderPageComponent = () => {
         <div style={{padding: '34px 14px'}}>
           <Video link={videolink} />
         </div>
-        {/* <TabsComponent tabBarColor="transparent" tabItems={folderPageTabs} marginLeft="auto" marginRight="auto" />       */}
+        <TabsComponent tabBarColor="transparent" tabItems={folderPageTabs} marginLeft="auto" marginRight="auto" />      
       </div>
       
       <div className="folder-page-desktop">
-        <BackButton buttonText="back to home" bgcolor="white" textColor="black" icon={faArrowCircleLeft} iconColor="#F14A03" />
+        <BackButton onClick={() => push(POST_AUTH_ROUTES  )} buttonText="back to home" bgcolor="white" textColor="black" icon={faArrowCircleLeft} iconColor="#F14A03" />
         <Row className="content">
           <Col span={14} className="video-lesson-details">
             

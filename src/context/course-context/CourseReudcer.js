@@ -4,7 +4,7 @@ export default (prevState, {type, payload}) => {
         return {
           ...prevState,
           userLessonFolders: payload,
-          isLoading: true
+          isLoading: false
         }
       default:
         return prevState

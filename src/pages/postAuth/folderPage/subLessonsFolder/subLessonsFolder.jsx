@@ -79,9 +79,10 @@ const SubLessonsFolders = ({ lessons, folderTitle, changeDescription, changeVide
       <div className="sub-lesson-wrapper">  
         {
           lessons.map((lesson, index) => (
-            <div className={`sub-lesson
-            ${lesson.active === true ? 'active' : ''}`}
-            onClick={() => lessonClick(lesson) }>
+            <div
+              className={`sub-lesson ${lesson.active === true ? 'active' : ''}`}
+              onClick={() => lessonClick(lesson) }
+            >
               <SubLesson subLesson={lesson} index={index} />
             </div>
           ))

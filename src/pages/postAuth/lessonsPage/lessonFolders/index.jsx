@@ -9,14 +9,14 @@ import './styles.scss'
 
 const LessonFolders = () => {
 
-  const { userLessonFolders } = useContext(CourseContext)
-  const { generalState: { user }, isLoading } = useContext(GeneralContext) 
+  const { userLessonFolders, isLoading } = useContext(CourseContext)
+  const { generalState: { user } } = useContext(GeneralContext) 
   return (
     <div className="lesson-folders-component">
       <div className="lesson-folders-container">
         {
           isLoading ? (
-            <Spin />
+            <Spin size="large" />
           ) : (
             <div>
               {

@@ -21,17 +21,16 @@ const lessonPageTabs = [
     tabContent: <LessonFolders />,
     tabIndex: 1
   },
-  {
-    tabName: 'Acheivements',
-    tabContent: <Acheivements />,
-    tabIndex: 2
-  },
+  // {
+  //   tabName: 'Acheivements',
+  //   tabContent: <Acheivements />,
+  //   tabIndex: 2
+  // },
   {
     tabName: 'Bonuses',
     tabContent: <div style={{ padding: '5%', paddingTop: '1%' }}>
-                  <PodcastCard heading="Bonuses" description={bonusCardDescription} bgcolor="#141D26" />
-                  <PodcastCard heading="Prodcast" description={bonusCardDescription} bgcolor="#F14A03" />
-                  <SocialCard description={socialCardDescription} />
+                  <PodcastCard heading="Bonuses" description={bonusCardDescription} bgcolor="#141D26" boxShadow="0px 5px 15px rgba(241, 74, 3, 0.66)" />
+                  <PodcastCard heading="Prodcast" description={bonusCardDescription} bgcolor="#F14A03" boxShadow="0px 5px 15px rgba(32, 39, 47, 0.54)" />
                   <SocialCard description={socialCardDescription} />
                   <SocialCard description={socialCardDescription} />
                 </div>,
@@ -73,25 +72,15 @@ const LessonsPage = () => {
             <LessonFolders />
           </Col>
           <Col sm={24} lg={8}>
+            <h1 className="bonuses-header">Bonuses</h1>
+            <PodcastCard heading="Bonuses" description={bonusCardDescription} bgcolor="#141D26" boxShadow="0px 5px 15px rgba(32, 39, 47, 0.54)" />
+            <PodcastCard heading="Prodcast" description={bonusCardDescription} bgcolor="#F14A03" boxShadow="0px 5px 15px rgba(241, 74, 3, 0.66)" />
+            <SocialCard description={socialCardDescription} />
+            <SocialCard description={socialCardDescription} />
+          </Col>
+          {/* <Col sm={24} lg={8}>
             <Acheivements />
-          </Col>
-        </Row>
-        <Row justify="space-between" className="cards">
-          <Col sm={24} lg={15}>
-            <Row justify="space-between">
-              <Col span={11}>
-                <PodcastCard heading="Bonuses" description={bonusCardDescription} bgcolor="#141D26" />
-              </Col>
-              <Col  span={11}>
-                <PodcastCard heading="Prodcast" description={bonusCardDescription} bgcolor="#F14A03" />
-              </Col>
-            </Row>
-          </Col>
-          <Col sm={24} lg={7}>
-            <SocialCard description={socialCardDescription} />
-            <SocialCard description={socialCardDescription} />
-            <SocialCard description={socialCardDescription} />
-          </Col>
+          </Col> */}
         </Row>
       </div>
     </div>

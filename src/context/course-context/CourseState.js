@@ -37,7 +37,6 @@ const CourseState = (props) => {
       })
       console.log(userLessonFolders.data.data)
       dispatch({ type: "GET_USER_LESSON_FOLDERS", payload: userLessonFolders.data.data})
-      // setIsLoading(false)
     }catch(error){
       console.log(error)
     }
@@ -93,8 +92,8 @@ const CourseState = (props) => {
       console.log(returnedData.data)
       localStorage.setItem("user", JSON.stringify(returnedData.data.data))
       setGeneralState({
-        user: returnedData.data.user,
-        userToken: returnedData.data.token
+        ...generalState,
+        user: returnedData.data.data,
       })
       push(POST_AUTH_ROUTES)
     }catch(error){

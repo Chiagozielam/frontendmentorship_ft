@@ -43,6 +43,7 @@ const LessonFolder = ({ lessonFolder }) => {
 
   return (
     <div
+    style={{ cursor: "pointer"}}
       onClick={onClickOnFolder}
     >
        

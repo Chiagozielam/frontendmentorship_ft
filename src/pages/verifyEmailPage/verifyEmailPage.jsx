@@ -6,7 +6,7 @@ import { LOGIN_PAGE, POST_AUTH_ROUTES } from '../../routes'
 
 
 const VerifyEmailPage = () => {
-  const [loading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
   const [pageMessage, setPageMessage] = useState("")
 
   const { verifyUserEmail } = useContext(AuthContext)
@@ -32,19 +32,19 @@ const VerifyEmailPage = () => {
 
 
   const verifyUser = () => {
-    verifyUserEmail(token, setPageMessage, push )
+    verifyUserEmail(token, setPageMessage, push ).finally(() => {
+      setIsLoading(false)
+    })
   }
   useEffect(() => {
     verifyUser()
-    console.log(token)
-    setLoading(false)
   }, [])
   return (
     <div>
       {
-        loading ? (
-          <div style={{ width: "70px", margin: "0 auto", marginTop: "10%"}}>
-            <Spin tip="Loading..." />
+        isLoading ? (
+          <div style={{ width: "130px", margin: "0 auto", marginTop: "10%"}}>
+            <Spin tip="Verifying email..." />
           </div>
         ) : (
           <div>
