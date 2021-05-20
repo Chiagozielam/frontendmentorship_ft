@@ -1,5 +1,5 @@
 import React from "react";
-import { LESSONS_PAGE, PROFILE_PAGE, LOGIN_PAGE } from "../../routes";
+import { LESSONS_PAGE, PROFILE_PAGE, LOGIN_PAGE, BONUSUS_PAGE, PODCASTS_PAGE } from "../../routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUserCircle,
@@ -9,6 +9,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import LessonsPage from "./lessonsPage/lessonsPage";
 import ProfilePage from "./profilePage/profilePage";
+import BonusesPage from "./bonuses-page/bonusPage"
+import PodcastsPage from "./podcasts-page/podcastsPage"
 
 
 export const dashRoutes = [
@@ -29,15 +31,15 @@ export const dashRoutes = [
   {
     name: "View Bonuses",
     icon: <FontAwesomeIcon icon={faShoppingBag} color="#898989" />,
-    path: PROFILE_PAGE,
-    component: ProfilePage,
+    path: BONUSUS_PAGE,
+    component: BonusesPage,
     exact: false
   },
   {
     name: "Dev Podcast",
     icon: <FontAwesomeIcon icon={faPodcast} color="#898989" />,
-    path: PROFILE_PAGE,
-    component: ProfilePage,
+    path: PODCASTS_PAGE,
+    component: PodcastsPage,
     exact: false
   },
 ];

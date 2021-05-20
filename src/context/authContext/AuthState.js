@@ -7,12 +7,11 @@ import AuthReducer from "./AuthReducer";
 import axios from "axios";
 import { CONGRATULATION_PAGE, POST_AUTH_ROUTES } from "../../routes";
 
-// const AWS_DB_VARIABLE = "http://18.221.186.251:5000/api/v1/user/login"
 
 const AuthState = (props) => {
 
   const { REACT_APP_BASE_URI } = process.env
-  const BASE_URI = "http://18.221.186.251:5000"
+  const BASE_URI = api.BASE_URI
   const Alert = useAlert()
 
   const { generalState, setGeneralState } = useContext(GeneralContext);
@@ -44,7 +43,7 @@ const AuthState = (props) => {
 
   const loginUser = async (submitObject, actions, push) => {
     try{
-      const userDataReturned = await axios.post(`${BASE_URI}/api/v1/user/login`, submitObject)
+      const userDataReturned = await axios.post(`${BASE_URI}/user/login`, submitObject)
       const stringifiedUserObject = JSON.stringify(userDataReturned.data.user)
       const token = userDataReturned.data.token
 
@@ -81,7 +80,7 @@ const AuthState = (props) => {
   const registerUser = async (submitObject, actions, push) => {
     console.log(submitObject)
     try{
-      const userDataReturned = await axios.post(`${BASE_URI}/api/v1/user/register`, submitObject)
+      const userDataReturned = await axios.post(`${BASE_URI}/user/register`, submitObject)
       console.log(userDataReturned.data)
       const stringifiedUserObject = JSON.stringify(userDataReturned.data.user)
 
@@ -111,7 +110,7 @@ const AuthState = (props) => {
   const verifyUserEmail = async (token, setState, push) => {
     console.log("The verifyEmail function is being called")
     try{
-      const sendRequest = await axios.post(`${BASE_URI}/api/v1/user/verifyemail?token=${token}`)
+      const sendRequest = await axios.post(`${BASE_URI}/user/verifyemail?token=${token}`)
 
       //  Set the state that holds the message to display to the screen in our verifyEmail.jsx component
       setState(sendRequest.data.message);
@@ -144,7 +143,7 @@ const AuthState = (props) => {
 
     try {
       const sendRequest = await axios.post(
-        `http://18.221.186.251:5000/api/v1/user/resendemailverification`,
+        `${BASE_URI}/user/resendemailverification`,
         submitObject
       );
       Alert.info(sendRequest.data.message);

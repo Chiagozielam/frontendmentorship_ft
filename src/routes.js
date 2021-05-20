@@ -10,3 +10,5 @@ const dashboardEntry = "/dashboard";
 export const LESSONS_PAGE = `${dashboardEntry}/`;
 export const PROFILE_PAGE = `${dashboardEntry}/profile`;
 export const LESSON_FOLDER_PAGE = `${dashboardEntry}/lessonfolder/:id`;
+export const BONUSUS_PAGE = `${dashboardEntry}/bonuses`
+export const PODCASTS_PAGE = `${dashboardEntry}/podcasts`

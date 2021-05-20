@@ -45,7 +45,7 @@ const TopNavigation = () => {
               {
                 generalState?.user?.paid == false ? (
                   <div className="payment-button-container">
-                    <ButtonWithIcon onClick={togglePaymentModal} icon={faLockOpen} buttonText="Unlock the full package" padding="10% 5% 15% 5%" bgcolor="#2F2F2F" buttonRadius="0" />
+                    <ButtonWithIcon boxShadow="0px 4px 4px rgba(6, 16, 136, 0.19)" onClick={togglePaymentModal} icon={faLockOpen} buttonText="Unlock the full package" padding="10% 5% 15% 5%" bgcolor="#2F2F2F" buttonRadius="0" />
                   </div>
                   ) : ''
               }
@@ -121,6 +121,7 @@ const TopNavigation = () => {
                       padding="10% 5% 15% 5%"
                       bgcolor="#2F2F2F"
                       buttonRadius="0"
+                      boxShadow="0px 4px 4px rgba(6, 16, 136, 0.19)"
                     />
                   </div>
                   ) : ''

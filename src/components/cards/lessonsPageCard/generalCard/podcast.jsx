@@ -7,9 +7,9 @@ import {
     faArrowCircleRight
   } from "@fortawesome/free-solid-svg-icons";
 
-const PodcatsCard = ({ heading, description, bgcolor, link, filter, boxShadow}) => {
+const PodcatsCard = ({ heading, description, bgcolor, link, filter, boxShadow, onClick}) => {
   return (
-        <Link to={link}>
+        <div onClick={onClick} style={{ cursor: "pointer"}}>
           <div className="podcast-card" style={{ backgroundColor: `${bgcolor}`, filter: `${filter}`, boxShadow: `${boxShadow}`}}>
             <div className="podcast-details">
               <p className="heading">{heading}</p>
@@ -17,7 +17,7 @@ const PodcatsCard = ({ heading, description, bgcolor, link, filter, boxShadow}) 
               <FontAwesomeIcon icon={faArrowCircleRight} />   
             </div>
           </div>
-        </Link> 
+        </div> 
      );
 }
  

@@ -4,10 +4,10 @@ import { string } from 'prop-types'
 import './styles.scss'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ButtonWithIcon = ({ buttonText, icon, textColor, fontSize, bgcolor, iconColor, iconSize, buttonRadius, onClick, padding, textPadding, buttonShadow, buttonWidth, buttonHeight, ...rest }) => {
+const ButtonWithIcon = ({ buttonText, icon, textColor, fontSize, bgcolor, boxShadow, iconColor, iconSize, buttonRadius, onClick, padding, textPadding, buttonWidth, buttonHeight, ...rest }) => {
   return (
     <div className="icon-btn">
-      <Button onClick={onClick} type="primary" className="btn" style={{ backgroundColor: `${bgcolor}`, borderRadius: `${buttonRadius}`, padding: `${padding}`, boxShadow: `${buttonShadow}`, width: `${buttonWidth}`, height: `${buttonHeight}`, rest}}>
+      <Button onClick={onClick} type="primary" className="btn" style={{ backgroundColor: `${bgcolor}`, boxShadow: `${boxShadow}`, borderRadius: `${buttonRadius}`, padding: `${padding}`, width: `${buttonWidth}`, height: `${buttonHeight}`, ...rest}}>
         <span style={{color: `${iconColor}`, fontSize: `${iconSize}` }}><FontAwesomeIcon icon={icon}/></span>
         <span className="btn-text" style={{color: `${textColor}`, fontSize: `${fontSize}`, padding: `${textPadding}` }}>{buttonText}</span>
       </Button>
