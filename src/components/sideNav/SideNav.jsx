@@ -44,7 +44,7 @@ const { Item } = Menu
         {
           generalState.user?.paid == false ? (
             <div className="payment-button-container">
-              <ButtonWithIcon icon={faLockOpen} onClick={togglePaymentModal} buttonText="Unlock the full package" padding="10% 5% 15% 5%" bgcolor="#2F2F2F" buttonRadius="0" />
+              <ButtonWithIcon boxShadow="0px 4px 4px rgba(6, 16, 136, 0.19)" icon={faLockOpen} onClick={togglePaymentModal} buttonText="Unlock the full package" padding="10% 5% 15% 5%" bgcolor="#2F2F2F" buttonRadius="0" />
             </div>
           ) : ''
         }

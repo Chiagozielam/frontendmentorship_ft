@@ -7,16 +7,20 @@ import GeneralContext from "../../../../context/generalContext/GeneralContext"
 
 import './styles.scss'
 
-const LessonFolders = () => {
+const LessonFolders = ({ isLoading }) => {
 
-  const { userLessonFolders, isLoading } = useContext(CourseContext)
+  const { userLessonFolders } = useContext(CourseContext)
   const { generalState: { user } } = useContext(GeneralContext) 
   return (
     <div className="lesson-folders-component">
       <div className="lesson-folders-container">
         {
           isLoading ? (
-            <Spin size="large" />
+            <Spin
+              tip="Loading Folders..."
+              size="large"
+              style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "30%"}}
+            />
           ) : (
             <div>
               {

@@ -6,6 +6,7 @@ import * as api from '../../constants/baseUri'
 import CourseReducer from './CourseReudcer'
 import axios from 'axios'
 import { CONGRATULATION_PAGE, POST_AUTH_ROUTES } from '../../routes';
+import { Alert } from 'antd'
 
 
 // const AWS_DB_VARIABLE = "http://18.221.186.251:5000/api/v1/user/login"
@@ -13,7 +14,7 @@ import { CONGRATULATION_PAGE, POST_AUTH_ROUTES } from '../../routes';
 const CourseState = (props) => {
 
   const { REACT_APP_BASE_URI } = process.env
-  const BASE_URI = "http://18.221.186.251:5000/api/v1/lessons"
+  const BASE_URI = api.BASE_URI
   const alert = useAlert()
 
   const { generalState, setGeneralState } = useContext(GeneralContext)
@@ -30,7 +31,7 @@ const CourseState = (props) => {
   const getAllUserLessonFolders = async() => {
     try{
       // setIsLoading(true)
-      const userLessonFolders = await axios.get(`${BASE_URI}/fetchuserlessonfolders`, {
+      const userLessonFolders = await axios.get(`${BASE_URI}/lessons/fetchuserlessonfolders`, {
         headers: {
           "user-token": localStorage.getItem("user-token")
         }
@@ -46,7 +47,7 @@ const CourseState = (props) => {
     const sendObject = {folderId}
     const token = localStorage.getItem("user-token")
     try{
-      const folderLessons = await axios.post(`${BASE_URI}/fetchuserfolderlessons`, sendObject, {
+      const folderLessons = await axios.post(`${BASE_URI}/lessons/fetchuserfolderlessons`, sendObject, {
         headers: {
           "user-token": token
         }
@@ -65,7 +66,7 @@ const CourseState = (props) => {
       }
     }
     try{
-      const returnedData = await axios.get(`http://18.221.186.251:5000/api/v1/payment/initializetransaction`, config )
+      const returnedData = await axios.get(`${BASE_URI}/payment/initializetransaction`, config )
       return window.location = returnedData.data.data.authorization_url
       // console.log(returnedData.data)
     }catch(error){
@@ -84,7 +85,7 @@ const CourseState = (props) => {
     }
     console.log(sendObject)
     try{
-      const returnedData = await axios.post(`http://localhost:5000/api/v1/payment/verifytransaction`, sendObject, {
+      const returnedData = await axios.post(`${BASE_URI}/payment/verifytransaction`, sendObject, {
         headers: {
           "user-token": token
         }
@@ -101,6 +102,33 @@ const CourseState = (props) => {
     }
   }
 
+  // THIS SECTION IS FOR THE BONUSES ENDPOINTS
+
+  const getAllTheBonuses = async() => {
+    try{
+      const allBonuses = await axios.get(`${BASE_URI}/bonus/getallbonuscrashcourses`, {
+        headers: {
+          "user-token": generalState.userToken
+        }
+      })
+      return allBonuses.data
+    }catch(error){
+      console.log("here is the error for fetching the bonuses: ", error)
+    }
+  }
+  const getAllThePodcasts = async() => {
+    try{
+      const allPodcastEpidodes = await axios.get(`${BASE_URI}/podcast/getallpodcastepisodes`, {
+        headers: {
+          "user-token": generalState.userToken
+        }
+      })
+      return allPodcastEpidodes.data
+    }catch(error){
+      console.log("here is the error for fetching the bonuses: ", error)
+    }
+  }
+
   return (
     <CourseContext.Provider
       value={{
@@ -110,6 +138,8 @@ const CourseState = (props) => {
         isLoading: state.isLoaading,
         initializePayment,
         verifyPayment,
+        getAllTheBonuses,
+        getAllThePodcasts,
       }}
     >
       {props.children}

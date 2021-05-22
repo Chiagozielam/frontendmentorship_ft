@@ -1,0 +1,43 @@
+.bonus-page-card-container{
+    .bonus-page-card{
+        background-color: white;
+        max-width: 315px;
+        height: 393px;
+        margin-bottom: 7%;
+        font-family: 'Montserrat', sans-serif;
+        .image-container{
+            width: 100%;
+            height: 168px;
+            img{
+                height: 100%;
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+        .rest-of-the-card-body{
+            padding: 6%;
+            .title{
+                font-weight: 600;
+                color: #061088;
+                font-size: 20px;
+                width: 75%;
+                line-height: 100.9%;
+            }
+            .description{
+                line-height: 102.9%;
+                font-size: 16px;
+                font-weight: 500;
+            }
+            .button-container{
+                width: 100%;
+            }
+        }
+    }
+    @media screen and (max-width: 750px) {
+        width: 90vw;
+        .bonus-page-card{
+            margin: 0 auto;
+            margin-bottom: 7%;
+        }       
+    }
+}

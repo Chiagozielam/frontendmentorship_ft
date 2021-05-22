@@ -1,0 +1,66 @@
+.podcast-page-card-container{
+    background-color: white;
+    max-width: 420px;
+    // height: 91px;
+    margin-bottom: 7%;
+    font-family: 'Montserrat', sans-serif;
+    .image-container{
+        width: 100%;
+        height: 91px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+    .rest-of-the-card-body{
+        padding: 6%;
+        .title{
+            font-weight: 600;
+            color: #061088;
+            font-size: 16px;
+            line-height: 100.9%;
+        }
+        .speaker{
+            line-height: 102.9%;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgb(140, 140, 140)
+        }
+        .button-container{
+            width: 100%;
+        }
+    }
+    .play-icon-container{
+        width: 100%;
+        height: 91px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    @media screen and (max-width: 800px) {
+        width: 100%;
+        .image-container{
+            width: 20%;
+            img{
+                display: none ;
+            }
+        }
+        .rest-of-the-card-body{
+            .title{
+                font-size: 14px;
+            }
+            .speaker{
+                font-size: 12px;
+            }
+        }
+        .play-icon-container{
+            margin-top: -130%;
+            padding-left: 40%;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.bonuses-page{
+  padding: 0 5%;
+  padding-top: 3%;
+
+  h1{
+    font-size: 22px;
+    color: #061088;
+
+    @media screen and (max-width: 800px) {
+      margin-top: 5%;
+    }
+  }
+}
