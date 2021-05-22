@@ -1,7 +1,7 @@
-.podcast-page-card{
+.podcast-page-card-container{
     background-color: white;
     max-width: 420px;
-    height: 91px;
+    // height: 91px;
     margin-bottom: 7%;
     font-family: 'Montserrat', sans-serif;
     .image-container{
@@ -41,5 +41,26 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+    @media screen and (max-width: 800px) {
+        width: 100%;
+        .image-container{
+            width: 20%;
+            img{
+                display: none ;
+            }
+        }
+        .rest-of-the-card-body{
+            .title{
+                font-size: 14px;
+            }
+            .speaker{
+                font-size: 12px;
+            }
+        }
+        .play-icon-container{
+            margin-top: -130%;
+            padding-left: 40%;
+        }
     }
 }

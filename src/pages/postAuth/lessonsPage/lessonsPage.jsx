@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import { withRouter, useHistory } from 'react-router'
 import { Row, Col, } from 'antd'
 import './styles.scss'
@@ -17,6 +17,7 @@ const socialCardDescription = 'Join the community on telegram'
 
 
 const LessonsPage = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const { push } = useHistory()
   const checkStatus = () => {
     const user = localStorage.getItem("user")
@@ -33,7 +34,9 @@ const LessonsPage = () => {
     checkStatus()
   }, [])
   useEffect(() => {
-    getAllUserLessonFolders()
+    getAllUserLessonFolders().finally(() => {
+      setIsLoading(false)
+    })
   }, [])
 
   const { getAllUserLessonFolders, userLessonFolders } = useContext(CourseContext)
@@ -42,24 +45,24 @@ const LessonsPage = () => {
   const lessonPageTabs = [
     {
       tabName: 'Lesson Folders',
-      tabContent: <LessonFolders />,
+      tabContent: <LessonFolders isLoading={isLoading} />,
       tabIndex: 1
     },
     {
       tabName: 'Bonuses',
-      tabContent: <div style={{ padding: '5%', paddingTop: '1%' }}>
+      tabContent: <div style={{ marginLeft: "5%" }}>
                     <PodcastCard
                       heading="Bonuses"
                       description={bonusCardDescription}
                       bgcolor="#141D26" boxShadow="0px 5px 15px rgba(241, 74, 3, 0.66)"
-                      onClick={() => push(PODCASTS_PAGE)}
+                      onClick={() => push(BONUSUS_PAGE)}
                     />
                     <PodcastCard
                       heading="Prodcast"
                       description={bonusCardDescription}
                       bgcolor="#F14A03"
                       boxShadow="0px 5px 15px rgba(32, 39, 47, 0.54)"
-                      onClick={() => push(BONUSUS_PAGE)}
+                      onClick={() => push(PODCASTS_PAGE)}
                     />
                     <SocialCard description={socialCardDescription} />
                     <SocialCard description={socialCardDescription} />
@@ -79,7 +82,7 @@ const LessonsPage = () => {
       <div className="lesson-page-desktop">
         <Row justify="space-between">
           <Col sm={24} lg={14}>
-            <LessonFolders />
+            <LessonFolders isLoading={isLoading} />
           </Col>
           <Col sm={24} lg={8}>
             <h1 className="bonuses-header">Bonuses</h1>
