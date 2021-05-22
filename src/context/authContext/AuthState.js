@@ -9,18 +9,20 @@ import { CONGRATULATION_PAGE, POST_AUTH_ROUTES } from "../../routes";
 
 // const AWS_DB_VARIABLE = "http://18.221.186.251:5000/api/v1/user/login"
 
-const AuthState = props => {
-  const { REACT_APP_BASE_URI } = process.env;
-  const alert = useAlert();
+const AuthState = (props) => {
+
+  const { REACT_APP_BASE_URI } = process.env
+  const BASE_URI = "http://18.221.186.251:5000"
+  const Alert = useAlert()
 
   const { generalState, setGeneralState } = useContext(GeneralContext);
 
   const initialState = {
     isLoading: true,
     isSignout: false,
-    userToken: null,
-    user: null
-  };
+    userToken: localStorage.getItem('user-token') || null,
+    user: null,
+  } 
 
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
@@ -41,13 +43,10 @@ const AuthState = props => {
   };
 
   const loginUser = async (submitObject, actions, push) => {
-    try {
-      const userDataReturned = await axios.post(
-        "http://18.221.186.251:5000/api/v1/user/login",
-        submitObject
-      );
-      const stringifiedUserObject = JSON.stringify(userDataReturned.data.user);
-      const token = userDataReturned.data.token;
+    try{
+      const userDataReturned = await axios.post(`${BASE_URI}/api/v1/user/login`, submitObject)
+      const stringifiedUserObject = JSON.stringify(userDataReturned.data.user)
+      const token = userDataReturned.data.token
 
       localStorage.setItem("user", stringifiedUserObject);
       localStorage.setItem("user-token", token);
@@ -64,14 +63,15 @@ const AuthState = props => {
 
         // Set the user object to the general state
         setGeneralState({ ...generalState, user: err.response?.data.user });
-        alert.show("Please confirm your email to login");
+        Alert.show("Please confirm your email to login");
         push(CONGRATULATION_PAGE);
       }
 
       // User the 409 status code to if the email or password is incorrect
       if (err.response?.status == 409) {
-        alert.error("The email or password you entered is incorrect");
+        Alert.error("The email or password you entered is incorrect");
       }
+      alert(JSON.stringify(err))
       console.log(err.response);
       actions.setSubmitting(false);
       return;
@@ -79,14 +79,11 @@ const AuthState = props => {
   };
 
   const registerUser = async (submitObject, actions, push) => {
-    console.log(submitObject);
-    try {
-      const userDataReturned = await axios.post(
-        "http://18.221.186.251:5000/api/v1/user/register",
-        submitObject
-      );
-      console.log(userDataReturned.data);
-      const stringifiedUserObject = JSON.stringify(userDataReturned.data.user);
+    console.log(submitObject)
+    try{
+      const userDataReturned = await axios.post(`${BASE_URI}/api/v1/user/register`, submitObject)
+      console.log(userDataReturned.data)
+      const stringifiedUserObject = JSON.stringify(userDataReturned.data.user)
 
       localStorage.setItem("user", stringifiedUserObject);
 
@@ -98,12 +95,12 @@ const AuthState = props => {
     } catch (err) {
       // Use the 403 http status code check if in input validation failed
       if (err.response?.status == 403) {
-        alert.error(err.response?.data.message);
+        Alert.error(err.response?.data.message);
       }
 
       // User the 409 status code to if the email already exists
       if (err.response.status == 409) {
-        alert.error(err.response?.data.message);
+        Alert.error(err.response?.data.message);
       }
       console.log(err.response?.data.message);
       actions.setSubmitting(false);
@@ -112,14 +109,13 @@ const AuthState = props => {
   };
 
   const verifyUserEmail = async (token, setState, push) => {
-    console.log("The verifyEmail function is being called");
-    try {
-      const sendRequest = await axios.post(
-        `http://18.221.186.251:5000/api/v1/user/verifyemail?token=${token}`
-      );
+    console.log("The verifyEmail function is being called")
+    try{
+      const sendRequest = await axios.post(`${BASE_URI}/api/v1/user/verifyemail?token=${token}`)
 
       //  Set the state that holds the message to display to the screen in our verifyEmail.jsx component
       setState(sendRequest.data.message);
+      console.log("Here is the data: ", sendRequest.data)
       const stringifiedUserObject = JSON.stringify(sendRequest.data.user);
       const returnedToken = sendRequest.data.token;
       // Save the user and the token to localStorage
@@ -151,9 +147,9 @@ const AuthState = props => {
         `http://18.221.186.251:5000/api/v1/user/resendemailverification`,
         submitObject
       );
-      alert.info(sendRequest.data.message);
+      Alert.info(sendRequest.data.message);
     } catch (err) {
-      return alert.errror(err.response.data.message);
+      return Alert.errror(err.response.data.message);
     }
   };
 

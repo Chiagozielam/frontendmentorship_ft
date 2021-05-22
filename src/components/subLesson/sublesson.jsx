@@ -17,12 +17,12 @@ const SubLesson = ({ subLesson, index }) => {
               </div>
               <div className="lesson-details">
                 <span className="lesson-index">{index += 1}.</span>
-                <span className="lesson-title">{subLesson.title}</span>
+                <span className="lesson-title">{subLesson?.lessonDetailsArray[0]?.lessonTitle}</span>
               </div>
             </div>
             <div className="video-details">
               <span> <FontAwesomeIcon className="play-icon" icon={faPlayCircle} /> </span>
-              <span className="lesson-duration">{subLesson.duration}</span>
+              <span className="lesson-duration">{subLesson?.lessonDetailsArray[0]?.lessonDuration} mins</span>
             </div>
           </div>
     

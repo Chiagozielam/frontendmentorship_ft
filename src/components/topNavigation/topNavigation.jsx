@@ -40,20 +40,20 @@ const TopNavigation = () => {
       <Header className="navigation_container">
         <p className="logo" onClick={() => push('/')}>FRONTEND MENTORSHIP</p>
         {
-          generalState.user ? (
+          generalState.userToken ? (
             <div style={{ display: "flex" }}>
               {
-                generalState.user?.paid == false ? (
+                generalState?.user?.paid == false ? (
                   <div className="payment-button-container">
                     <ButtonWithIcon onClick={togglePaymentModal} icon={faLockOpen} buttonText="Unlock the full package" padding="10% 5% 15% 5%" bgcolor="#2F2F2F" buttonRadius="0" />
                   </div>
                   ) : ''
               }
               <div className="user-avatar-container" onClick={toggleDrawer}>
-                <img className="user-avatar-container-img" src={generalState.user.profilePhoto} />
+                <img className="user-avatar-container-img" src={generalState?.user?.profilePhoto} />
                 <div>
                   <p className="user-avatar-container-name">
-                    {generalState.user.fullname}
+                    {generalState?.user?.fullname}
                   </p>
                 </div>
               </div>

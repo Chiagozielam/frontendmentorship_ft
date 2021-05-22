@@ -7,13 +7,14 @@ import {
     faArrowCircleRight
   } from "@fortawesome/free-solid-svg-icons";
 
-const PodcatsCard = ({ heading, description, bgcolor, link}) => {
+const PodcatsCard = ({ heading, description, bgcolor, link, filter, boxShadow}) => {
   return (
         <Link to={link}>
-          <div className="podcast-card" style={{ backgroundColor: `${bgcolor}`}}>
+          <div className="podcast-card" style={{ backgroundColor: `${bgcolor}`, filter: `${filter}`, boxShadow: `${boxShadow}`}}>
             <div className="podcast-details">
               <p className="heading">{heading}</p>
-              <p className="description">{description} <FontAwesomeIcon icon={faArrowCircleRight} /> </p>   
+              <p className="description">{description}</p>
+              <FontAwesomeIcon icon={faArrowCircleRight} />   
             </div>
           </div>
         </Link> 

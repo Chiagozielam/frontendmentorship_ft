@@ -11,18 +11,13 @@ const GeneralState = (props) => {
   // const { push } = useHistory()
 
   const [generalState, setGeneralState] = useState({
-    user: null,
-    userToken: null,
+    user: JSON.parse(localStorage.getItem('user')) || null,
+    userToken: localStorage.getItem('user-token') || null,
   })
   const [paymentModalOpened, setPaymentModalOpened] = useState(false)
 
-  const getValuesFromLocalStorage = async() => {
-    const user = await JSON.parse(localStorage.getItem("user"))
-    const userToken = localStorage.getItem("user-token")
-
-    // Set the values gotten to the state
-    setGeneralState({user: user, userToken: userToken})
-    if(!user?.paid){
+  const checkThatUserHasPaid = () => {
+    if(!generalState.user?.paid){
       setPaymentModalOpened(true)
     }
   }
@@ -33,10 +28,6 @@ const GeneralState = (props) => {
     push(LOGIN_PAGE)
   }
 
-  useEffect(() => {
-    getValuesFromLocalStorage()
-  }, [])
-
   return(
     <GeneralContext.Provider
       value={{
@@ -44,7 +35,8 @@ const GeneralState = (props) => {
         setGeneralState,
         paymentModalOpened,
         setPaymentModalOpened,
-        logOut
+        logOut,
+        checkThatUserHasPaid,
       }}
     >
       {props.children}
