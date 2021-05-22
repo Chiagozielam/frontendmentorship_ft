@@ -23,7 +23,7 @@ const FolderPageComponent = () => {
   const { state: { lessonFolder } } = useLocation()
   const { push } = useHistory()
 
-  const { getUserLessonsForALessonFolder } = useContext(CourseContext)
+  const { getUserLessonsForALessonFolder, unlockTheNextChapter } = useContext(CourseContext)
 
   // Store the lessons array in this state
   const [lessonsArray, setLessonsArray] = useState([])
@@ -59,7 +59,7 @@ const FolderPageComponent = () => {
   const folderPageTabs = [
     {
       tabName: 'Lessons',
-      tabContent: <SubLessonsFolders folderTitle={lessonFolder.folderDetails[0]?.folderTitle} lessons={lessonsArray} changeDescription={descriptionChanged} changeVideo={onVideoChange} />,
+      tabContent: <SubLessonsFolders push={push} unlockTheNextChapter={unlockTheNextChapter} folderTitle={lessonFolder.folderDetails[0]?.folderTitle} folderIndex={ lessonFolder?.folderDetails[0]?.lessonFolderIndex}  lessons={lessonsArray} changeDescription={descriptionChanged} changeVideo={onVideoChange} />,
       tabIndex: 1
     },
     {
@@ -114,7 +114,15 @@ const FolderPageComponent = () => {
 
           <Col offset={1} span={8}>
             {/* sub lesson folder component  */}
-            <SubLessonsFolders folderTitle={lessonFolder.folderDetails[0]?.folderTitle} lessons={lessonsArray} changeDescription={descriptionChanged} changeVideo={onVideoChange} />
+            <SubLessonsFolders
+              folderTitle={lessonFolder.folderDetails[0]?.folderTitle}
+              folderIndex={ lessonFolder?.folderDetails[0]?.lessonFolderIndex}
+              lessons={lessonsArray}
+              changeDescription={descriptionChanged}
+              changeVideo={onVideoChange}
+              unlockTheNextChapter={unlockTheNextChapter}
+              push={push}
+            />
           </Col>
         </Row>
       </div>
