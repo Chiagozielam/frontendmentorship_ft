@@ -5,7 +5,7 @@ import GeneralContext from '../generalContext/GeneralContext'
 import * as api from '../../constants/baseUri'
 import CourseReducer from './CourseReudcer'
 import axios from 'axios'
-import { CONGRATULATION_PAGE, POST_AUTH_ROUTES } from '../../routes';
+import { CONGRATULATION_PAGE, LESSON_FOLDER_PAGE, POST_AUTH_ROUTES } from '../../routes';
 import { Alert } from 'antd'
 
 
@@ -129,6 +129,20 @@ const CourseState = (props) => {
     }
   }
 
+  const unlockTheNextChapter = async(previousFolderIndex, push) => {
+    try{
+      await axios.post(`${BASE_URI}/lessons/unlocknextlessonfolder`, {previousFolderIndex: previousFolderIndex}, {
+        headers: {
+          "user-token": generalState.userToken
+        }
+      })
+      return push(POST_AUTH_ROUTES)
+    }catch(error){
+      console.log("Here is the error unlocking the next chapter: ", error)
+      return
+    }
+  }
+
   return (
     <CourseContext.Provider
       value={{
@@ -140,6 +154,7 @@ const CourseState = (props) => {
         verifyPayment,
         getAllTheBonuses,
         getAllThePodcasts,
+        unlockTheNextChapter,
       }}
     >
       {props.children}

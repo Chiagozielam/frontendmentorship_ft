@@ -1,13 +1,15 @@
+import { useEffect, useState } from 'react'
+import { Spin } from 'antd'
 import SubLesson from '../../../../components/subLesson/sublesson'
 import GeneralButton from '../../../../components/GeneralButton'
 import Assignment from '../../../../components/assignment/assignment'
 import './styles.scss'
-import { useEffect, useState } from 'react'
 
-const SubLessonsFolders = ({ lessons, folderTitle, changeDescription, changeVideo }) => {
+const SubLessonsFolders = ({ lessons, folderTitle, changeDescription, changeVideo, folderIndex, unlockTheNextChapter, push }) => {
 
   // state for button disabled
   const [btnDisabled, setBtnDisabled] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
 
   useEffect(() => {
@@ -21,6 +23,11 @@ const SubLessonsFolders = ({ lessons, folderTitle, changeDescription, changeVide
     btnState()
   }, [])
 
+
+  const onUnlockTheNextChapter = () => {
+    setIsLoading(true)
+    unlockTheNextChapter(folderIndex, push).finally(() => setIsLoading(false))
+  }
 
   //  function on each lesson clicked
   const lessonClick = (lesson) => {
@@ -91,7 +98,13 @@ const SubLessonsFolders = ({ lessons, folderTitle, changeDescription, changeVide
         <Assignment />
       </div>
 
-      <GeneralButton disabled={btnDisabled} buttonText="Next Chapter" borderRadius="0px 0px 15px 15px" width="100%" height="59px" fontSize="18px" />
+      {
+        isLoading ? (
+          <Spin tip="Unlocking next folder..." style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20%"}} />
+        ) : (
+          <GeneralButton onClick={onUnlockTheNextChapter} buttonText="Next Chapter" borderRadius="0px 0px 15px 15px" width="100%" height="59px" fontSize="18px" />
+        )
+      }
 
     </div>
    );
