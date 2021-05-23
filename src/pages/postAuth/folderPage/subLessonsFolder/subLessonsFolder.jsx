@@ -5,7 +5,7 @@ import GeneralButton from '../../../../components/GeneralButton'
 import Assignment from '../../../../components/assignment/assignment'
 import './styles.scss'
 
-const SubLessonsFolders = ({ lessons, folderTitle, changeDescription, changeVideo, folderIndex, unlockTheNextChapter, push }) => {
+const SubLessonsFolders = ({ lessons, folderTitle, changeDescription, changeVideo, folderIndex, unlockTheNextChapter, push, setAssignmentModalIsVisible }) => {
 
   // state for button disabled
   const [btnDisabled, setBtnDisabled] = useState(true)
@@ -95,7 +95,7 @@ const SubLessonsFolders = ({ lessons, folderTitle, changeDescription, changeVide
           ))
         }
 
-        <Assignment />
+        <Assignment onClick={() => setAssignmentModalIsVisible(true)} />
       </div>
 
       {

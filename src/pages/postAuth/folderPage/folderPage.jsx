@@ -16,6 +16,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import TabsComponent from '../../../components/tabs/Tabs'
 import { POST_AUTH_ROUTES } from '../../../routes'
+import GeneralModal from '../../../components/modals/general-modal/GeneralModal'
+import AssignmentModal from './assignmentModal'
 
 const FolderPageComponent = () => {
 
@@ -27,6 +29,7 @@ const FolderPageComponent = () => {
 
   // Store the lessons array in this state
   const [lessonsArray, setLessonsArray] = useState([])
+  const [assignmentModalIsVisible, setAssignmentModalIsVisible] = useState(false)
 
   const onGetLessons = async () => {
     const userLessons = await getUserLessonsForALessonFolder(lessonFolderId)
@@ -59,7 +62,7 @@ const FolderPageComponent = () => {
   const folderPageTabs = [
     {
       tabName: 'Lessons',
-      tabContent: <SubLessonsFolders push={push} unlockTheNextChapter={unlockTheNextChapter} folderTitle={lessonFolder.folderDetails[0]?.folderTitle} folderIndex={ lessonFolder?.folderDetails[0]?.lessonFolderIndex}  lessons={lessonsArray} changeDescription={descriptionChanged} changeVideo={onVideoChange} />,
+      tabContent: <SubLessonsFolders setAssignmentModalIsVisible={setAssignmentModalIsVisible} push={push} unlockTheNextChapter={unlockTheNextChapter} folderTitle={lessonFolder.folderDetails[0]?.folderTitle} folderIndex={ lessonFolder?.folderDetails[0]?.lessonFolderIndex}  lessons={lessonsArray} changeDescription={descriptionChanged} changeVideo={onVideoChange} />,
       tabIndex: 1
     },
     {
@@ -84,7 +87,10 @@ const FolderPageComponent = () => {
  
   return (
     <div className="folder-page-container">
-      
+      <AssignmentModal
+        setAssignmentModalIsVisible={setAssignmentModalIsVisible}
+        assignmentModalIsVisible={assignmentModalIsVisible}
+      />      
       <div className="folder-page-mobile">
         <div style={{padding: '34px 14px'}}>
           <Video link={videolink} />
@@ -122,6 +128,7 @@ const FolderPageComponent = () => {
               changeVideo={onVideoChange}
               unlockTheNextChapter={unlockTheNextChapter}
               push={push}
+              setAssignmentModalIsVisible={setAssignmentModalIsVisible}
             />
           </Col>
         </Row>
