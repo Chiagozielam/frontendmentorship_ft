@@ -47,3 +47,26 @@ h1,h2,h3,h4,h5{
     }
   }
 }
+
+
+
+
+.assignment-modal-container{
+  .heading-text{
+    font-weight: 600;
+    font-size: 16px;
+    color: #061088
+  }
+  p{
+    font-size: 12px;
+  }
+  .assignment-modal-section-box{
+    margin-bottom: 10%;
+  }
+  .warning-container{
+    background-color: #FFE0E0;
+    padding: 2%;
+    color: #DB0000;
+    margin-bottom: 11%;
+  }
+}

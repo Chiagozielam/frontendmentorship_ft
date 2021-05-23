@@ -1,10 +1,10 @@
 import './styles.scss'
 import { Link } from 'react-router-dom'
-const Assignment = () => {
+const Assignment = ({ onClick }) => {
   return (
-    <div className="assignment-container">
+    <div className="assignment-container" onClick={onClick}>
       <h3>Assignment</h3>
-      <Link to="#" className="assignment-link">Click here to view assignment</Link>
+      <p className="assignment-link">Click here to view assignment</p>
     </div>
    );
 }
