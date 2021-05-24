@@ -12,6 +12,7 @@ import NormalInput from '../../../components/form/normalInput/normalInput';
 import ButtonWithIcon from '../../../components/buttonWithIcon/ButtonWithIcon'
 import GeneralContext from '../../../context/generalContext/GeneralContext'
 import GeneralModal from '../../../components/modals/general-modal/GeneralModal'
+import { BASE_URI } from '../../../constants/baseUri'
 
 const ProfilePage = () => {
   const [showEditProfileModal, setShowEditProfileModal] = useState(false)
@@ -41,22 +42,29 @@ const ProfilePage = () => {
 
     let data = new FormData(e.target);
 
+    const submitObject = {bioData: bio, githubUrl, twitterUrl, linkedinUrl}
+
+      console.log(submitObject);
+
+    // data.append('githubUrl', 'https://github.com/iamblackdev');
+    // data.append('twitterUrl', 'https://twitter.com/black_dev_');
+    // data.append('linkedinUrl', 'https://www.linkedin.com/in/');
+    // data.append('bioData', 'daniel don');
+
     let config = {
       method: 'post',
-      url: 'http://3.143.251.60:5000/api/v1/user/updateprofiledata',
+      url: `${BASE_URI}/user/updateprofiledata`,
       headers: {
-          'user-token': `${userToken}`,
+          'user-token': userToken,
       },
-      data: data
+      data: submitObject
     };
 
-    console.log(data);
 
 
     try {
       const userDataReturned = await axios(config)
       console.log(userDataReturned);
-      console.log(data);
     
         
       } catch (err) {
