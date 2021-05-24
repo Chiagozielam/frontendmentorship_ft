@@ -95,12 +95,12 @@ const SubLessonsFolders = ({ lessons, folderTitle, changeDescription, changeVide
           ))
         }
 
-        <Assignment onClick={() => setAssignmentModalIsVisible(true)} />
+        <Assignment onClick={() => setAssignmentModalIsVisible(true)}/>
       </div>
 
       {
         isLoading ? (
-          <Spin tip="Unlocking next folder..." style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20%"}} />
+          <Spin tip="Unlocking next folder..." style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "-10%", marginBottom: "10%", padding: "5%"}} />
         ) : (
           <GeneralButton onClick={onUnlockTheNextChapter} buttonText="Next Chapter" borderRadius="0px 0px 15px 15px" width="100%" height="59px" fontSize="18px" />
         )

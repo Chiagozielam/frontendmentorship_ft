@@ -4,7 +4,7 @@ import React from 'react'
 import GeneralModal from '../../../components/modals/general-modal/GeneralModal'
 import './styles.scss'
 
-const AssignmentModal = ({ assignmentModalIsVisible, setAssignmentModalIsVisible }) => {
+const AssignmentModal = ({ assignmentModalIsVisible, setAssignmentModalIsVisible, instructor, folderAssignment }) => {
   return (
     <GeneralModal
       modalOpened={assignmentModalIsVisible}
@@ -19,9 +19,7 @@ const AssignmentModal = ({ assignmentModalIsVisible, setAssignmentModalIsVisible
             <FontAwesomeIcon color="#F14A03" style={{marginLeft: "10px"}} icon={faBookReader} size={"35%"} />
           </h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Imperdiet in in dolor diam sed mauris lacinia. 
-            Nibh eu, eget commodo erat vitae sagittis. Feugiat orci vitae feugiat aliquam ut in a semper viverra. 
-            Vitae lectus interdum dolor eget vitae, eros. Nibh elit porta vitae sed. Eget amet, nulla arcu nunc. 
+            {folderAssignment}
           </p>
         </div>
 
@@ -31,7 +29,7 @@ const AssignmentModal = ({ assignmentModalIsVisible, setAssignmentModalIsVisible
             <FontAwesomeIcon color="#A6A6A6" style={{marginLeft: "10px"}} icon={faCloudDownloadAlt} size={"35%"} />
           </h3>
           <p>
-            Push your code to GitHub and send an email to me: <b>iamdanieldon@gmail.com</b> with a link to your repository
+            Push your code to GitHub and send an email to me: <b>{instructor?.twitterLink}</b> with a link to your repository
             and name of the task.
           </p>
         </div>
