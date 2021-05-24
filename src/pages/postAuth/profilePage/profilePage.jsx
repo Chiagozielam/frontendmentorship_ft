@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from 'react'
+import axios from 'axios'
 import { Button } from 'antd'
 import { withRouter } from 'react-router'
 import './styles.scss'
@@ -11,6 +12,7 @@ import NormalInput from '../../../components/form/normalInput/normalInput';
 import ButtonWithIcon from '../../../components/buttonWithIcon/ButtonWithIcon'
 import GeneralContext from '../../../context/generalContext/GeneralContext'
 import GeneralModal from '../../../components/modals/general-modal/GeneralModal'
+import { BASE_URI } from '../../../constants/baseUri'
 
 const ProfilePage = () => {
   const [showEditProfileModal, setShowEditProfileModal] = useState(false)
@@ -20,7 +22,8 @@ const ProfilePage = () => {
   const [twitterUrl, setTwitterUrl] = useState('')
   const [linkedinUrl, setLinkedinUrl] = useState('')
 
-  const { generalState: { user } } = useContext(GeneralContext)
+  const { generalState: { user, userToken } } = useContext(GeneralContext)
+
 
   useEffect(() => {
     setProfileimage(user.profilePhoto)
@@ -33,6 +36,45 @@ const ProfilePage = () => {
   const onShowOrHideEditProfileModal = () => {
     setShowEditProfileModal(!showEditProfileModal)
   }
+
+  const onUpdateProfile = async (e) => {
+    e.preventDefault();
+
+    let data = new FormData(e.target);
+
+    const submitObject = {bioData: bio, githubUrl, twitterUrl, linkedinUrl}
+
+      console.log(submitObject);
+
+    // data.append('githubUrl', 'https://github.com/iamblackdev');
+    // data.append('twitterUrl', 'https://twitter.com/black_dev_');
+    // data.append('linkedinUrl', 'https://www.linkedin.com/in/');
+    // data.append('bioData', 'daniel don');
+
+    let config = {
+      method: 'post',
+      url: `${BASE_URI}/user/updateprofiledata`,
+      headers: {
+          'user-token': userToken,
+      },
+      data: submitObject
+    };
+
+
+
+    try {
+      const userDataReturned = await axios(config)
+      console.log(userDataReturned);
+    
+        
+      } catch (err) {
+        console.log(err);
+     
+      }
+
+
+  }
+
   return (
     <div className="profile-page-container">
       <GeneralModal
@@ -42,15 +84,18 @@ const ProfilePage = () => {
         height="80%"
       >
         <div className="edit-profile-modal">
-          <div className="button-container">
-            <Button onClick={onShowOrHideEditProfileModal} style={{ color: "#061088"}} type="text">
-              Cancel
-            </Button>
-            <Button type="primary" style={{ backgroundColor: '#061088', border: 'none'}}>Save</Button>
-          </div>
-          <div style={{ height: '20px' }} />
-          <div className="scrollable">
-            <div
+          <form onSubmit={onUpdateProfile} method="post" encType="multipart/form-data" >
+            <div className="button-container">
+              <Button onClick={onShowOrHideEditProfileModal} style={{ color: "#061088"}} type="text">
+                Cancel
+              </Button>
+              <Button type="primary" htmlType="submit" style={{ backgroundColor: '#061088', border: 'none'}}>Save</Button>
+            </div>
+
+            <div style={{ height: '20px' }} />
+
+            <div className="scrollable">
+              <div
               className="change-img-container"
               style={{
                 display: "flex",
@@ -91,73 +136,89 @@ const ProfilePage = () => {
                 }}
               >
                 <FontAwesomeIcon icon={faCameraRetro} />
-                <input type="file" name="" id="change-image" style={{ display: 'none' }}
-                  onChange={ async (event) => {
-                    let imageUrl = URL.createObjectURL(event.target.files[0])
-                    imageUrl = imageUrl.split(/:(.+)/)[1]
-                    const reader = new FileReader()
-                    const readerData = reader.readAsBinaryString(imageUrl)
-                    setProfileimage(imageUrl)
-                    console.log(readerData)
-                    // console.log(readerData)
-                }} accept="image/*"/>
+                <input type="file" name="profilePhoto" id="change-image" style={{ display: 'none' }}
+                  // onChange={ async (event) => {
+                  //   let imageUrl = URL.createObjectURL(event.target.files[0])
+                  //   imageUrl = imageUrl.split(/:(.+)/)[1]
+                  //   const reader = new FileReader()
+                  //   const readerData = reader.readAsBinaryString(imageUrl)
+                  //   setProfileimage(imageUrl)
+                  //   console.log(readerData)
+                  //   // console.log(readerData)
+                  // }}
+                  accept="image/*" />
               </label>
             </div>
 
-            <div className="input-fields-container">
-              <div className="inputs">
+              <div className="input-fields-container">
+                <div className="inputs">
+                  <NormalInput
+                    label="Bio Data"
+                    iconName="mail"
+                    type="text"
+                    inputColor="#5A5656"
+                    value={bio}
+                    labelPadding=".5% 3%"
+                    name="bioData"
+                    onChange={(event) => {
+                    setBio(event.target.value)
+                    }}
+                  />
+                </div>
+                <div style={{ height: '20px' }} />
                 <NormalInput
-                  label="Bio Data"
+                  label="Github URL"
                   iconName="mail"
-                  type="email"
+                  type="text"
                   inputColor="#5A5656"
-                  value={bio}
                   labelPadding=".5% 3%"
+                  value={githubUrl}
+                  name="githubUrl"
                   onChange={(event) => {
-                  setBio(event.target.value)
+                  setGithubUrl(event.target.value)
+                  }}
+                />
+                <div style={{ height: '20px' }} />
+                <NormalInput
+                  label="Twitter URL"
+                  iconName="mail"
+                  type="text"
+                  inputColor="#5A5656"
+                  labelPadding=".5% 3%"
+                  value={twitterUrl}
+                  name="twitterUrl"
+                  onChange={(event) => {
+                  setTwitterUrl(event.target.value)
+                  }}
+                />
+                <div style={{ height: '20px' }} />
+                <NormalInput
+                  label="LinkedIn URL"
+                  iconName="mail"
+                  type="text"
+                  inputColor="#5A5656"
+                  labelPadding=".5% 3%"
+                  value={linkedinUrl}
+                  name="linkedinUrl"
+                  onChange={(event) => {
+                  setLinkedinUrl(event.target.value)
                   }}
                 />
               </div>
-              <div style={{ height: '20px' }} />
-              <NormalInput
-                label="Github URL"
-                iconName="mail"
-                type="email"
-                inputColor="#5A5656"
-                labelPadding=".5% 3%"
-                value={githubUrl}
-                onChange={(event) => {
-                setGithubUrl(event.target.value)
-                }}
-              />
-              <div style={{ height: '20px' }} />
-              <NormalInput
-                label="Twitter URL"
-                iconName="mail"
-                type="email"
-                inputColor="#5A5656"
-                labelPadding=".5% 3%"
-                value={twitterUrl}
-                onChange={(event) => {
-                setTwitterUrl(event.target.value)
-                }}
-              />
-              <div style={{ height: '20px' }} />
-              <NormalInput
-                label="LinkedIn URL"
-                iconName="mail"
-                type="email"
-                inputColor="#5A5656"
-                labelPadding=".5% 3%"
-                value={linkedinUrl}
-                onChange={(event) => {
-                setLinkedinUrl(event.target.value)
-                }}
-              />
             </div>
-          </div>
+          </form>
+    
         </div>
       </GeneralModal>
+      
+      
+      
+      
+      
+      
+      
+      
+      
       <div className="profile-page">
         <div className="inner-profile">
           <div className="image-url-container" style={{backgroundImage: `url(${user.profilePhoto})`}}></div>
