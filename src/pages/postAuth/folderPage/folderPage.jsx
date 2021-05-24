@@ -39,6 +39,7 @@ const FolderPageComponent = () => {
   useEffect(() => {
     onGetLessons().finally( () => {
       console.log(lessonsArray)
+      console.log("Here is the lessonFolder: ", lessonFolder.folderDetails[0])
     })
   }, [])
 
@@ -90,6 +91,8 @@ const FolderPageComponent = () => {
       <AssignmentModal
         setAssignmentModalIsVisible={setAssignmentModalIsVisible}
         assignmentModalIsVisible={assignmentModalIsVisible}
+        instructor={lessonFolder.folderDetails[0].instructor}
+        folderAssignment={lessonFolder.folderDetails[0].milestoneAssignment}
       />      
       <div className="folder-page-mobile">
         <div style={{padding: '34px 14px'}}>

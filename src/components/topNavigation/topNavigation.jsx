@@ -70,6 +70,7 @@ const TopNavigation = () => {
                 </Menu.Item>
                 <Menu.Item>
                   <GeneralButton
+                    fontSize="16px"
                     buttonText="Signup for free"
                     onClick={() => push(REGISTRATION_PAGE) }
                   />
