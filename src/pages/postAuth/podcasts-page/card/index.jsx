@@ -5,10 +5,10 @@ import { Col, Row } from 'antd'
 import './styles.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const PodcastPageCard = ({title, image, speakers, setCurrentAudio, audioFile}) => {
+const PodcastPageCard = ({title, image, speakers, audioIndex, setCurrentAudioIndex, setMusicPlayerMode}) => {
   const onPlayAudio = () => {
-    setCurrentAudio(null)
-    setCurrentAudio(audioFile)
+    setCurrentAudioIndex(audioIndex)
+    setMusicPlayerMode("full")
   }
   return (
     <div className="podcast-page-card-container">

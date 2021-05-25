@@ -10,4 +10,14 @@
       margin-top: 5%;
     }
   }
+  .current-audio-container{
+  }
+}
+
+.custom-minimize-button-on-player{
+  display: none;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+  }
 }
