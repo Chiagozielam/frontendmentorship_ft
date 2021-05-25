@@ -15,11 +15,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const { Item } = Menu
  
  const SideNav = ({ routes }) => {
-   const { generalState, setPaymentModalOpened, paymentModalOpened, logOut} = useContext(GeneralContext)
+   const { generalState, setPaymentModalOpened, paymentModalOpened, setLogOutModalOpened} = useContext(GeneralContext)
   // const { resendVerification } = useContext(AuthContext)
 
-   
-  const { push } = useHistory()
+
    
    let hover = () => {
     console.log('hover');
@@ -37,7 +36,7 @@ const { Item } = Menu
           ))
          }
          <div className="side-nav-item-container" style={{marginTop: '30px'}} >
-            <Item icon={<FontAwesomeIcon icon={faPowerOff} />} key="1" onClick={()=> logOut(push)} onItemHover={hover}>
+            <Item icon={<FontAwesomeIcon icon={faPowerOff} />} key="1" onClick={()=> setLogOutModalOpened(true)} onItemHover={hover}>
               <Link className="side-nav-item-link">LogOut</Link>
             </Item>
           </div>

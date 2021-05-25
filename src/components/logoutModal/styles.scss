@@ -1,0 +1,27 @@
+.logout-modal{
+  max-width: 400px !important;
+  width: 90% !important;
+  margin-top: 100px !important;
+
+  .logout-modal-container{
+
+
+    .logout-text{
+      padding: 20px;
+      border-bottom: 1px solid rgb(216, 216, 216);
+  
+      span{
+        color: rgb(51, 51, 51);
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  
+    .logout-button{
+      padding: 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+}

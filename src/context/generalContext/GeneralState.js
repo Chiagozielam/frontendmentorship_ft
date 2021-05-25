@@ -5,28 +5,36 @@ import GeneralContext from './GeneralContext'
 import { LOGIN_PAGE } from "../../routes";
 
 
+
+
 // The general state would hold state objects that
 const GeneralState = (props) => {
 
+  
   // const { push } = useHistory()
-
+  
   const [generalState, setGeneralState] = useState({
     user: JSON.parse(localStorage.getItem('user')) || null,
     userToken: localStorage.getItem('user-token') || null,
   })
-  const [paymentModalOpened, setPaymentModalOpened] = useState(false)
 
+
+  const [logoutModalOpened, setLogOutModalOpened] = useState(false)
+  const logOut = (push) => {
+    setGeneralState({})
+    localStorage.clear()
+    push(LOGIN_PAGE)
+    setLogOutModalOpened(false)
+  }
+
+  const [paymentModalOpened, setPaymentModalOpened] = useState(false)
   const checkThatUserHasPaid = () => {
     if(!generalState.user?.paid){
       setPaymentModalOpened(true)
     }
   }
   
-  const logOut = (push) => {
-    setGeneralState({})
-    localStorage.clear()
-    push(LOGIN_PAGE)
-  }
+
 
   return(
     <GeneralContext.Provider
@@ -37,6 +45,8 @@ const GeneralState = (props) => {
         setPaymentModalOpened,
         logOut,
         checkThatUserHasPaid,
+        logoutModalOpened,
+        setLogOutModalOpened
       }}
     >
       {props.children}
