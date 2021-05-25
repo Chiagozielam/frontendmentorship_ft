@@ -16,7 +16,7 @@ const TopNavigation = () => {
   const [current, setCurrent] = useState('mail')
   const [drawerVisible, setDrawerVisible] = useState(false)
   const { isLoading, isSignout, userToken} = useContext(AuthContext)
-  const { generalState, setPaymentModalOpened, paymentModalOpened, logOut } = useContext(GeneralContext)
+  const { generalState, setPaymentModalOpened, paymentModalOpened, setLogOutModalOpened } = useContext(GeneralContext)
 
   const togglePaymentModal = () => {
     setPaymentModalOpened(!paymentModalOpened)
@@ -107,7 +107,7 @@ const TopNavigation = () => {
                 style={{cursor: 'pointer'}}
                 onClick={() => {
                 toggleDrawer()
-                logOut(push)
+                setLogOutModalOpened(true)
               }}>LogOut</p>
               {
                 generalState.user?.paid == false ? (
