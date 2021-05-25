@@ -1,0 +1,10 @@
+diff --git a/node_modules/react-jinke-music-player/lib/styles/vars.less b/node_modules/react-jinke-music-player/lib/styles/vars.less
+index ca0f676..6dd0a51 100644
+--- a/node_modules/react-jinke-music-player/lib/styles/vars.less
++++ b/node_modules/react-jinke-music-player/lib/styles/vars.less
+@@ -1,4 +1,4 @@
+-@primary-color: #31c27c;
++@primary-color: #F14A03;
+ @primary-color-light: #fff;
+ @primary-color-dark: rgba(0, 0, 0, 0.75);
+ 
