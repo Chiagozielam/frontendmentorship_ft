@@ -5,7 +5,7 @@ import GeneralContext from "../generalContext/GeneralContext";
 import * as api from "../../constants/baseUri";
 import AuthReducer from "./AuthReducer";
 import axios from "axios";
-import { CONGRATULATION_PAGE, POST_AUTH_ROUTES } from "../../routes";
+import { CONGRATULATION_PAGE, POST_AUTH_ROUTES, PROFILE_PAGE } from "../../routes";
 
 
 const AuthState = (props) => {
@@ -152,6 +152,37 @@ const AuthState = (props) => {
     }
   };
 
+  const updateProfileInfo = async(setIsLoading, submitData, push, setShowEditProfileModal) => {
+    const userToken = generalState.userToken
+    let config = {
+      method: 'post',
+      url: `${BASE_URI}/user/updateprofiledata`,
+      headers: {
+          'user-token': userToken,
+          'Content-Type': 'multipart/form-data'
+      },
+      data: submitData
+    };
+
+    try {
+      const userDataReturned = await axios(config)
+      const returnedUserObject = userDataReturned.data.data
+      console.log("Here is the returned user object: ", returnedUserObject)
+      localStorage.setItem("user", JSON.stringify(returnedUserObject))
+      setGeneralState({
+        ...generalState,
+        user: returnedUserObject
+      })
+      setIsLoading(false)
+      setShowEditProfileModal(false)
+    } catch (err) {
+      setIsLoading(false)
+      alert(err?.response?.data?.message)
+      console.log(err)
+    }
+
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -162,7 +193,8 @@ const AuthState = (props) => {
         loginUser,
         registerUser,
         verifyUserEmail,
-        resendVerification
+        resendVerification,
+        updateProfileInfo,
       }}
     >
       {props.children}
