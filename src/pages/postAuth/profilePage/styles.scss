@@ -1,76 +1,6 @@
 $base-blue: rgba(10, 17, 101, 0.64);
 
 .profile-page-container{
-    .edit-profile-modal{
-        // .scrollable{
-        //     direction: ltl;
-        //     height: 500px;
-        //     overflow-y: scroll;
-        //     padding-left: 48px;
-
-        //     // > div {
-        //     //     direction: ltr;
-        //     // }
-
-        //     &::-webkit-scrollbar {
-        //         width: 1px;
-        //     }
-        //     /* Track */
-        //     &::-webkit-scrollbar-track {
-        //         margin-top: 15px;
-        //         border-radius: 20px;
-        //         background: #F9F9FF;
-        //     }
-        //     /* Handle */
-        //     &::-webkit-scrollbar-thumb {
-        //         border-radius: 30px;
-        //         background: #F14A03;
-        //     }
-        //     /* Handle on hover */
-        //     &::-webkit-scrollbar-thumb:hover {
-        //         background: lighten(#F14A03, 10%);
-        //     }
-        // }
-        position: relative;
-        .button-container{
-            position: absolute;
-            left: 75%;
-            margin-top: 3%;
-        }
-        .change-img-container{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            .image-url-container{
-                width: 120px;
-                height: 120px;
-                background-size: cover;
-                background-position-x: center;
-                border-radius: 60px;
-                margin: 2% auto;
-                margin-bottom: 0;
-            }
-            .change-image-round-btn{
-                background-color: #F14A03;
-                width: 37px;
-                height: 37px;
-                border-radius: 18.5px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                margin-top: -5%;
-                margin-left: 12%;
-                color: white;
-                cursor: pointer;    
-            }
-        }
-        .input-fields-container{
-            width: 70%;
-            margin: 0 auto;
-            margin-top: 2%;
-        }
-    }
     .profile-page{
         font-family: 'Montserrat', sans-serif;
         .inner-profile{
@@ -160,6 +90,83 @@ $base-blue: rgba(10, 17, 101, 0.64);
                 left: 55%;
                 margin-top: 3%;
             }
+        }
+    }
+}
+
+.edit-profile-modal{
+    .input-fields-container{
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 2%;
+    }
+    //     direction: ltl;
+    //     height: 500px;
+    //     overflow-y: scroll;
+    //     padding-left: 48px;
+
+    //     // > div {
+    //     //     direction: ltr;
+    //     // }
+
+    //     &::-webkit-scrollbar {
+    //         width: 1px;
+    //     }
+    //     /* Track */
+    //     &::-webkit-scrollbar-track {
+    //         margin-top: 15px;
+    //         border-radius: 20px;
+    //         background: #F9F9FF;
+    //     }
+    //     /* Handle */
+    //     &::-webkit-scrollbar-thumb {
+    //         border-radius: 30px;
+    //         background: #F14A03;
+    //     }
+    //     /* Handle on hover */
+    //     &::-webkit-scrollbar-thumb:hover {
+    //         background: lighten(#F14A03, 10%);
+    //     }
+    position: relative;
+    .button-container{
+        position: absolute;
+        left: 75%;
+        margin-top: -1%;
+    }
+    .change-img-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .image-url-container{
+            width: 120px;
+            height: 120px;
+            background-size: cover;
+            background-position-x: center;
+            border-radius: 60px;
+            margin: 2% auto;
+            margin-bottom: 0;
+        }
+        .change-image-round-btn{
+            background-color: #F14A03;
+            width: 37px;
+            height: 37px;
+            border-radius: 18.5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: -5%;
+            margin-left: 12%;
+            color: white;
+            cursor: pointer;    
+        }
+    }
+    @media screen and (max-width: "740px") {
+        .input-fields-container{
+            width: 100%;
+        }
+        .button-container{
+            left: 55%;
         }
     }
 }
