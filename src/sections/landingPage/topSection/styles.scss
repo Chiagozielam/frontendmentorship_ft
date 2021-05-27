@@ -4,38 +4,40 @@ $base-white: #ffffff;
 
 .entire-top-section{
     background-color: $base-white;
-    height: 75vh;
     font-family: 'Montserrat', sans-serif;
-    .flex-2{
-        padding-left: 5%;
-        padding-top: 7.5%;
+    .flex-1{
+        padding-left: 7%;
+        padding-top: 8.5%;
         h1{
             font-weight: bold;
-            line-height: 49px;
+            line-height: 45px;
             font-size: 40px;
             color: #061088;
         }
         p{
-            color: #585858;
-            font-size: 18px;
+            color: #484848;
+            font-size: 16px;
             min-height: 60px;
+            line-height: 21px;
+        }
+        .large-screen-button{
+            margin-top: -3.3%;
         }
         .small-screen-button{
             display: none;
         }
     }
-    .flex-1{
-        .image-container{
-            height: 75vh;
-            background-image: url("https://res.cloudinary.com/dcft8yhab/image/upload/v1617748176/Ada_Studio_Picture.jpg");
-            background-size: cover;
+    .flex-2{
+        padding-top: 2.3%;
+        img{
+            width: 85%;
+            margin-left: 6%;
         }
     }
     @media screen and (max-width: 800px) {
         .flex-container{
-            flex-direction: column-reverse;
         }
-        .flex-2{
+        .flex-1{
             h1{
                 font-size: 22px;
                 line-height: 27px;
@@ -52,14 +54,11 @@ $base-white: #ffffff;
                 margin-top: -5%;
             }
         }
-        .flex-1{
-            .image-container{
-                width: 300px;
-                height: 35vh;
-                margin: 0 auto;
-                margin-top: 10%;
-                margin-bottom: 30%;
-                background-position-y: center;
+        .flex-2{
+            padding-top: 5%;
+            padding-bottom: 8%;
+            img{
+                width: 90%;
             }
         }
     }
