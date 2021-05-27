@@ -1,20 +1,19 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { Row, Col } from 'antd'
 import Typewriter from 'typewriter-effect'
 import './styles.scss'
 import GeneralButton from '../../../components/GeneralButton'
+import { REGISTRATION_PAGE } from '../../../routes'
 
 const TopSection = () => {
+  const { push } = useHistory()
   return (
     <div className="entire-top-section">
       <Row className="flex-container">
         <Col sm={24} lg={9} className="flex-1">
-          <div className="image-container">
-          </div>
-        </Col>
-        <Col sm={24} lg={15} className="flex-2">
           <h1>
-            Kickstart your <br/> web development <br/> career
+            Kickstart your web <br /> development <br/> career
           </h1>
           <Typewriter
             onInit={(typewriter) => {
@@ -28,6 +27,7 @@ const TopSection = () => {
           <div className="large-screen-button">
             <GeneralButton
               buttonText="Signup for free"
+              onClick={() => push(REGISTRATION_PAGE) }
             />
           </div>
           <div className="small-screen-button">
@@ -36,8 +36,12 @@ const TopSection = () => {
               width="119px"
               height="28px"
               fontSize="12px"
+              onClick={() => push(REGISTRATION_PAGE) }
             />
           </div>
+        </Col>
+        <Col sm={24} lg={15} className="flex-2">
+          <img src="https://res.cloudinary.com/dcft8yhab/image/upload/v1622034367/carbon.png" alt="" />
         </Col>
       </Row>
     </div>

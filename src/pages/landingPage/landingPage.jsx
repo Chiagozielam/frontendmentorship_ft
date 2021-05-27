@@ -11,8 +11,8 @@ const LandingPage = () => {
   return (
     <div>
       <TopSection />
-      <DisclaimerSection />
       <VideoContent />
+      <DisclaimerSection />
       <CurriculumAndTestimonialsContainer />
       <AboutMe />
       <Newsletter />
