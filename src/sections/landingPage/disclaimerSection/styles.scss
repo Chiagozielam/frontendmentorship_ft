@@ -32,6 +32,9 @@ $base-blue: #061088;
       // height: 100%;
     }
   }
+  .mobile-button{
+    display: none;
+  }
   .mobile-screen-laptop-img{
     width: 110%;
     margin-left: -6%;
@@ -41,7 +44,7 @@ $base-blue: #061088;
     .entire-disclaimer-flex-container{
       flex-direction: row-reverse;
       .flex-2{
-        height: 45vh;
+        // height: 45vh;
         .inner-disclaimer-container{
           margin-left: 0;
           width: 100%;
@@ -51,14 +54,22 @@ $base-blue: #061088;
           .text{
             font-size: 12px;
           }
+          .desktop-button{
+            display: none;
+          }
         }
       }
       .flex-1{
         display: none;
       }
     }
+    .mobile-button{
+      display: block;
+      margin-top: 8%;
+    }
     .mobile-screen-laptop-img{
       display: block;
+      margin-top: -5%;
     }
   }
 }
