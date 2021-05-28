@@ -1,0 +1,27 @@
+.new-password{
+
+  .image-container{
+    background-image: url("https://res.cloudinary.com/dcft8yhab/image/upload/v1617748175/Daniel_Studio_Picture.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 95vh;
+  }
+  .form-container{
+    padding-left: 5%;
+    margin-top: 10%;
+    width: 55%;
+
+    h3{
+      font-weight: bold;
+      font-size: 35px;
+      margin-top: 100px;
+    }
+    .normal-input-container{
+      margin-top: 40px
+    }
+    .submit-btn{
+      margin-top: 35px; 
+    }
+  }
+}
