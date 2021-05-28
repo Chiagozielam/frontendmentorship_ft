@@ -22,17 +22,28 @@ const DisclaimerSection = () => {
               mentorship or not. We do hope you proceed till the end but you are not under any obligation to continue
               if you’re not convinced.
             </p>
-            <GeneralButton
-              buttonText="Signup for free"
-              height="44px"
-              width="190px"
-              fontSize="16px"
-              onClick={() => push(REGISTRATION_PAGE) }
-            />
+            <div className="desktop-button">
+              <GeneralButton
+                buttonText="Signup for free"
+                height="44px"
+                width="190px"
+                fontSize="16px"
+                onClick={() => push(REGISTRATION_PAGE) }
+              />
+            </div>
           </div>
         </Col>
       </Row>
       <img className="mobile-screen-laptop-img" src="https://res.cloudinary.com/dcft8yhab/image/upload/v1622080394/Vectary_texture_4.png" alt="" />
+      <div className="mobile-button">
+        <GeneralButton
+          buttonText="Signup for free"
+          height="44px"
+          width="190px"
+          fontSize="16px"
+          onClick={() => push(REGISTRATION_PAGE) }
+        />
+      </div>
     </div>
   )
 }

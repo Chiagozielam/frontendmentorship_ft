@@ -25,7 +25,7 @@ const PaymentModal = () => {
         bodyStyle={{ height: "400px" }}
       >
         <div className="payment-modal-container">
-            <h3>Unlock the Full Package</h3>
+            <h3>Pay now and worry no more about it forever</h3>
             <div className="top-discount-message-container">
               <ButtonWithIcon
                 icon={faClock}
