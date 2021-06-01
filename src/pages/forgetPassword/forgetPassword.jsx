@@ -1,11 +1,39 @@
 import "./styles.scss";
-import { Form, Row, Col, Spin } from "antd";
+import { Row, Col, Alert } from "antd";
 import NormalInput from "../../components/form/normalInput/normalInput";
+import axios from "axios";
 import GeneralButton from "../../components/GeneralButton";
 import { REGISTRATION_PAGE } from "../../routes";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { BASE_URI } from "../../constants/baseUri";
 
 const ForgetPAssword = () => {
+  const [userEmail, setUserEmail] = useState("");
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+
+  const resetPassword = async e => {
+    e.preventDefault();
+    if (userEmail) {
+      setShowErrorMessage(false);
+      let submitObject = { email: userEmail };
+      try {
+        const sendRequest = await axios.post(
+          `${BASE_URI}/user/resetpassword`,
+          submitObject
+        );
+        setAlertMessage(sendRequest.data.message);
+        setShowAlert(true);
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      setShowErrorMessage(true);
+    }
+  };
+
   return (
     <div className="forget-password">
       <Row>
@@ -14,18 +42,41 @@ const ForgetPAssword = () => {
         </Col>
         <Col sm={24} lg={15}>
           <div className="form-container">
+            {showAlert && (
+              <div className="form-alert">
+                <Alert
+                  message={alertMessage}
+                  type="success"
+                  closable
+                  onClose={() => setShowAlert(false)}
+                />
+              </div>
+            )}
             <h3>Forgot Password?</h3>
-            <Form>
-              <NormalInput label="Email address" iconName="mail" type="email" />
+            <form onSubmit={resetPassword}>
+              <NormalInput
+                label="Email address"
+                iconName="mail"
+                type="email"
+                name="email"
+                inputValue={userEmail}
+                onChange={e => setUserEmail(e.target.value)}
+              />
+              {showErrorMessage && (
+                <p style={{ color: "red", textAlign: "left" }}>
+                  Please enter your registerd email
+                </p>
+              )}
               <div className="submit-btn">
                 <GeneralButton
                   buttonText="Reset Password"
                   width="100%"
-                  height="48px"
-                  borderRadius="20px"
+                  height="54px"
+                  borderRadius="10px"
+                  htmlType="submit"
                 />
               </div>
-            </Form>
+            </form>
             <p className="create-account">
               Don&rsquo;t have an account yet?{" "}
               <Link to={REGISTRATION_PAGE}>Create a free acount here</Link>

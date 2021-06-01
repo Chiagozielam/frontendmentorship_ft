@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
-import './styles.scss';
+import React, { useState } from "react";
+import "./styles.scss";
 
 const NormalInput = ({
-  onChange, label, labelPadding, inputColor, type, name, formikProps, formikKey, inputTextColor, ...rest
+  onChange,
+  label,
+  labelPadding,
+  inputColor,
+  type,
+  name,
+  formikProps,
+  formikKey,
+  inputTextColor,
+  inputValue,
+  ...rest
 }) => {
   const [active, setActive] = useState(false);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   const handleOnBlur = () => {
     if (input) {
@@ -15,19 +25,26 @@ const NormalInput = ({
   };
   return (
     <div className="normal-input-container">
-      <label className={active ? 'active' : 'non-active'} style={{ padding: `${labelPadding}` }}>{label}</label>
+      <label
+        className={active ? "active" : "non-active"}
+        style={{ padding: `${labelPadding}` }}
+      >
+        {label}
+      </label>
       <input
         className="input"
-        style={{ backgroundColor: `${inputColor}`, color: `${inputTextColor}`}}
+        style={{ backgroundColor: `${inputColor}`, color: `${inputTextColor}` }}
         onFocus={() => setActive(true)}
         onBlur={handleOnBlur}
         type={type}
-        onChange={(event) => {
+        value={inputValue}
+        onChange={event => {
           onChange(event);
           setInput(event.target.value);
         }}
         {...rest}
-        name={name} />
+        name={name}
+      />
     </div>
   );
 };
