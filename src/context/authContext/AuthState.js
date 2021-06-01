@@ -148,7 +148,7 @@ const AuthState = (props) => {
       );
       Alert.info(sendRequest.data.message);
     } catch (err) {
-      return Alert.errror(err.response.data.message);
+      return Alert.error(err.response.data.message);
     }
   };
 

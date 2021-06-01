@@ -5,7 +5,7 @@ import { Row, Col } from 'antd'
 import { Link } from 'react-router-dom'
 // import { LESSON_FOLDER_PAGE } from './routes';
 import GeneralContext from "../../context/generalContext/GeneralContext"
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -64,7 +64,11 @@ const LessonFolder = ({ lessonFolder }) => {
         </div>
           <Row align="middle">
             <Col span={6}>
-              <img src={lessonFolder.folderDetails[0].folderImage} alt=""/>
+              <LazyLoadImage
+                alt="lesson folder"
+                className="folder-image"
+                src={lessonFolder.folderDetails[0].folderImage} // use normal <img> attributes as props
+              />
             </Col>
             <Col span={10} className="folder-details">
               <p className="folder-title">{lessonFolder.folderDetails[0].folderTitle}</p>

@@ -1,6 +1,7 @@
 import React from 'react'
 import ButtonWithIcon from '../../../../components/buttonWithIcon/ButtonWithIcon'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import './styles.scss'
 
 const BonusPageCard = ({title, image, description, onClick}) => {
@@ -8,7 +9,11 @@ const BonusPageCard = ({title, image, description, onClick}) => {
     <div className="bonus-page-card-container">
       <div className="bonus-page-card">
         <div className="image-container">
-          <img src={image} alt="" />
+          <LazyLoadImage
+            alt="lesson folder"
+            className="folder-image"
+            src={image} // use normal <img> attributes as props
+          />
         </div>
         <div className="rest-of-the-card-body">
           <p className="title">{title}</p>
