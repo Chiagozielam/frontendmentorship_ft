@@ -28,7 +28,7 @@ const CurriculumAndTestimonialsContainer = () => {
         {
           curriculumObjectArray.map( item => (
             <Col span={12} lg={6}>
-              <CurriculumCard />
+              <CurriculumCard title={item.title} />
             </Col>
           ))
           }

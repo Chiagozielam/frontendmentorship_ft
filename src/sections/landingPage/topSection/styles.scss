@@ -29,13 +29,14 @@ $base-white: #ffffff;
     }
     .flex-2{
         padding-top: 2.3%;
-        img{
+        .top-image{
             width: 85%;
             margin-left: 6%;
         }
     }
     @media screen and (max-width: 800px) {
         .flex-container{
+            height: 70vh;
         }
         .flex-1{
             h1{
@@ -57,7 +58,7 @@ $base-white: #ffffff;
         .flex-2{
             padding-top: 5%;
             padding-bottom: 8%;
-            img{
+            .top-image{
                 width: 90%;
             }
         }

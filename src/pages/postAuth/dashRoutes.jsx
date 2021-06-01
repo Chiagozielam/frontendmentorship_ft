@@ -15,7 +15,7 @@ import PodcastsPage from "./podcasts-page/podcastsPage"
 
 export const dashRoutes = [
   {
-    name: "Home",
+    name: "Dashboard",
     icon: <FontAwesomeIcon icon={faHouseUser} color="#898989" />,
     path: LESSONS_PAGE,
     component: LessonsPage,

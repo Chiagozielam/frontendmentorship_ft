@@ -5,6 +5,7 @@ import Typewriter from 'typewriter-effect'
 import './styles.scss'
 import GeneralButton from '../../../components/GeneralButton'
 import { REGISTRATION_PAGE } from '../../../routes'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const TopSection = () => {
   const { push } = useHistory()
@@ -41,7 +42,12 @@ const TopSection = () => {
           </div>
         </Col>
         <Col sm={24} lg={15} className="flex-2">
-          <img src="https://res.cloudinary.com/dcft8yhab/image/upload/v1622034367/carbon.png" alt="" />
+          {/* <img src="https://res.cloudinary.com/dcft8yhab/image/upload/v1622034367/carbon.png" alt="" /> */}
+          <LazyLoadImage
+            alt="a code snippet"
+            className="top-image"
+            src="https://res.cloudinary.com/dcft8yhab/image/upload/v1622034367/carbon.png" // use normal <img> attributes as props
+          />
         </Col>
       </Row>
     </div>

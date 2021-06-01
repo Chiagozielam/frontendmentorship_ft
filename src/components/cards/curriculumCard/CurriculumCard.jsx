@@ -8,9 +8,9 @@ const CurriculumCard = ({ title, onClick }) => {
       className="curriculum-card-container"
       onClick={onClick}
     >
-      <p className="title">Introduction to the web</p>
+      <p className="title">{title}</p>
 
-      <p className="view-details">View details</p>
+      {/* <p className="view-details">View details</p> */}
     </div>
   )
 }
