@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import CurriculumCard from '../../../components/cards/curriculumCard/CurriculumCard'
 import { Row, Col } from 'antd'
 import './styles.scss'
@@ -6,6 +7,9 @@ import { curriculumObjectArray, mentorshipBonusesArray, testimonialsArray } from
 import BonusCard from '../../../components/cards/bonusCard/BonusCard'
 import { ArrowLeftCircle, ArrowRightCircle } from 'react-feather'
 import TestimonialCard from '../../../components/cards/testimonialCard/TestimonialCard'
+import GeneralButton from '../../../components/GeneralButton'
+import { REGISTRATION_PAGE } from '../../../routes'
+
 const CurriculumAndTestimonialsContainer = () => {
   const [bonusCardCurrentNumber, setBonusCardCurrentNumber] = useState(0)
   const onPreviousBonusArrowClick = () => {
@@ -17,6 +21,7 @@ const CurriculumAndTestimonialsContainer = () => {
     setBonusCardCurrentNumber(bonusCardCurrentNumber + 1)
   }
 
+  const { push } = useHistory()
   return (
     <div className="entire-curriculum-and-testimonials-section">
       <div className="curriculum-container">
@@ -52,6 +57,28 @@ const CurriculumAndTestimonialsContainer = () => {
               <ArrowRightCircle size={30}/> <br /> Next
             </div>
           </div>
+        </div>
+        <div className="program-cost-container">
+          <p className="program-cost-header">Program Cost</p>
+          <div className="inner-cost-container">
+            <div className="cost-flex-1">
+              <p>₦44,900</p>
+              <p>$119.99</p>
+            </div>
+            <div className="cost-flex-2">
+              <p>₦100,000</p>
+              <p>$200</p>
+            </div>
+          </div>
+          <div className="signup-button">
+              <GeneralButton
+                buttonText="Create a free account"
+                height="48px"
+                width="237px"
+                fontSize="16px"
+                onClick={() => push(REGISTRATION_PAGE) }
+              />
+            </div>
         </div>
       </div>
       <div className="testimonials-container">

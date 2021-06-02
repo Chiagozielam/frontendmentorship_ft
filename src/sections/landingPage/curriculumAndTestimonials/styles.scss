@@ -56,6 +56,34 @@ $base-orange: #F14A03;
           }
         }
       }
+      .program-cost-container{
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 5%;
+        .program-cost-header{
+          font-size: 25px;
+          font-weight: 600;
+        }
+        .inner-cost-container{
+          display: flex;
+          margin-left: 3%;
+          .cost-flex-1{
+            font-size: 39px;
+            line-height: 10px;
+            font-weight: 700;
+          }
+          .cost-flex-2{
+            line-height: 10px;
+            margin-left: 5%;
+            font-size: 35px;
+            font-weight: bold;
+            p{
+              color: #B60000;
+              text-decoration: line-through white;
+            }
+          }
+        }
+      }
     }
     .testimonials-container{
         background-color: #061088;
@@ -88,6 +116,21 @@ $base-orange: #F14A03;
       }
       .bonus-card-container{
         width: 90%;
+      }
+      .program-cost-container{
+        width: 90%;
+        margin-top: 15%;
+        .program-cost-header{
+          font-size: 22px;
+        }
+        .inner-cost-container{
+          .cost-flex-1{
+            font-size: 30px;
+          }
+          .cost-flex-2{
+            font-size: 25px;
+          }
+        }
       }
     }
     .testimonials-container{
