@@ -1,13 +1,15 @@
-import { useEffect, useRef, useState } from "react";
-
+import { useContext, useEffect, useRef, useState } from "react";
+import CourseContext from "../../context/course-context/CourseContext";
 import "./styles.scss";
 
-const LessonVideo = ({ link }) => {
+const LessonVideo = ({ link, videoLessonId, lessonFolderId, showMarkSign }) => {
+  const { markLessonAsCompleted } = useContext(CourseContext);
+
   // use effect ran after link changes
   useEffect(() => {
     // load video again if link changes
     video.current.load();
-  }, [link]);
+  }, [link, videoLessonId]);
 
   // state for pause
   const [paused, setPause] = useState(true);
@@ -40,6 +42,17 @@ const LessonVideo = ({ link }) => {
     setVideoBtn(true);
   };
 
+  const checkVideoCurrentTime = async event => {
+    if (event.target.currentTime === event.target.duration) {
+      const submitObject = {
+        userLessonId: videoLessonId,
+        userLessonFolderId: lessonFolderId
+      };
+      const returnedLesson = await markLessonAsCompleted(submitObject);
+      showMarkSign(videoLessonId);
+    }
+  };
+
   return (
     <div className="video-player-wrapper">
       <video
@@ -48,7 +61,7 @@ const LessonVideo = ({ link }) => {
         controls
         onPlay={play}
         onPause={pause}
-        autoPlay
+        onTimeUpdate={checkVideoCurrentTime}
       >
         <source src={link} type="video/mp4" />
       </video>

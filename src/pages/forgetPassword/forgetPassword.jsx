@@ -1,5 +1,5 @@
 import "./styles.scss";
-import { Row, Col, Alert } from "antd";
+import { Row, Col, Alert, Spin } from "antd";
 import NormalInput from "../../components/form/normalInput/normalInput";
 import axios from "axios";
 import GeneralButton from "../../components/GeneralButton";
@@ -13,10 +13,12 @@ const ForgetPAssword = () => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const resetPassword = async e => {
     e.preventDefault();
     if (userEmail) {
+      setIsLoading(true);
       setShowErrorMessage(false);
       let submitObject = { email: userEmail };
       try {
@@ -25,6 +27,7 @@ const ForgetPAssword = () => {
           submitObject
         );
         setAlertMessage(sendRequest.data.message);
+        setIsLoading(false);
         setShowAlert(true);
       } catch (err) {
         console.log(err);
@@ -68,13 +71,27 @@ const ForgetPAssword = () => {
                 </p>
               )}
               <div className="submit-btn">
-                <GeneralButton
-                  buttonText="Reset Password"
-                  width="100%"
-                  height="54px"
-                  borderRadius="10px"
-                  htmlType="submit"
-                />
+                {isLoading ? (
+                  <Spin
+                    tip="Sending recovery link..."
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginTop: "-5%",
+                      marginBottom: "10%",
+                      padding: "5%"
+                    }}
+                  />
+                ) : (
+                  <GeneralButton
+                    buttonText="Reset Password"
+                    width="100%"
+                    height="54px"
+                    borderRadius="10px"
+                    htmlType="submit"
+                  />
+                )}
               </div>
             </form>
             <p className="create-account">

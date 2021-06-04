@@ -37,17 +37,19 @@ const FolderPageComponent = () => {
   const onGetLessons = async () => {
     const userLessons = await getUserLessonsForALessonFolder(lessonFolderId);
     setLessonsArray(userLessons);
+
+    // set default lesson link
     setVideolink(userLessons[0].lessonDetailsArray[0].videoLink);
-    console.log(lessonsArray);
-    console.log(
-      "user lessons ",
-      userLessons[0].lessonDetailsArray[0].videoLink
-    );
+
+    // set default lesson id
+    setLessonId(userLessons[0]._id);
+
+    return userLessons;
   };
   useEffect(() => {
     onGetLessons().finally(() => {
-      console.log(lessonsArray);
-      console.log("Here is the lessonFolder: ", lessonFolder.folderDetails[0]);
+      // console.log(lessonsArray);
+      // console.log("Here is the lessonFolder: ", lessonFolder.folderDetails[0]);
     });
   }, []);
 
@@ -57,6 +59,11 @@ const FolderPageComponent = () => {
   // stroe video link in a state (passed as prop to lesson video component)
   const [videolink, setVideolink] = useState(null);
 
+  // stroe lessonid in a state (passed as prop to lesson video component)
+  const [lessonId, setLessonId] = useState(null);
+
+  const [videoComponent, setVideoComponent] = useState(true);
+
   // fuction called when description changes
   const descriptionChanged = e => {
     setDescription(e);
@@ -65,6 +72,25 @@ const FolderPageComponent = () => {
   // fuction called whwn video link changes
   const onVideoChange = e => {
     setVideolink(e);
+    setVideoComponent(false);
+    setTimeout(() => {
+      setVideoComponent(true);
+    }, 1);
+  };
+
+  const onPassLessonIdToVideo = e => {
+    setLessonId(e);
+  };
+
+  const updateLessonArray = lessonid => {
+    let newLessonArray = [...lessonsArray];
+    newLessonArray.forEach(lesson => {
+      if (lesson._id === lessonid) {
+        lesson.completed = true;
+        console.log(lesson);
+      }
+    });
+    setLessonsArray(newLessonArray);
   };
 
   const folderPageTabs = [
@@ -80,6 +106,7 @@ const FolderPageComponent = () => {
           lessons={lessonsArray}
           changeDescription={descriptionChanged}
           changeVideo={onVideoChange}
+          passLessonIdToVideo={onPassLessonIdToVideo}
         />
       ),
       tabIndex: 1
@@ -119,7 +146,12 @@ const FolderPageComponent = () => {
       />
       <div className="folder-page-mobile">
         <div style={{ padding: "34px 14px" }}>
-          <Video link={videolink} />
+          <Video
+            link={videolink}
+            videoLessonId={lessonId}
+            lessonFolderId={lessonFolderId}
+            showMarkSign={updateLessonArray}
+          />
         </div>
         <TabsComponent
           tabBarColor="transparent"
@@ -141,7 +173,14 @@ const FolderPageComponent = () => {
         <Row className="content">
           <Col span={14} className="video-lesson-details">
             {/* video component  */}
-            <Video link={videolink} />
+            {videoComponent && (
+              <Video
+                link={videolink}
+                videoLessonId={lessonId}
+                lessonFolderId={lessonFolderId}
+                showMarkSign={updateLessonArray}
+              />
+            )}
 
             {/* Lesson description  */}
             <div className="lesson-description-wrapper">
@@ -167,6 +206,7 @@ const FolderPageComponent = () => {
               unlockTheNextChapter={unlockTheNextChapter}
               push={push}
               setAssignmentModalIsVisible={setAssignmentModalIsVisible}
+              passLessonIdToVideo={onPassLessonIdToVideo}
             />
           </Col>
         </Row>

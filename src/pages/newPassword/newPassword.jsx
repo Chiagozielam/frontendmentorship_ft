@@ -1,5 +1,5 @@
 import "./styles.scss";
-import { Row, Col, Alert } from "antd";
+import { Row, Col, Alert, Spin } from "antd";
 import NormalInput from "../../components/form/normalInput/normalInput";
 import GeneralButton from "../../components/GeneralButton";
 import { useState } from "react";
@@ -25,11 +25,13 @@ const SetPassword = () => {
   const [confrimPassword, setConfrimPassword] = useState("");
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const sendNewPassword = async e => {
     e.preventDefault();
 
     if (newPassword === confrimPassword && newPassword.length >= 6) {
+      setIsLoading(true);
       let submitObject = { newPassword };
 
       let config = {
@@ -45,6 +47,7 @@ const SetPassword = () => {
         const sendRequest = await axios(config);
         setAlertMessage(sendRequest.data.message);
         setShowAlert(true);
+        setIsLoading(false);
         setTimeout(() => {
           push("/login");
         }, 3500);
@@ -108,13 +111,27 @@ const SetPassword = () => {
                 </p>
               )}
               <div className="submit-btn">
-                <GeneralButton
-                  buttonText="Submit"
-                  width="100%"
-                  height="54px"
-                  borderRadius="10px"
-                  htmlType="submit"
-                />
+                {isLoading ? (
+                  <Spin
+                    tip="Creating new password..."
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      marginTop: "-5%",
+                      marginBottom: "10%",
+                      padding: "5%"
+                    }}
+                  />
+                ) : (
+                  <GeneralButton
+                    buttonText="Submit"
+                    width="100%"
+                    height="54px"
+                    borderRadius="10px"
+                    htmlType="submit"
+                  />
+                )}
               </div>
             </form>
           </div>
