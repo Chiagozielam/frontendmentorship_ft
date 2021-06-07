@@ -120,7 +120,8 @@ export const curriculumObjectArray = [
       testimonialText: "The class was nice, we moved very fast and his teaching skills are nice and you can easily understand him. Anytime anywhere I will recommend him for anyone who wants to learn front-end development",
       image: "https://res.cloudinary.com/dcft8yhab/image/upload/v1596854346/WhatsApp_Image_2020-08-08_at_12.10.44_AM.jpg",
       name: "Daniel Don",
-      job: "Frontend Developer"
+      job: "Frontend Developer",
+      videoUrl: "https://player.vimeo.com/external/357074903.sd.mp4?s=af468540a22a7fe9a8481fadc67027593a37d4e6&profile_id=164&oauth2_token_id=57447761"
     },
     {
       testimonialText: "The class was nice, we moved very fast and his teaching skills are nice and you can easily understand him. Anytime anywhere I will recommend him for anyone who wants to learn front-end development",
@@ -132,7 +133,8 @@ export const curriculumObjectArray = [
       testimonialText: "The class was nice, we moved very fast and his teaching skills are nice and you can easily understand him. Anytime anywhere I will recommend him for anyone who wants to learn front-end development",
       image: "https://res.cloudinary.com/dcft8yhab/image/upload/v1596854346/WhatsApp_Image_2020-08-08_at_12.10.44_AM.jpg",
       name: "Daniel Don",
-      job: "Frontend Developer"
+      job: "Frontend Developer",
+      videoUrl: "https://player.vimeo.com/external/390846066.sd.mp4?s=75e4e5934d8187c25e9c8c61edbf89a6d3cbf470&profile_id=139&oauth2_token_id=57447761"
     },
     {
       testimonialText: "The class was nice, we moved very fast and his teaching skills are nice and you can easily understand him. Anytime anywhere I will recommend him for anyone who wants to learn front-end development",
@@ -140,4 +142,53 @@ export const curriculumObjectArray = [
       name: "Daniel Don",
       job: "Frontend Developer"
     },
+  ]
+
+  export const menteeStoriesArray = [
+    {
+      header: {
+        heading: "Daniel Don",
+        profileImage: "https://res.cloudinary.com/dcft8yhab/image/upload/c_thumb,g_face,h_400,w_400/v1620864155/Daniel_Don.jpg"
+      },
+      url: "https://res.cloudinary.com/dcft8yhab/video/upload/v1622815303/pexels-taryn-elliott-5433962.mp4",
+      id: 1,
+      type: "video"
+    },
+    {
+      header: {
+        heading: "Daniel Don",
+        profileImage: "https://res.cloudinary.com/dcft8yhab/image/upload/c_thumb,g_face,h_400,w_400/v1620864155/Daniel_Don.jpg"
+      },
+      url: "https://res.cloudinary.com/dcft8yhab/video/upload/v1622048247/Mentorship%20Lessons/first%20folder/Introduction_to_Github-_deploying_your_first_website.mp4",
+      id: 2,
+      type: "video"
+    },
+    {
+      header: {
+        heading: "Daniel Don",
+        profileImage: "https://res.cloudinary.com/dcft8yhab/image/upload/c_thumb,g_face,h_400,w_400/v1620864155/Daniel_Don.jpg"
+      },
+      url: "https://res.cloudinary.com/dcft8yhab/video/upload/v1622815303/pexels-taryn-elliott-5433962.mp4",
+      id: 3,
+      type: "video"
+    },
+    {
+      header: {
+        heading: "Daniel Don",
+        profileImage: "https://res.cloudinary.com/dcft8yhab/image/upload/c_thumb,g_face,h_400,w_400/v1620864155/Daniel_Don.jpg"
+      },
+      url: "https://res.cloudinary.com/dcft8yhab/video/upload/v1622815303/pexels-taryn-elliott-5433962.mp4",
+      id: 4,
+      type: "video"
+    },
+    {
+      header: {
+        heading: "Daniel Don",
+        profileImage: "https://res.cloudinary.com/dcft8yhab/image/upload/c_thumb,g_face,h_400,w_400/v1620864155/Daniel_Don.jpg"
+      },
+      url: "https://res.cloudinary.com/dcft8yhab/video/upload/v1622815303/pexels-taryn-elliott-5433962.mp4",
+      id: 5,
+      type: "video"
+    },
+    
   ]

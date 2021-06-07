@@ -1,5 +1,6 @@
 $base-gray: #DEDEDE;
 $base-orange: #F14A03;
+$base-blue: #061088;
 
 
 .entire-curriculum-and-testimonials-section{
@@ -9,6 +10,40 @@ $base-orange: #F14A03;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     color: white;
+
+    .react-insta-stories-container{
+      // position: fixed;
+      width: 500px;
+      height: 500px;
+    }
+    .stories-header{
+      color: $base-blue;
+      text-align: left;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .frontend-mentorship-stories-main-container{
+      display: flex;
+      align-items:  center;
+      justify-content: center;
+      width: 95vw;
+    }
+    .frontendmentorship-stories-container{
+      height: 65vh;
+      overflow-y: scroll;
+      div{
+        cursor: pointer;
+        margin-bottom: 1%;
+        border: 4px solid $base-orange;
+        img{
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          border: 2px solid white;
+        }
+        border-radius: 50%;
+      }
+    }
     .curriculum-container{
       width: 83%;
       background-color: #141D26;
@@ -135,6 +170,9 @@ $base-orange: #F14A03;
     }
     .testimonials-container{
       padding-top: 15%;
+    }
+    .frontendmentorship-stories-container{
+      display: none;
     }
   }
 }

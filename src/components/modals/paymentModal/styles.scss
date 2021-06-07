@@ -1,3 +1,31 @@
+.payment-options-modal{
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+  font-size: 12px;
+  h4{
+    text-decoration: underline;
+    font-weight: 600;
+    margin-bottom: 3%;
+  }
+  .bank-details-headers{
+    line-height: 5px;
+    span{
+      font-weight: 500;
+      padding-right: 2%;
+    }
+    .account-number{
+      letter-spacing: 3px;
+    }
+  }
+  .upload-receipt-instruction{
+    line-height: 18px;
+    font-size: 12px;
+    background-color: rgb(155, 255, 155);
+    padding: 2%;
+    color: green;
+    font-weight: 500;
+  }
+}
 .payment-modal-container{
   font-family: 'Montserrat', sans-serif;
   h3{

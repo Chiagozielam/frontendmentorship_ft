@@ -35,4 +35,19 @@
             }
         }
     }
+    .play-testimonial-video-container{
+        display: inline-flex;
+        align-items: center;
+        margin-top: 3%;
+        cursor: pointer;
+        .play-testimonial-video-icon{
+            color: blue;
+        }
+        .play-testimonial-video-text{
+            margin: auto;
+            font-size: 12px;
+            margin-left: 5px;
+            color: blue;
+        }
+    }
 }
