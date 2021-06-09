@@ -3,15 +3,23 @@ import { useHistory } from 'react-router-dom'
 import CurriculumCard from '../../../components/cards/curriculumCard/CurriculumCard'
 import { Row, Col } from 'antd'
 import './styles.scss'
-import { curriculumObjectArray, mentorshipBonusesArray, testimonialsArray } from './data'
+import { curriculumObjectArray, mentorshipBonusesArray, testimonialsArray, menteeStoriesArray } from './data'
 import BonusCard from '../../../components/cards/bonusCard/BonusCard'
 import { ArrowLeftCircle, ArrowRightCircle } from 'react-feather'
 import TestimonialCard from '../../../components/cards/testimonialCard/TestimonialCard'
 import GeneralButton from '../../../components/GeneralButton'
 import { REGISTRATION_PAGE } from '../../../routes'
+import Stories from 'react-insta-stories';
+import GeneralModal from '../../../components/modals/general-modal/GeneralModal'
+import Video from '../../../components/lessonVideoPlay/lessonVideoPlay'
+
 
 const CurriculumAndTestimonialsContainer = () => {
   const [bonusCardCurrentNumber, setBonusCardCurrentNumber] = useState(0)
+  const [testimonialVideoModalIsOpen, setTestimonialVideoModalIsOpen] = useState(false)
+  const [currentTestimonialVideo, setCurrentTestimonialVideo] = useState('')
+  const [currentStorySelectedIdx, setCurrentStorySelectedIdx] = useState(0)
+
   const onPreviousBonusArrowClick = () => {
     if(bonusCardCurrentNumber <= 0) return
     setBonusCardCurrentNumber(bonusCardCurrentNumber - 1)
@@ -21,9 +29,46 @@ const CurriculumAndTestimonialsContainer = () => {
     setBonusCardCurrentNumber(bonusCardCurrentNumber + 1)
   }
 
+  const onSetCurrentStoryIndex = idx => {
+    setCurrentStorySelectedIdx(idx)
+  }
   const { push } = useHistory()
   return (
     <div className="entire-curriculum-and-testimonials-section">
+      
+      {/* <p className="stories-header">Watch Mentee Stories</p>
+      <div className="frontend-mentorship-stories-main-container">
+        <div className="frontendmentorship-stories-container">
+          {
+            menteeStoriesArray.map( (mentee, index) => (
+              <div onClick={() => onSetCurrentStoryIndex(index)}><img src={mentee.header.profileImage} alt="" /></div>
+            ))
+          }
+        </div>
+        <div className="react-insta-stories-container">
+          <Stories
+            stories={menteeStoriesArray}
+            currentIndex={currentStorySelectedIdx}
+            defaultInterval={1500}
+            width="100%"
+            height={468}
+            isPaused= {isStoryPaused}
+            
+          />
+        </div>
+      </div> */}
+
+      {/* This modal is for the testimonial videos from students */}
+      <GeneralModal
+        modalOpened={testimonialVideoModalIsOpen}
+        setModalOpened={setTestimonialVideoModalIsOpen}
+        padding={0}
+        width="45%"
+      >
+        <div className="video-container">
+          <Video link={currentTestimonialVideo} />
+        </div>
+      </GeneralModal>
       <div className="curriculum-container">
         <div className="heading-container">
           <p className="header">Mentorship Curriculum</p>
@@ -87,10 +132,9 @@ const CurriculumAndTestimonialsContainer = () => {
             testimonialsArray.map( testimonial => (
               <Col sm={24} lg={7}>
                 <TestimonialCard
-                  testimonialText={testimonial.testimonialText}
-                  image={testimonial.image}
-                  name={testimonial.name}
-                  job={testimonial.job}
+                  testimonial={testimonial}
+                  setTestimonialVideoModalIsOpen={setTestimonialVideoModalIsOpen}
+                  onChangeTestimonialVideo = { (videoUrl) => setCurrentTestimonialVideo(videoUrl)}
                 />
               </Col>
             ))
