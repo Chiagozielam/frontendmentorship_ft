@@ -27,7 +27,7 @@ const GeneralState = (props) => {
     setLogOutModalOpened(false)
   }
 
-  const [paymentModalOpened, setPaymentModalOpened] = useState(true)
+  const [paymentModalOpened, setPaymentModalOpened] = useState(false)
   const checkThatUserHasPaid = () => {
     if(!generalState.user?.paid){
       setPaymentModalOpened(true)

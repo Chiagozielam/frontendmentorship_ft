@@ -52,7 +52,7 @@
     .main-price{
       font-weight: 600;
       font-size: 20px;
-      text-decoration: line-through;
+      text-decoration: line-through red;
    }
     .discount-price{
       font-weight: 600;
@@ -66,5 +66,13 @@
     line-height: 142.9%;
     font-weight: 500;
     margin-top: 2%;
+  }
+  @media screen and (max-width: "450px") {
+    .price-container{
+      width: 80%;
+    }
+    .bottom-text{
+      width: 100%;
+    }
   }
 }

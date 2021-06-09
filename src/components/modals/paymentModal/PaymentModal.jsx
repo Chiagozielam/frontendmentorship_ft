@@ -24,7 +24,7 @@ const PaymentModal = () => {
         closable={false}
         transitionName=""
         footer={null}
-        bodyStyle={{ height: "400px" }}
+        bodyStyle={{ height: "430px" }}
       >
 
         {/* This is for the payment options modal */}
@@ -124,7 +124,7 @@ const PaymentModal = () => {
               <Button
                 style={{
                   backgroundColor: "white",
-                  width: "20%",
+                  width: "35%",
                   fontSize: "12px",
                   borderRadius: "10px",
                   height: "30px",
