@@ -1,6 +1,7 @@
 import './styles.scss'
 import GeneralButton from '../../GeneralButton'
 import { Link } from 'react-router-dom'
+import { string, object } from 'prop-types'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -50,6 +51,11 @@ const InstructorCard = ({ instructor, cardColor = 'white' }) => {
       </div>
     </div>
    );
+}
+
+InstructorCard.propTypes = {
+  instructor: object,
+  cardColor: string
 }
  
 export default InstructorCard;

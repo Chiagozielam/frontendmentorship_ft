@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.scss'
 import { Link } from 'react-router-dom'
+import { string, func } from 'prop-types'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -19,6 +20,16 @@ const PodcatsCard = ({ heading, description, bgcolor, link, filter, boxShadow, o
           </div>
         </div> 
      );
+}
+
+PodcatsCard.propTypes = {
+  heading: string,
+  description: string,
+  bgcolor: string,
+  link: string,
+  filter: string,
+  boxShadow: string,
+  onClick: func 
 }
  
 export default PodcatsCard;

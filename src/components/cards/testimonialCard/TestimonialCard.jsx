@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './styles.scss'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons';
+import { object, func } from 'prop-types'
 
 const TestimonialCard = ({ testimonial, setTestimonialVideoModalIsOpen, onChangeTestimonialVideo }) => {
 
@@ -29,6 +30,12 @@ const TestimonialCard = ({ testimonial, setTestimonialVideoModalIsOpen, onChange
       )}
     </div>
   )
+}
+
+TestimonialCard.propTypes = {
+  testimonial: object,
+  setTestimonialVideoModalIsOpen: func,
+  onChangeTestimonialVideo: func
 }
 
 export default TestimonialCard

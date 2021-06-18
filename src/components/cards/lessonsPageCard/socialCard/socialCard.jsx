@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faArrowCircleRight
 } from "@fortawesome/free-solid-svg-icons";
+import { string } from 'prop-types'
   
 const SocialCard = ({ description, link }) => {
   return (
@@ -15,6 +16,11 @@ const SocialCard = ({ description, link }) => {
         </div>
       </Link> 
      );
+}
+
+SocialCard.propTypes = {
+  description: string,
+  link: string
 }
  
 export default SocialCard;
