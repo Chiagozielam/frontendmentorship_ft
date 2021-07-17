@@ -9,7 +9,8 @@ $primary-color: #F14A03;
 .lesson-folders-component{
     .lesson-folders-container{
         direction: rtl;
-        height: 500px;
+        height: 70vh;
+        max-height: 700px;
         overflow-y: scroll;
         padding-left: 48px;
     

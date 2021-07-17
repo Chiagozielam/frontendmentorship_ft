@@ -69,7 +69,7 @@ const BonusPage = () => {
       />
       {
         isLoading ? (
-          <Spin tip="loading bonuses..." style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20%"}} />
+          <Spin tip="  Loading bonuses..." style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: "20%"}} />
         ) : (
           <div>
             {

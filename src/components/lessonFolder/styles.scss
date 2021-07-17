@@ -12,6 +12,10 @@
   margin-top: 12px;
   border-radius: 15px;
   height: 136px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
   .folder-image{
       width: 100%;
       border-radius: 10px;
