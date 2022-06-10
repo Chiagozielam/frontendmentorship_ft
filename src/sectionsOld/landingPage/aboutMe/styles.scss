@@ -1,0 +1,38 @@
+.about-me-section{
+  font-family: 'Montserrat', sans-serif;
+  width: 65%;
+  margin: 7% auto;
+  padding-bottom: 3%;
+  .image{
+    width: 100%;
+    margin-top: -10%;
+  }
+  .heading{
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+  }
+  .body{
+    margin-top: -3%;
+    p{
+      font-size: 16px;
+      line-height: 23px;
+      color: #625D5D;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 85%;
+    .image{
+      width: 80%;
+      margin-bottom: 10%;
+      margin-left: 5%;
+      
+    }
+    .body{
+      p{
+        font-size: 16px;
+      }
+    }
+  }
+}
