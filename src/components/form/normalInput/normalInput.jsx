@@ -12,6 +12,8 @@ const NormalInput = ({
   formikKey,
   inputTextColor,
   inputValue,
+  placeholder,
+  icon,
   ...rest
 }) => {
   const [active, setActive] = useState(false);
@@ -38,7 +40,9 @@ const NormalInput = ({
         onBlur={handleOnBlur}
         type={type}
         value={inputValue}
-        onChange={event => {
+        placeholder={placeholder}
+        icon={icon}
+        onChange={(event) => {
           onChange(event);
           setInput(event.target.value);
         }}

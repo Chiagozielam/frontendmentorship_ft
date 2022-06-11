@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <TopNavigation /> */}
+        <TopNavigation />
         <LogoutModal />
         <Switch>
           <Route exact path={LANDING_PAGE} component={LandingPage} />
