@@ -16,7 +16,7 @@ import {
   REGISTRATION_PAGE,
   PAYMENT_VERIFICATION_PAGE,
   FORGET_PASSWORD,
-  NEW_PASSWORD
+  NEW_PASSWORD,
 } from "./routes";
 import VerifyEmailPage from "./pages/verifyEmailPage/verifyEmailPage";
 import PaymentVerificationPage from "./pages/payment-verification-page/paymentVerificationPage";

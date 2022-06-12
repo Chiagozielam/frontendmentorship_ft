@@ -1,5 +1,30 @@
-.footer{
-    background-color: #141D26;
-    height: 40vh;
-    margin-top: 10%;
+.footer {
+  height: 374px;
+  background: #272833;
+  position: relative;
+  overflow: hidden;
+
+  .footer_lines {
+    position: absolute;
+    top: -165px;
+  }
+  @media screen and (max-width: 1024px) {
+    height: 150px;
+  }
+  @media screen and (max-width: 1023px) {
+    height: 150px;
+    overflow: hidden;
+    .footer_lines {
+      position: absolute;
+      top: -165px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    height: 100px;
+    overflow: hidden;
+    .footer_lines {
+      position: absolute;
+      top: -165px;
+    }
+  }
 }

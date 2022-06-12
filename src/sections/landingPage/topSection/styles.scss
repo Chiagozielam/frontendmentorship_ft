@@ -1,67 +1,227 @@
-$base-orange: #F14A03;
+$base-orange: #f14a03;
 $base-white: #ffffff;
 
+.entire-top-section {
+  background-color: #fffdf9;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
 
-.entire-top-section{
-    background-color: $base-white;
-    font-family: 'Montserrat', sans-serif;
-    .flex-1{
-        padding-left: 7%;
-        padding-top: 8.5%;
-        h1{
-            font-weight: bold;
-            line-height: 42px;
-            font-size: 40px;
-            color: #061088;
-        }
-        p{
-            color: #484848;
-            font-size: 16px;
-            min-height: 60px;
-            line-height: 21px;
-            margin-top: 5%;
-        }
-        .large-screen-button{
-            margin-top: -3.3%;
-        }
-        .small-screen-button{
-            display: none;
-        }
+  .flex-1 {
+    padding-left: 14%;
+    padding-top: 8.5%;
+    position: relative;
+    z-index: 20;
+
+    h1 {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 46px;
+      line-height: 108.4%;
+      letter-spacing: 0.015em;
+      color: #061088;
+      position: relative;
+      .box_lines {
+        position: absolute;
+        left: -40px;
+        top: -30px;
+      }
     }
-    .flex-2{
-        padding-top: 2.3%;
-        .top-image{
-            width: 85%;
-            margin-left: 6%;
-        }
+
+    p {
+      font-family: "Open Sans";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 22px;
+      color: #595959;
+      margin-top: 5%;
+      width: 400px;
     }
-    @media screen and (max-width: 800px) {
-        .flex-container{
-            height: 70vh;
-        }
-        .flex-1{
-            h1{
-                font-size: 22px;
-                line-height: 27px;
-                margin-top: 4%;
-            }
-            p{
-                font-size: 12px;
-            }
-            .large-screen-button{
-                display: none;
-            }
-            .small-screen-button{
-                display: block;
-                margin-top: -5%;
-            }
-        }
-        .flex-2{
-            padding-top: 5%;
-            padding-bottom: 8%;
-            .top-image{
-                width: 90%;
-            }
-        }
+    .large-screen-button {
+      margin-top: 61px;
     }
+    .small-screen-button {
+      display: none;
+    }
+  }
+  .flex-2 {
+    position: relative;
+    bottom: 30px;
+
+    .top-image {
+      width: 80%;
+      position: absolute;
+      left: -40px;
+    }
+
+    .book_drawing {
+      position: absolute;
+      top: 800px;
+      right: 320px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .flex-1 {
+      padding-left: 10%;
+      padding-top: 8.5%;
+      position: relative;
+      z-index: 20;
+
+      h1 {
+        font-size: 30px;
+
+        .box_lines {
+          position: absolute;
+          left: -35px;
+          top: -35px;
+          width: 70px;
+          height: 70px;
+        }
+      }
+
+      p {
+        width: 300px;
+      }
+      .large-screen-button {
+        margin-top: 30px;
+      }
+    }
+    .flex-2 {
+      position: relative;
+      bottom: 30px;
+
+      .top-image {
+        width: 80%;
+        position: absolute;
+        left: 20px;
+      }
+
+      .book_drawing {
+        position: absolute;
+        top: 500px;
+        right: 320px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    .flex-1 {
+      padding-left: 10%;
+      padding-top: 8.5%;
+      position: relative;
+      z-index: 20;
+
+      h1 {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 23px;
+        line-height: 108.4%;
+        letter-spacing: 0.015em;
+        color: #061088;
+        position: relative;
+        .box_lines {
+          position: absolute;
+          left: -20px;
+          top: -20px;
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+      p {
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 22px;
+        color: #595959;
+        margin-top: 5%;
+        width: 220px;
+      }
+      .large-screen-button {
+        margin-top: 20px;
+
+        .signUp_btn {
+          height: 50px !important;
+          font-size: 14px !important;
+          width: 200px !important;
+        }
+      }
+    }
+    .flex-2 {
+      position: relative;
+      bottom: 10px;
+
+      .top-image {
+        width: 80%;
+        position: absolute;
+        left: 10px;
+      }
+
+      .book_drawing {
+        position: absolute;
+        top: 300px;
+        right: 100px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .flex-1 {
+      padding-left: 8%;
+      padding-top: 15.5%;
+      position: relative;
+      z-index: 0;
+
+      h1 {
+        font-size: 25px;
+        z-index: 200;
+        position: relative;
+        .box_lines {
+          position: absolute;
+          left: -19px;
+          top: -20px;
+          width: 50px;
+          height: 50px;
+        }
+      }
+      p {
+        font-size: 12px;
+        margin-top: 5%;
+        width: 90%;
+      }
+      .large-screen-button {
+        margin-top: 0px;
+        .signUp_btn {
+          width: 40% !important;
+          font-size: 12px !important;
+          height: 40px !important;
+          text-align: center !important;
+          @media screen and (max-width: 280px) {
+            width: 50% !important;
+          }
+        }
+      }
+    }
+    .flex-2 {
+      position: relative;
+      bottom: 30px;
+      width: 80%;
+      margin: auto;
+      margin-top: 20px;
+
+      .top-image {
+        width: 100%;
+        position: relative;
+        left: 0px;
+      }
+
+      .book_drawing {
+        display: none;
+      }
+    }
+  }
 }

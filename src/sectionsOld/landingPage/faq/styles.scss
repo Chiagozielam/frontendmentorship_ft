@@ -1,0 +1,13 @@
+.faq-section{
+  padding: 0 15%;
+  font-family: 'Montserrat', sans-serif;
+  .collapsable-container{
+    .collapsable-text{
+      line-height: 200%;
+      padding: 1%;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    padding: 0 5%;
+  }
+}

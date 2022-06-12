@@ -1,0 +1,32 @@
+//git push -u https://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@github.com/Chiagozielam/frontendmentorship_ft.git
+.wrapper {
+  width: 100%;
+
+  .video_and_curriculum_container {
+    width: 100%;
+    padding-bottom: 74px;
+    background: #141d26;
+    margin-top: 350px;
+  }
+
+  @media screen and (max-width: 1023px) {
+    .video_and_curriculum_container {
+      width: 100%;
+      padding-bottom: 50px;
+      background: #141d26;
+      margin-top: 100px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .video_and_curriculum_container {
+      width: 100%;
+      padding-bottom: 74px;
+      background: #141d26;
+      margin-top: 560px;
+      @media screen and (max-width: 320px) {
+        margin-top: 600px;
+      }
+    }
+  }
+}
