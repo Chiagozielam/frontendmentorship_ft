@@ -1,4 +1,6 @@
-import "./styles.scss";
+
+
+gitimport "./styles.scss";
 import { Row, Col, Alert, Spin } from "antd";
 import NormalInput from "../../components/form/normalInput/normalInput";
 import GeneralButton from "../../components/GeneralButton";
