@@ -1,0 +1,116 @@
+* {
+  margin: 0px;
+  padding: 0px;
+
+  .login_modal {
+    height: 100vh;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    background: rgba(241, 74, 3, 0.45);
+    z-index: 99999;
+
+    .form_container {
+      width: 100%;
+      .form_sub_container {
+        width: 334px;
+        padding: 30px 26px 40px 26px;
+        background: #ffffff;
+        border-radius: 20px;
+        margin: auto;
+        margin-top: 122px;
+        .each_input_fild {
+          padding-bottom: 25px;
+          .input_field_container {
+            position: relative;
+            width: 100%;
+            .icon {
+              position: absolute;
+              right: 0;
+              color: #0a1165 !important;
+              transform: scale(1.5);
+              bottom: 25px;
+              margin-right: 20px;
+              @media screen and (max-width: 1023px) {
+                bottom: 15px;
+              }
+            }
+          }
+          p {
+            margin-bottom: 0px !important;
+          }
+        }
+
+        .form_header {
+          font-weight: 600 !important;
+          font-size: 35px !important;
+        }
+
+        .forgot_password {
+          float: right;
+        }
+        .submit_btn {
+          width: 100% !important;
+          height: 69px !important;
+          border-radius: 15px !important;
+          margin-top: 37px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .login_modal {
+      height: 100vh;
+      width: 100%;
+      font-family: "Montserrat", sans-serif;
+      position: fixed;
+      bottom: 0;
+      top: 0;
+      background: rgba(241, 74, 3, 0.45);
+      z-index: 99999;
+
+      .form_container {
+        width: 100%;
+        .form_sub_container {
+          width: 90%;
+          padding: 20px 20px 30px 20px;
+          background: #ffffff;
+          border-radius: 20px;
+          margin: auto;
+          margin-top: 122px;
+          .each_input_fild {
+            padding-bottom: 25px;
+            .input_field_container {
+              position: relative;
+              width: 100%;
+              .icon {
+                bottom: 15px;
+                margin-right: 20px;
+              }
+            }
+            p {
+              margin-bottom: 0px !important;
+            }
+          }
+
+          .form_header {
+            font-size: 30px !important;
+          }
+
+          .forgot_password {
+            float: right;
+          }
+          .submit_btn {
+            width: 100% !important;
+            height: 69px !important;
+            border-radius: 15px !important;
+            margin-top: 37px;
+          }
+        }
+      }
+    }
+  }
+}

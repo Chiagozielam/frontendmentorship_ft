@@ -9,10 +9,13 @@ import Newsletter from "../../sections/landingPage/newsletter/Newsletter";
 import AboutMe from "../../sections/landingPage/aboutMe/AboutMe";
 import Footer from "../../sections/footer/Footer";
 import { AlignRightOutlined } from "@ant-design/icons";
+import LoginModal from "../../components/modals/loginModal/loginModal";
 
 const LandingPage = () => {
   return (
     <div className="wrapper">
+      <LoginModal />
+
       <TopSection />
 
       <PaymentPlan />
