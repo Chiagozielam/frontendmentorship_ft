@@ -1,57 +1,268 @@
-.new-password{
+* {
+  margin: 0px;
+  padding: 0px;
 
-  .image-container{
-    background-image: url("https://res.cloudinary.com/dcft8yhab/image/upload/v1617748175/Daniel_Studio_Picture.jpg");
-    background-size: cover;
-    background-position: center;
+  .new-password {
+    height: 100vh;
     width: 100%;
-    height: 95vh;
+    font-family: "Montserrat", sans-serif;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    .image-container {
+      background-image: url("https://res.cloudinary.com/dmrdnero7/image/upload/v1654783588/frontendMentorship/signup_background_img_x4xjpk.png");
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100vh;
+      .sub_container {
+        background: rgba(255, 242, 216, 0.44);
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        .text_container {
+          width: 75%;
+          height: 277px;
+          background: #fffefb;
+          border-radius: 15px;
+          margin: auto;
+          margin-top: 300px;
+          padding: 40px;
+          .welcome_header {
+            text-align: center;
+            font-size: 64px !important;
+            line-height: 87px !important;
+          }
+          .sub_text {
+            font-size: 20px !important;
+            line-height: 27px !important;
+            text-align: center;
+            margin: auto;
+          }
+        }
+      }
+    }
+    .form-container {
+      margin-top: 15%;
+      width: 100%;
+      .form_sub_container {
+        width: 70%;
+        margin: auto;
+        .each_input_fild {
+          padding-bottom: 25px;
+          .input_field_container {
+            position: relative;
+            width: 100%;
+            .icon {
+              position: absolute;
+              right: 0;
+              color: #0a1165 !important;
+              transform: scale(1.5);
+              bottom: 25px;
+              margin-right: 20px;
+            }
+          }
+          p {
+            margin-bottom: 0px !important;
+          }
+        }
+
+        .form_header {
+          font-weight: 600 !important;
+          font-size: 35px !important;
+        }
+        .submit-btn {
+          width: 100% !important;
+          height: 69px !important;
+          border-radius: 15px !important;
+          margin-top: 36px;
+        }
+
+        .create-account {
+          margin-top: 51px !important;
+        }
+      }
+    }
   }
-  .form-container{
-    padding-left: 5%;
-    margin-top: 150px;
-    width: 55%;
-
-    @media (max-width: 991px) {
-      margin-top: 10px;
-      padding-bottom: 30px;
-    }
-    
-    @media (max-width: 575px) {
-      padding: 0 10px;
-      margin-top: 10%;
-      width: 100vw;
-    }
-
-    h3{
-      font-weight: bold;
-      font-size: 35px;
-
-      @media (max-width: 575px) {
-        font-size: 25px;
+  @media screen and (max-width: 1023px) {
+    .new-password {
+      height: 100vh;
+      width: 100%;
+      font-family: "Montserrat", sans-serif;
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      .image-container {
+        width: 100%;
+        height: 100vh;
+        .sub_container {
+          background: rgba(255, 242, 216, 0.44);
+          width: 100%;
+          height: 100vh;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          .text_container {
+            width: 85%;
+            height: 277px;
+            background: #fffefb;
+            border-radius: 15px;
+            margin: auto;
+            margin-top: 200px;
+            padding: 80px 20px;
+            .welcome_header {
+              text-align: center;
+              font-size: 40px !important;
+              line-height: 20px !important;
+            }
+            .sub_text {
+              font-size: 16px !important;
+              line-height: 20px !important;
+              text-align: center;
+              margin: auto;
+            }
+          }
+        }
       }
+      .form-container {
+        margin-top: 35%;
+        width: 100%;
+        .form_sub_container {
+          width: 70%;
+          margin: auto;
+          .form_header {
+            font-weight: 600 !important;
+            font-size: 25px !important;
+            margin-bottom: 0 !important;
+          }
 
-    }
-    .normal-input-container{
-      margin-top: 40px;
+          .each_input_fild {
+            padding-bottom: 10px;
+            .input_field_container {
+              position: relative;
+              width: 100%;
+              .icon {
+                position: absolute;
+                right: 0;
+                color: #0a1165 !important;
+                transform: scale(1.5);
+                bottom: 15px;
+                margin-right: 20px;
+              }
+            }
+            p {
+              margin-bottom: 0px !important;
+            }
+          }
 
-      @media (max-width: 575px) {
-        margin-top: 20px;
+          .submit-btn {
+            width: 100% !important;
+            height: 40px !important;
+            border-radius: 15px !important;
+            margin-top: 10px;
+          }
+        }
       }
     }
-    .submit-btn{
-      margin-top: 35px; 
+  }
 
-      @media (max-width: 575px) {
-        margin-top: 20px;
-      }
-    }
-    .form-alert{
-      .ant-alert-success {
-        border-color: green;
-      }
-      .ant-alert-message{
-        color: green;
+  @media screen and (max-width: 767px) {
+    .new-password {
+      height: 100vh;
+      width: 100%;
+      font-family: "Montserrat", sans-serif;
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      .ant-row {
+        display: block;
+        .image-container {
+          width: 100%;
+          height: 500px;
+          .sub_container {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            padding-top: 100px;
+            .text_container {
+              width: 85%;
+              height: 277px;
+              border-radius: 15px;
+              margin: auto;
+              margin-top: 0px;
+              padding: 40px;
+              @media screen and (max-width: 320px) {
+                padding: 20px;
+              }
+              .welcome_header {
+                text-align: center;
+                font-size: 50px !important;
+                line-height: 30px !important;
+                padding-top: 20px;
+                @media screen and (max-width: 320px) {
+                  font-size: 30px !important;
+                }
+              }
+              .sub_text {
+                font-size: 18px !important;
+                line-height: 27px !important;
+                text-align: center;
+                margin: auto;
+                @media screen and (max-width: 320px) {
+                  font-size: 16px !important;
+                }
+              }
+            }
+          }
+        }
+        .form-container {
+          margin-top: 15%;
+          width: 100%;
+
+          .form_sub_container {
+            width: 85%;
+            height: 100%;
+            padding-bottom: 1px;
+            margin: auto;
+            .form_header {
+              font-weight: 600 !important;
+              font-size: 30px !important;
+              @media screen and (max-width: 320px) {
+                font-size: 25px !important;
+              }
+            }
+            .each_input_fild {
+              padding-bottom: 15px;
+              .input_field_container {
+                position: relative;
+                width: 100%;
+                .icon {
+                  position: absolute;
+                  right: 0;
+                  color: #0a1165 !important;
+                  transform: scale(1.5);
+                  bottom: 13px;
+                  margin-right: 20px;
+                }
+              }
+              p {
+                margin-bottom: 0px !important;
+              }
+            }
+
+            .submit-btn {
+              margin-top: 10px;
+              margin-bottom: 40px !important;
+            }
+
+            .create-account {
+              margin-bottom: 30px !important;
+            }
+          }
+        }
       }
     }
   }
