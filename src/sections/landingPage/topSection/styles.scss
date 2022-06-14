@@ -5,103 +5,111 @@ $base-white: #ffffff;
   background-color: #fffdf9;
   font-family: "Montserrat", sans-serif;
   position: relative;
-
-  .flex-1 {
-    padding-left: 14%;
-    padding-top: 8.5%;
-    position: relative;
-    z-index: 20;
-
-    h1 {
-      font-family: "Open Sans";
-      font-style: normal;
-      font-weight: 700;
-      font-size: 46px;
-      line-height: 108.4%;
-      letter-spacing: 0.015em;
-      color: #061088;
-      position: relative;
-      .box_lines {
-        position: absolute;
-        left: -40px;
-        top: -30px;
-      }
-    }
-
-    p {
-      font-family: "Open Sans";
-      font-style: normal;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 22px;
-      color: #595959;
-      margin-top: 5%;
-      width: 400px;
-    }
-    .large-screen-button {
-      margin-top: 61px;
-    }
-    .small-screen-button {
-      display: none;
-    }
-  }
-  .flex-2 {
-    position: relative;
-    bottom: 30px;
-
-    .top-image {
-      width: 80%;
-      position: absolute;
-      left: -40px;
-    }
-
-    .book_drawing {
-      position: absolute;
-      top: 800px;
-      right: 320px;
-    }
-  }
-
-  @media screen and (max-width: 1024px) {
+  .flex_container {
+    width: 80%;
+    margin: auto;
     .flex-1 {
-      padding-left: 10%;
+      padding-left: 11%;
       padding-top: 8.5%;
       position: relative;
       z-index: 20;
+      @media screen and (max-width: 1440px) {
+        padding-left: 4%;
+        padding-top: 10.5%;
+      }
 
       h1 {
-        font-size: 30px;
-
+        font-family: "Open Sans";
+        width: 500px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 46px;
+        line-height: 108.4%;
+        letter-spacing: 0.015em;
+        color: #061088;
+        position: relative;
         .box_lines {
           position: absolute;
-          left: -35px;
-          top: -35px;
-          width: 70px;
-          height: 70px;
+          left: -40px;
+          top: -30px;
         }
       }
 
       p {
-        width: 300px;
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        color: #595959;
+        margin-top: 5%;
+        width: 400px;
       }
       .large-screen-button {
-        margin-top: 30px;
+        margin-top: 61px;
+      }
+      .small-screen-button {
+        display: none;
       }
     }
     .flex-2 {
       position: relative;
-      bottom: 30px;
-
-      .top-image {
-        width: 80%;
-        position: absolute;
-        left: 20px;
-      }
+      bottom: 0px;
 
       .book_drawing {
         position: absolute;
-        top: 500px;
+        top: 600px;
         right: 320px;
+        @media screen and (max-width: 1440px) {
+          top: 550px;
+          right: 120px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .flex_container {
+      width: 80%;
+      margin: auto;
+      .flex-1 {
+        padding-left: 0%;
+        padding-top: 10.5%;
+        position: relative;
+        z-index: 20;
+
+        h1 {
+          font-size: 30px;
+
+          .box_lines {
+            position: absolute;
+            left: -35px;
+            top: -35px;
+            width: 70px;
+            height: 70px;
+          }
+        }
+
+        p {
+          width: 300px;
+        }
+        .large-screen-button {
+          margin-top: 30px;
+        }
+      }
+      .flex-2 {
+        position: relative;
+        bottom: 0px;
+
+        .top-image {
+          width: 100%;
+        }
+
+        .book_drawing {
+          position: absolute;
+          top: 400px;
+          right: 120px;
+        }
       }
     }
   }
@@ -155,11 +163,11 @@ $base-white: #ffffff;
       position: relative;
       bottom: 10px;
 
-      .top-image {
-        width: 80%;
-        position: absolute;
-        left: 10px;
-      }
+      // .top-image {
+      //   width: 80%;
+      //   position: absolute;
+      //   left: 10px;
+      // }
 
       .book_drawing {
         position: absolute;
@@ -170,57 +178,61 @@ $base-white: #ffffff;
   }
 
   @media screen and (max-width: 767px) {
-    .flex-1 {
-      padding-left: 8%;
-      padding-top: 15.5%;
-      position: relative;
-      z-index: 0;
+    .flex_container {
+      width: 85%;
+      margin-bottom: 20px;
 
-      h1 {
-        font-size: 25px;
-        z-index: 200;
+      .flex-1 {
+        padding-left: 0%;
+        padding-top: 15.5%;
         position: relative;
-        .box_lines {
-          position: absolute;
-          left: -19px;
-          top: -20px;
-          width: 50px;
-          height: 50px;
+        z-index: 0;
+
+        h1 {
+          font-size: 25px;
+          width: 100%;
+          z-index: 200;
+          position: relative;
+          .box_lines {
+            position: absolute;
+            left: -19px;
+            top: -20px;
+            width: 50px;
+            height: 50px;
+          }
         }
-      }
-      p {
-        font-size: 12px;
-        margin-top: 5%;
-        width: 90%;
-      }
-      .large-screen-button {
-        margin-top: 0px;
-        .signUp_btn {
-          width: 40% !important;
-          font-size: 12px !important;
-          height: 40px !important;
-          text-align: center !important;
-          @media screen and (max-width: 280px) {
-            width: 50% !important;
+        p {
+          font-size: 12px;
+          margin-top: 5%;
+          width: 90%;
+        }
+        .large-screen-button {
+          margin-top: 0px;
+          .signUp_btn {
+            width: 40% !important;
+            font-size: 12px !important;
+            height: 40px !important;
+            text-align: center !important;
+            @media screen and (max-width: 280px) {
+              width: 50% !important;
+            }
           }
         }
       }
-    }
-    .flex-2 {
-      position: relative;
-      bottom: 30px;
-      width: 80%;
-      margin: auto;
-      margin-top: 20px;
-
-      .top-image {
-        width: 100%;
+      .flex-2 {
         position: relative;
-        left: 0px;
-      }
+        bottom: 0px;
+        width: 100%;
+        margin: auto;
+        margin-top: 20px;
 
-      .book_drawing {
-        display: none;
+        .top-image {
+          width: 100%;
+        }
+
+        .book_drawing {
+          display: none;
+        }
       }
     }
   }
