@@ -17,6 +17,7 @@ import AuthContext from "../../context/authContext/AuthContext";
 import "./styles.scss";
 import HeaderText from "../../components/headerText/headerText";
 import NormalText from "../../components/normalText/normalText";
+import PasswordInput from "../../components/form/passwordInput/passwordInput";
 
 const validationSchema = yup.object().shape({
   fullname: yup.string().required("You cannot leave the name field blank"),
@@ -102,8 +103,8 @@ const RegisterPage = () => {
                   <Form>
                     <div className="each_input_fild">
                       <div className="input_field_container">
-                        <UserOutlined className="icon" />
                         <NormalInput
+                          icon={<UserOutlined className="icon" />}
                           label="Full Name"
                           placeholder="Input Your name"
                           type="text"
@@ -119,8 +120,8 @@ const RegisterPage = () => {
 
                     <div className="each_input_fild">
                       <div className="input_field_container">
-                        <MailOutlined className="icon" />
                         <NormalInput
+                          icon={<MailOutlined className="icon" />}
                           label="Email address"
                           iconName="mail"
                           placeholder="Input Email"
@@ -137,8 +138,8 @@ const RegisterPage = () => {
 
                     <div className="each_input_fild">
                       <div className="input_field_container">
-                        <EyeOutlined className="icon" />
-                        <NormalInput
+                        <PasswordInput
+                          icon={<EyeOutlined className="icon" />}
                           label="Password"
                           iconName="key"
                           type="password"
