@@ -20,6 +20,7 @@ import {
 import VerifyEmailPage from "./pages/verifyEmailPage/verifyEmailPage";
 import PaymentVerificationPage from "./pages/payment-verification-page/paymentVerificationPage";
 import LogoutModal from "./components/logoutModal/logoutModal";
+import LoginModal from "./components/modals/loginModal/loginModal";
 import ForgetPassword from "./pages/forgetPassword/forgetPassword";
 import NewPassword from "./pages/newPassword/newPassword";
 
@@ -29,6 +30,7 @@ function App() {
       <Router>
         <TopNavigation />
         <LogoutModal />
+        <LoginModal />
         <Switch>
           <Route exact path={LANDING_PAGE} component={LandingPage} />
           <Route path={REGISTRATION_PAGE} component={RegisterPage} />

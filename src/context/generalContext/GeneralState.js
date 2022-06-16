@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import GeneralContext from "./GeneralContext";
 // import { useHistory } from 'react-router-dom'
 
-import { LOGIN_PAGE } from "../../routes";
-
 // The general state would hold state objects that
 const GeneralState = (props) => {
   // const { push } = useHistory()
@@ -14,10 +12,14 @@ const GeneralState = (props) => {
   });
 
   const [logoutModalOpened, setLogOutModalOpened] = useState(false);
+
+  const [logInmodalOpened, setLogInmodalOpened] = useState(false);
+
   const logOut = (push) => {
     setGeneralState({});
     localStorage.clear();
-    push(LOGIN_PAGE);
+    push("/");
+    setLogInmodalOpened(true);
     setLogOutModalOpened(false);
   };
 
@@ -39,6 +41,8 @@ const GeneralState = (props) => {
         checkThatUserHasPaid,
         logoutModalOpened,
         setLogOutModalOpened,
+        logInmodalOpened,
+        setLogInmodalOpened,
       }}
     >
       {props.children}

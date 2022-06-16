@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Form, Row, Col, Spin } from "antd";
+import { Form, Row, Col, Spin, Input } from "antd";
 import { Formik } from "formik";
 import * as yup from "yup";
 import NormalInput from "../../form/normalInput/normalInput";
@@ -8,6 +8,9 @@ import GeneralButton from "../../GeneralButton";
 import HeaderText from "../../headerText/headerText";
 import NormalText from "../../normalText/normalText";
 import { UserOutlined, MailOutlined, EyeOutlined } from "@ant-design/icons";
+import GeneralContext from "../../../context/generalContext/GeneralContext";
+import { motion } from "framer-motion";
+import { Modal } from "antd";
 
 import {
   CONGRATULATION_PAGE,
@@ -47,9 +50,15 @@ const LoginModal = () => {
     checkStatus();
   }, []);
 
+  const { logInmodalOpened, setLogInmodalOpened } = useContext(GeneralContext);
+
+  const handleCancel = () => {
+    setLogInmodalOpened(false);
+  };
+
   return (
-    <div className="login_modal">
-      <div className="form_container">
+    <>
+      <Modal visible={logInmodalOpened} onCancel={handleCancel}>
         <Formik
           initialValues={{ email: "", password: "" }}
           onSubmit={(values, actions) => {
@@ -59,7 +68,8 @@ const LoginModal = () => {
             };
             actions.setSubmitting(true);
             loginUser(submitObject, actions, push);
-            // push('/dashboard')
+            push("/dashboard");
+            setLogInmodalOpened(false);
           }}
           validationSchema={validationSchema}
         >
@@ -89,21 +99,18 @@ const LoginModal = () => {
 
                   <div className="each_input_fild">
                     <div className="input_field_container">
-                      <EyeOutlined className="icon" />
-
-                      <NormalInput
-                        label="Password"
-                        iconName="key"
-                        type="password"
-                        placeholder="Input Password"
-                        onChange={(event) => {
-                          formikProps.handleChange("password")(event);
-                        }}
-                      />
+                      <Form.Item>
+                        <Input.Password
+                          placeholder="Input Password"
+                          onChange={(event) => {
+                            formikProps.handleChange("password")(event);
+                          }}
+                        />
+                      </Form.Item>
+                      <p style={{ color: "red", textAlign: "left" }}>
+                        {formikProps.errors.password}
+                      </p>
                     </div>
-                    <p style={{ color: "red", textAlign: "left" }}>
-                      {formikProps.errors.password}
-                    </p>
                   </div>
 
                   <p className="forgot_password">
@@ -127,8 +134,8 @@ const LoginModal = () => {
             </div>
           )}
         </Formik>
-      </div>
-    </div>
+      </Modal>
+    </>
   );
 };
 
