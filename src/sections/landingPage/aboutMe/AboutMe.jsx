@@ -1,47 +1,64 @@
-import React from 'react'
-import { Col, Row } from 'antd'
-import './styles.scss'
-import GeneralButton from '../../../components/GeneralButton'
+import React from "react";
+import { Col, Row } from "antd";
+import "./styles.scss";
+import GeneralButton from "../../../components/GeneralButton";
+import NormalText from "../../../components/normalText/normalText";
+
+import HeaderText from "../../../components/headerText/headerText";
 
 const AboutMe = () => {
   return (
     <div className="about-me-section">
-      <Row style={{ justifyContent: "space-between" }}>
-        <Col sm={24} lg={9}>
-          <img className="image" src="https://res.cloudinary.com/dcft8yhab/image/upload/v1617819068/My_Image.png" alt=""/>
-        </Col>
-        <Col sm={24} lg={14}>
-          <p className="heading">Hi, <br/> I'm Daniel Don,</p>
-          <div className="body">
-            <p>
-              I’ll be your lead instructor throughout this mentorship program. <br/>
-              3+ years ago, I started my journey building softwares from a 
-              level of an absolute beginner! 
-            </p>
-            <p>
-              I have been actively sharing my knowledge and helping people have an
-              interesting start  to a career in software development since 2019.
-            </p>
-            <p>
-              I’ve taken the pain to gather a wealth of experience which you can tap from.
-              Instead of trying to figure things out for yourself, I already spent a lot of
-              time doing that, planning the scheme, carefully arranging what you should learn
-              and in the order you should learn them.
-            </p>
-            <p>
-              My Journey started from using a borrowed mobile phone, to
-              working and contracting with several people and teams around the world on
-              interesting projects. If what you want is a seamless transition from any other
-              career to software engineering, I’m waiting for you in class. Signup for free
-            </p>
-          </div>
-          <GeneralButton
-            buttonText="Signup for free"
-          />
-        </Col>
-      </Row>
-    </div>
-  )
-}
+      <div className="sub_container">
+        <Row style={{ justifyContent: "space-between" }}>
+          <Col sm={24} md={12} lg={11}>
+            <div className="body">
+              <HeaderText
+                text="Hi, I’m Daniel Don,"
+                fontSize="32px"
+                color="#000000"
+                fontWeight="600"
+                className="about_me_header"
+              />
+              <NormalText
+                text="The lead insructor in the frontend mentorship program."
+                fontWeight="400"
+                className="sub_text"
+              />
+              <NormalText
+                text="He has 4+ years of experience building software from a level of an absolute beginner."
+                fontWeight="400"
+                className="sub_text"
+              />
+              <NormalText
+                text="He has been actively sharing knowledge and helping people have an interesting start to a career in software develpment since 2019."
+                fontWeight="400"
+                className="sub_text"
+              />
 
-export default AboutMe
+              <GeneralButton
+                buttonText="View Profile"
+                width="239px"
+                height="68px"
+                borderRadius="15px"
+                fontWeight="600"
+                fontSize="16px"
+                className="view_profile_btn"
+              />
+            </div>
+          </Col>
+
+          <Col sm={24} md={12} lg={12}>
+            <img
+              className="image"
+              src="https://res.cloudinary.com/dmrdnero7/image/upload/v1654171515/frontendMentorship/about_img_lmfptv.png"
+              alt=""
+            />
+          </Col>
+        </Row>
+      </div>
+    </div>
+  );
+};
+
+export default AboutMe;

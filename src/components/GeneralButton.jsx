@@ -10,12 +10,16 @@ const GeneralButton = ({
   height = "48px",
   fontSize = "18px",
   htmlType,
-  disabled
+  disabled,
+  fontWeight = "600",
+  fontFamily = "Open Sans",
+  className,
 }) => {
   return (
     <div>
       <Button
         onClick={onClick}
+        className={className}
         disabled={disabled}
         type="primary"
         htmlType={htmlType}
@@ -25,7 +29,9 @@ const GeneralButton = ({
           border: "none",
           height: `${height}`,
           width: `${width}`,
-          fontSize: `${fontSize}`
+          fontSize: `${fontSize}`,
+          fontWeight: `${fontWeight}`,
+          fontFamily: `${fontFamily}`,
         }}
       >
         {buttonText}
@@ -35,7 +41,7 @@ const GeneralButton = ({
 };
 
 GeneralButton.propTypes = {
-  buttonText: string.isRequired
+  buttonText: string.isRequired,
 };
 
 export default GeneralButton;
