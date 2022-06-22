@@ -1,0 +1,25 @@
+svg path {
+  transition: 0.3s;
+  transform-origin: 0px;
+}
+svg.close path:nth-child(1) {
+  d: path('M 3 16.5 L 17 2.5') !important;
+}
+svg.close path:nth-child(2) {
+  opacity: 0;
+}
+svg.close path:nth-child(3) {
+  d: path('M 3 2.5 L 17 16.346') !important;
+}
+
+.hamburger-icon {
+  display: none;
+}
+
+@media screen and (max-width: 1023px) {
+  .hamburger-icon {
+    display: block;
+    font-size: 20px;
+    margin-top: 100%;
+  }
+}
