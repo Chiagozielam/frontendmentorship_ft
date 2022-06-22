@@ -5,14 +5,14 @@ body {
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
-  height: 10px;
+  height: 0px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   box-shadow: inset 2px 2px 5px #1d1c1c;
   border-radius: 100px;
-}
+} */
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -23,7 +23,7 @@ body {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #061088;
+  background: #fd9d66;
 }
 
 svg path {
