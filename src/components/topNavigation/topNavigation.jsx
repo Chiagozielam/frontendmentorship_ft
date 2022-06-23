@@ -1,19 +1,20 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useHistory, Link } from "react-router-dom";
-import { Menu, Layout, Drawer, Avatar, Image } from "antd";
-import "./styles.scss";
-import GeneralButton from "../GeneralButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { LOGIN_PAGE, REGISTRATION_PAGE } from "../../routes";
-import { faBars, faLockOpen } from "@fortawesome/free-solid-svg-icons";
-import AuthContext from "../../context/authContext/AuthContext";
-import GeneralContext from "../../context/generalContext/GeneralContext";
-import { dashRoutes } from "../../pages/postAuth/dashRoutes";
-import SideNavItem from "../sideNav/item";
-import ButtonWithIcon from "../buttonWithIcon/ButtonWithIcon";
+import React, { useState, useContext, useEffect } from 'react';
+import { useHistory, Link } from 'react-router-dom';
+import { Menu, Layout, Drawer, Avatar, Image } from 'antd';
+import './styles.scss';
+import GeneralButton from '../GeneralButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { LOGIN_PAGE, REGISTRATION_PAGE } from '../../routes';
+import { faBars, faLockOpen } from '@fortawesome/free-solid-svg-icons';
+import AuthContext from '../../context/authContext/AuthContext';
+import GeneralContext from '../../context/generalContext/GeneralContext';
+import { dashRoutes } from '../../pages/postAuth/dashRoutes';
+import SideNavItem from '../sideNav/item';
+import ButtonWithIcon from '../buttonWithIcon/ButtonWithIcon';
+import SVG from './component/svgIcon';
 
 const TopNavigation = () => {
-  const [current, setCurrent] = useState("mail");
+  const [current, setCurrent] = useState('mail');
   const [drawerVisible, setDrawerVisible] = useState(false);
   const { isLoading, isSignout, userToken } = useContext(AuthContext);
   const {
@@ -32,7 +33,7 @@ const TopNavigation = () => {
   const { Header } = Layout;
 
   const handleClick = (e) => {
-    console.log("click ", e);
+    console.log('click ', e);
     setCurrent({ current: e.key });
   };
 
@@ -41,35 +42,35 @@ const TopNavigation = () => {
   };
 
   return (
-    <div className="overall-nav-container">
-      <Header className="navigation_container">
-        <p className="logo" onClick={() => push("/")}>
+    <div className='overall-nav-container'>
+      <Header className='navigation_container'>
+        <p className='logo' onClick={() => push('/')}>
           FRONTEND MENTORSHIP
         </p>
         {generalState.userToken ? (
-          <div style={{ display: "flex" }}>
+          <div style={{ display: 'flex' }}>
             {generalState?.user?.paid == false ? (
-              <div className="payment-button-container">
+              <div className='payment-button-container'>
                 <ButtonWithIcon
-                  boxShadow="0px 4px 4px rgba(6, 16, 136, 0.19)"
+                  boxShadow='0px 4px 4px rgba(6, 16, 136, 0.19)'
                   onClick={togglePaymentModal}
                   icon={faLockOpen}
-                  buttonText="Unlock the full package"
-                  padding="10% 5% 15% 5%"
-                  bgcolor="#2F2F2F"
-                  buttonRadius="0"
+                  buttonText='Unlock the full package'
+                  padding='10% 5% 15% 5%'
+                  bgcolor='#2F2F2F'
+                  buttonRadius='0'
                 />
               </div>
             ) : (
-              ""
+              ''
             )}
-            <div className="user-avatar-container" onClick={toggleDrawer}>
+            <div className='user-avatar-container' onClick={toggleDrawer}>
               <img
-                className="user-avatar-container-img"
+                className='user-avatar-container-img'
                 src={generalState?.user?.profilePhoto}
               />
               <div>
-                <p className="user-avatar-container-name">
+                <p className='user-avatar-container-name'>
                   {generalState?.user?.fullname}
                 </p>
               </div>
@@ -82,55 +83,25 @@ const TopNavigation = () => {
               className="hamburger-icon"
               icon={faBars}
             /> */}
-            <svg
-              width="23"
-              height="23"
-              viewBox="0 0 23 23"
-              class="menu_button"
-              onClick={toggleDrawer}
-              className={`hamburger-icon  ${drawerVisible ? "close" : " "}`}
-            >
-              <path
-                fill="transparent"
-                stroke-width="3"
-                stroke="hsl(0, 0%, 18%)"
-                stroke-linecap="round"
-                d="M 2 2.5 L 20 2.5"
-              ></path>
-              <path
-                fill="transparent"
-                stroke-width="3"
-                stroke="hsl(0, 0%, 18%)"
-                stroke-linecap="round"
-                d="M 2 9.423 L 20 9.423"
-                opacity="1"
-              ></path>
-              <path
-                fill="transparent"
-                stroke-width="3"
-                stroke="hsl(0, 0%, 18%)"
-                stroke-linecap="round"
-                d="M 2 16.346 L 20 16.346"
-              ></path>
-            </svg>
+            <SVG drawerVisible={drawerVisible} toggleDrawer={toggleDrawer} />
             <Menu
               onClick={handleClick}
-              className="right-side-nav"
+              className='right-side-nav'
               selectedKeys={[current]}
-              mode="horizontal"
+              mode='horizontal'
             >
-              <Menu.Item className="each_menu_item">View Curriculum</Menu.Item>
+              <Menu.Item className='each_menu_item'>View Curriculum</Menu.Item>
               <Menu.Item
-                className="each_menu_item"
+                className='each_menu_item'
                 onClick={() => push(LOGIN_PAGE)}
               >
                 Login
               </Menu.Item>
-              <Menu.Item className="each_menu_item_btn">
+              <Menu.Item className='each_menu_item_btn'>
                 <GeneralButton
-                  fontSize="16px"
-                  buttonText="Sign Up"
-                  borderRadius="10px"
+                  fontSize='16px'
+                  buttonText='Sign Up'
+                  borderRadius='10px'
                   onClick={() => push(REGISTRATION_PAGE)}
                 />
               </Menu.Item>
@@ -140,9 +111,9 @@ const TopNavigation = () => {
       </Header>
 
       <Drawer
-        className="side-drawer"
-        title="Frontend Mentorship"
-        placement="right"
+        className='side-drawer'
+        title='Frontend Mentorship'
+        placement='right'
         closable={false}
         onClose={toggleDrawer}
         visible={drawerVisible}
@@ -151,7 +122,7 @@ const TopNavigation = () => {
           <div>
             {dashRoutes.map((dashRoute) => (
               <p
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
                 onClick={() => {
                   push(dashRoute.path);
                   toggleDrawer();
@@ -161,7 +132,7 @@ const TopNavigation = () => {
               </p>
             ))}
             <p
-              style={{ cursor: "pointer" }}
+              style={{ cursor: 'pointer' }}
               onClick={() => {
                 toggleDrawer();
                 setLogOutModalOpened(true);
@@ -170,44 +141,44 @@ const TopNavigation = () => {
               LogOut
             </p>
             {generalState.user?.paid == false ? (
-              <div className="payment-button-container">
+              <div className='payment-button-container'>
                 <ButtonWithIcon
                   onClick={() => {
                     togglePaymentModal();
                     toggleDrawer();
                   }}
                   icon={faLockOpen}
-                  buttonText="Unlock the full package"
-                  padding="10% 5% 15% 5%"
-                  bgcolor="#2F2F2F"
-                  buttonRadius="0"
-                  boxShadow="0px 4px 4px rgba(6, 16, 136, 0.19)"
+                  buttonText='Unlock the full package'
+                  padding='10% 5% 15% 5%'
+                  bgcolor='#2F2F2F'
+                  buttonRadius='0'
+                  boxShadow='0px 4px 4px rgba(6, 16, 136, 0.19)'
                 />
               </div>
             ) : (
-              ""
+              ''
             )}
           </div>
         ) : (
           <Menu
             onClick={handleClick}
-            className="mobile_drawer_nav"
+            className='mobile_drawer_nav'
             selectedKeys={[current]}
-            mode="vertical"
+            mode='vertical'
           >
-            <Menu.Item className="each_menu_item">View Curriculum</Menu.Item>
+            <Menu.Item className='each_menu_item'>View Curriculum</Menu.Item>
             <Menu.Item
-              className="each_menu_item"
+              className='each_menu_item'
               onClick={() => push(LOGIN_PAGE)}
             >
               Login
             </Menu.Item>
-            <Menu.Item className="menu_btn_container">
+            <Menu.Item className='menu_btn_container'>
               <GeneralButton
-                className="menu_btn"
-                fontSize="16px"
-                buttonText="Sign Up"
-                borderRadius="10px"
+                className='menu_btn'
+                fontSize='16px'
+                buttonText='Sign Up'
+                borderRadius='10px'
                 onClick={() => push(REGISTRATION_PAGE)}
               />
             </Menu.Item>

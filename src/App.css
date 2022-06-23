@@ -1,6 +1,6 @@
 body {
   font-size: 18px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -17,25 +17,11 @@ body {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #ff5c00;
-  box-shadow: inset 1px 1px 2px black;
-  border-radius: 100px;
+
+  border-radius: 5px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #fd9d66;
-}
-
-svg path {
-  transition: 0.3s;
-  transform-origin: 0px;
-}
-svg.close path:nth-child(1) {
-  d: path("M 3 16.5 L 17 2.5") !important;
-}
-svg.close path:nth-child(2) {
-  opacity: 0;
-}
-svg.close path:nth-child(3) {
-  d: path("M 3 2.5 L 17 16.346") !important;
+  background: #b44d11;
 }

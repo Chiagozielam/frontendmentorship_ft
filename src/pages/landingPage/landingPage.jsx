@@ -9,12 +9,10 @@ import Newsletter from "../../sections/landingPage/newsletter/Newsletter";
 import AboutMe from "../../sections/landingPage/aboutMe/AboutMe";
 import Footer from "../../sections/footer/Footer";
 import { AlignRightOutlined } from "@ant-design/icons";
-import TopNavigation from "../../components/topNavigation/topNavigation";
+
 const LandingPage = () => {
   return (
     <div className="wrapper">
-      <TopNavigation />
-
       <TopSection />
 
       <PaymentPlan />

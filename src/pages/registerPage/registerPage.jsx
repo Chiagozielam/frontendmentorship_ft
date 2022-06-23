@@ -1,22 +1,36 @@
-import React, { useEffect, useContext } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-import { Form, Row, Col, Radio, Spin } from 'antd'
+import React, { useEffect, useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { Form, Row, Col, Radio, Spin } from 'antd';
+import {
+  UserOutlined,
+  MailOutlined,
+  EyeOutlined,
+  PhoneOutlined,
+} from '@ant-design/icons';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import NormalInput from '../../components/form/normalInput/normalInput';
 import GeneralButton from '../../components/GeneralButton';
-import { CONGRATULATION_PAGE, LESSON_FOLDER_PAGE, LOGIN_PAGE, POST_AUTH_ROUTES, REGISTRATION_PAGE } from '../../routes';
-import AuthContext from '../../context/authContext/AuthContext'
-import './styles.scss'
-
+import {
+  CONGRATULATION_PAGE,
+  LESSON_FOLDER_PAGE,
+  LOGIN_PAGE,
+  POST_AUTH_ROUTES,
+  REGISTRATION_PAGE,
+} from '../../routes';
+import AuthContext from '../../context/authContext/AuthContext';
+import './styles.scss';
+import HeaderText from '../../components/headerText/headerText';
+import NormalText from '../../components/normalText/normalText';
+import PasswordInput from '../../components/form/passwordInput/passwordInput';
 
 const validationSchema = yup.object().shape({
   fullname: yup.string().required('You cannot leave the name field blank'),
   email: yup.string().required().email('Email must be a valid email address'),
   phoneNumber: yup
-  .number()
-  .required('The phone number should be valid')
-  .min(6, 'The phone number should be valid'),
+    .number()
+    .required('The phone number should be valid')
+    .min(6, 'The phone number should be valid'),
   password: yup
     .string()
     .required()
@@ -25,131 +39,170 @@ const validationSchema = yup.object().shape({
 });
 
 const RegisterPage = () => {
-  const { push } = useHistory()
-  const authContext = useContext(AuthContext)
-  const { registerUser } = authContext
+  const { push } = useHistory();
+  const authContext = useContext(AuthContext);
+  const { registerUser } = authContext;
 
   const checkStatus = () => {
-    const user = localStorage.getItem("user")
-    const userToken = localStorage.getItem("user-token")
-    if(user && userToken){
-      push(POST_AUTH_ROUTES)
+    const user = localStorage.getItem('user');
+    const userToken = localStorage.getItem('user-token');
+    if (user && userToken) {
+      push(POST_AUTH_ROUTES);
     }
-    if(user && !userToken){
-      push(CONGRATULATION_PAGE)
+    if (user && !userToken) {
+      push(CONGRATULATION_PAGE);
     }
-    return
-  }
+    return;
+  };
   useEffect(() => {
-    checkStatus()
-  }, [])
+    checkStatus();
+  }, []);
 
   return (
-    <div className="registration-page">
+    <div className='registration-page'>
       <Row>
-        <Col sm={24} lg={9}>
-          <div className="image-container"></div>
+        <Col sm={24} md={11}>
+          <div className='image'>
+            <div className='sub_container'>
+              <div className='text_container'>
+                <HeaderText text='Welcome!' className='welcome_header' />
+                <NormalText
+                  className='sub_text'
+                  text='Mi libero neque consectetur amet mi neque cursus. Dignissim facilisi vitae consequat facilisis bibendum ultrices.'
+                />
+              </div>
+            </div>
+          </div>
         </Col>
-        <Col sm={24} lg={15}>
-          <div className="form-container">
+        <Col sm={24} md={13}>
+          <div className='form-container'>
             <Formik
-              initialValues={{ fullname: '', email: '', password: '', gender: '', phoneNumber: null }}
+              initialValues={{
+                fullname: '',
+                email: '',
+                password: '',
+                gender: '',
+                phoneNumber: null,
+              }}
               onSubmit={(values, actions) => {
-                const { fullname, email, password, gender, phoneNumber } = values
+                const { fullname, email, password, gender, phoneNumber } =
+                  values;
                 const submitObject = {
                   fullname,
                   email,
                   phoneNumber,
                   password,
-                  gender
-                }
-                actions.setSubmitting(true)
-                registerUser(submitObject, actions, push)
+                  gender,
+                };
+                actions.setSubmitting(true);
+                registerUser(submitObject, actions, push);
               }}
               validationSchema={validationSchema}
             >
               {(formikProps) => (
-                <div>
-                  <div className="form-container">
-                    <h3>Create Account</h3>
-                    <Form>
-                      <NormalInput
-                        label="Full Name"
-                        type="text"
-                        onChange={(event) => {
-                          formikProps.handleChange('fullname')(event);
-                        }}
-                      />
-                      <p style={{ color: 'red', textAlign: 'left' }}>{formikProps.errors.fullname}</p>
-                      <NormalInput
-                        label="Email address"
-                        iconName="mail"
-                        type="email"
-                        onChange={(event) => {
-                          formikProps.handleChange('email')(event);
-                        }}
-                      />
-                      <p style={{ color: 'red', textAlign: 'left' }}>{formikProps.errors.email}</p>
-
-                      <NormalInput
-                        label="Phone Number"
-                        iconName="phone"
-                        type="number"
-                        onChange={(event) => {
-                          formikProps.handleChange('phoneNumber')(event);
-                        }}
-                      />
-                      <p style={{ color: 'red', textAlign: 'left' }}>{formikProps.errors.phoneNumber}</p>
-
-                      <NormalInput
-                        label="Password"
-                        iconName="key"
-                        type="password"
-                        onChange={(event) => {
-                          formikProps.handleChange('password')(event);
-                        }}
-                      />
-                      <p style={{ color: 'red', textAlign: 'left' }}>{formikProps.errors.password}</p>
-
-                      <div className="gender-container">
-                        <label className="gender-label">Gender</label>
-                        <Radio.Group onChange={(event) => {
-                          formikProps.handleChange('gender')(event.target.value)
-                        }}>
-                          <Radio value="male">Male</Radio>
-                          <Radio value="female">Female</Radio>
-                        </Radio.Group>
-                        <p style={{ color: 'red', textAlign: 'left' }}>{formikProps.errors.gender}</p>
+                <div className='form_sub_container'>
+                  <HeaderText
+                    text='Register for Free'
+                    className='form_header'
+                  />
+                  <Form>
+                    <div className='each_input_fild'>
+                      <div className='input_field_container'>
+                        <NormalInput
+                          icon={<UserOutlined className='icon' />}
+                          label='Full Name'
+                          placeholder='Input Your name'
+                          type='text'
+                          onChange={(event) => {
+                            formikProps.handleChange('fullname')(event);
+                          }}
+                        />
                       </div>
-                      {
-                        formikProps.isSubmitting ? (
-                          <Spin tip="Loading..." />
-                        ) : (
-                          <div>
-                            <div className="submit-btn">
-                              <GeneralButton buttonText="Create account"
-                                onClick={formikProps.handleSubmit}
-                              />
-                            </div>
-                            <div className="mobile-submit-btn">
-                              <GeneralButton buttonText="Create a free account"
-                                onClick={formikProps.handleSubmit}
-                                borderRadius="10px"
-                                width="100%"
-                                height="54.84px"
-                                fontSize="16px"
-                              />
-                            </div>
-                          </div>
-                        )
-                      }
-                    </Form>
-                    <p className="create-account">
-                      Already have an account?
-                      {' '}
-                      <Link to={LOGIN_PAGE}>Login</Link>
-                    </p>
-                  </div>
+                      <p style={{ color: 'red', textAlign: 'left' }}>
+                        {formikProps.errors.fullname}
+                      </p>
+                    </div>
+
+                    <div className='each_input_fild'>
+                      <div className='input_field_container'>
+                        <NormalInput
+                          icon={<MailOutlined className='icon' />}
+                          label='Email address'
+                          iconName='mail'
+                          placeholder='Input Email'
+                          type='email'
+                          onChange={(event) => {
+                            formikProps.handleChange('email')(event);
+                          }}
+                        />
+                      </div>
+                      <p style={{ color: 'red', textAlign: 'left' }}>
+                        {formikProps.errors.email}
+                      </p>
+                    </div>
+                    <div className='each_input_fild'>
+                      <div className='input_field_container'>
+                        <NormalInput
+                          icon={<PhoneOutlined className='icon' />}
+                          label='Phone Number'
+                          iconName='phone'
+                          placeholder='Input Phone number'
+                          type='number'
+                          onChange={(event) => {
+                            formikProps.handleChange('phoneNumber')(event);
+                          }}
+                        />
+                      </div>
+                      <p style={{ color: 'red', textAlign: 'left' }}>
+                        {formikProps.errors.phoneNumber}
+                      </p>
+                    </div>
+
+                    <div className='each_input_fild'>
+                      <div className='input_field_container'>
+                        <PasswordInput
+                          icon={<EyeOutlined className='icon' />}
+                          label='Password'
+                          iconName='key'
+                          type='password'
+                          placeholder='Create Password'
+                          onChange={(event) => {
+                            formikProps.handleChange('password')(event);
+                          }}
+                        />
+                      </div>
+                      <p style={{ color: 'red', textAlign: 'left' }}>
+                        {formikProps.errors.password}
+                      </p>
+                    </div>
+
+                    <div className='gender-container'>
+                      <Radio.Group
+                        onChange={(event) => {
+                          formikProps.handleChange('gender')(
+                            event.target.value
+                          );
+                        }}
+                      >
+                        <Radio value='male'>Male</Radio>
+                        <Radio value='female'>Female</Radio>
+                      </Radio.Group>
+                      <p style={{ color: 'red', textAlign: 'left' }}>
+                        {formikProps.errors.gender}
+                      </p>
+                    </div>
+                    {formikProps.isSubmitting ? (
+                      <Spin tip='Loading...' />
+                    ) : (
+                      <div>
+                        <GeneralButton
+                          className='submit-btn'
+                          buttonText='Register'
+                          onClick={formikProps.handleSubmit}
+                        />
+                      </div>
+                    )}
+                  </Form>
                 </div>
               )}
             </Formik>
@@ -157,7 +210,7 @@ const RegisterPage = () => {
         </Col>
       </Row>
     </div>
-  )
-}
+  );
+};
 
-export default RegisterPage
+export default RegisterPage;

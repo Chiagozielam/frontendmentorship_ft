@@ -9,7 +9,7 @@ const GeneralState = (props) => {
   // const { push } = useHistory()
 
   const [generalState, setGeneralState] = useState({
-    user: JSON.parse(localStorage.getItem(false)) || null,
+    user: JSON.parse(localStorage.getItem("user")) || null,
     userToken: localStorage.getItem("user-token") || null,
   });
 
