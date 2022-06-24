@@ -3,11 +3,14 @@ $base-white: #ffffff;
 $base-blue: #061088;
 
 .payment_plan_and_steps_sections {
-  width: 70%;
+  width: 65%;
   height: 500.56px;
   margin: auto;
-  margin-top: 400px;
+  margin-top: 86px;
   display: flex;
+  @media screen and (max-width: 1440px) {
+    width: 70%;
+  }
 
   .payment_container {
     width: 50%;
@@ -105,7 +108,7 @@ $base-blue: #061088;
 
   @media screen and (max-width: 1024px) {
     width: 80%;
-    margin-top: 200px;
+    margin-top: 86px;
     .payment_container {
       .sub_text {
         width: 90% !important;
