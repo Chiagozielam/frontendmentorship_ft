@@ -5,12 +5,12 @@
   .new-password {
     height: 100vh;
     width: 100%;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     position: absolute;
     bottom: 0;
     top: 0;
     .image-container {
-      background-image: url("https://res.cloudinary.com/dmrdnero7/image/upload/v1654783588/frontendMentorship/signup_background_img_x4xjpk.png");
+      background-image: url('https://res.cloudinary.com/dmrdnero7/image/upload/v1654783588/frontendMentorship/signup_background_img_x4xjpk.png');
       background-size: cover;
       background-position: center;
       width: 100%;
@@ -90,7 +90,7 @@
     .new-password {
       height: 100vh;
       width: 100%;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       position: absolute;
       bottom: 0;
       top: 0;
@@ -172,7 +172,7 @@
     .new-password {
       height: 100vh;
       width: 100%;
-      font-family: "Montserrat", sans-serif;
+      font-family: 'Montserrat', sans-serif;
       position: absolute;
       bottom: 0;
       top: 0;
@@ -231,7 +231,7 @@
               font-weight: 600 !important;
               font-size: 30px !important;
               @media screen and (max-width: 320px) {
-                font-size: 25px !important;
+                font-size: 22px !important;
               }
             }
             .each_input_fild {

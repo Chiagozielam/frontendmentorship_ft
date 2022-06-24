@@ -10,7 +10,7 @@ import { EyeOutlined } from '@ant-design/icons';
 import HeaderText from '../../components/headerText/headerText';
 import NormalText from '../../components/normalText/normalText';
 import { Link, useHistory } from 'react-router-dom';
-
+import PasswordInput from '../../components/form/passwordInput/passwordInput';
 const SetPassword = () => {
   const token = new URLSearchParams(document.location.search.substring(1)).get(
     'token'
@@ -105,10 +105,11 @@ const SetPassword = () => {
               <form onSubmit={sendNewPassword}>
                 <div className='each_input_fild'>
                   <div className='input_field_container'>
-                    <EyeOutlined className='icon' />
-                    <NormalInput
+                    <PasswordInput
+                      icon={<EyeOutlined className='icon' />}
                       label='New Password'
                       placeholder='Input new Password'
+                      iconName='key'
                       type='password'
                       inputValue={newPassword}
                       onChange={(event) => setNewPassword(event.target.value)}
@@ -123,8 +124,8 @@ const SetPassword = () => {
 
                 <div className='each_input_fild'>
                   <div className='input_field_container'>
-                    <EyeOutlined className='icon' />
-                    <NormalInput
+                    <PasswordInput
+                      icon={<EyeOutlined className='icon' />}
                       label='Confirm Password'
                       type='password'
                       placeholder='Confirm password'
