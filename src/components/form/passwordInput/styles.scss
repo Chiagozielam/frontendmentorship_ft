@@ -8,7 +8,16 @@
 
       .ant-input {
         font-size: 18px !important;
+        @media screen and (max-width: 1023px) {
+          font-size: 12px !important;
+        }
       }
+    }
+
+    .ant-input-password-icon {
+      font-size: 20px !important;
+      padding-right: 5px !important;
+      color: #0a1165 !important;
     }
   }
   .non-active {
@@ -47,16 +56,12 @@
   .input {
     width: 100%;
     height: 60px;
-    font-size: 18px;
+
     border: 1px solid #a3a3a3;
     border-radius: 10px;
     padding-left: 3%;
     @media screen and (max-width: 1023px) {
       height: 40px;
-      font-size: 12px;
     }
-  }
-  .input ::active {
-    background-color: transparent !important;
   }
 }

@@ -4,7 +4,7 @@ import "./styles.scss";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 
-const NormalInput = ({
+const PasswordInput = ({
   onChange,
   label,
   labelPadding,
@@ -17,7 +17,6 @@ const NormalInput = ({
   inputValue,
   placeholder,
   icon,
-
   ...rest
 }) => {
   const [active, setActive] = useState(false);
@@ -40,7 +39,7 @@ const NormalInput = ({
 
       <Form name="normal_login" className="login-form">
         <Form.Item name="username">
-          <Input
+          <Input.Password
             suffix={icon}
             className="input"
             style={{
@@ -65,4 +64,4 @@ const NormalInput = ({
   );
 };
 
-export default NormalInput;
+export default PasswordInput;

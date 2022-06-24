@@ -11,7 +11,7 @@ const TopSection = () => {
   const { push } = useHistory();
   return (
     <div className="entire-top-section">
-      <Row className="flex-container">
+      <Row className="flex_container">
         <Col sm={24} md={9} lg={9} className="flex-1">
           <h1>
             <img
