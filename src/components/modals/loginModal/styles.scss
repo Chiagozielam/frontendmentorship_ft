@@ -1,0 +1,140 @@
+* {
+  margin: 0px;
+  padding: 0px;
+
+  .ant-modal-wrap {
+    height: 100vh !important;
+    width: 100% !important;
+    font-family: "Montserrat", sans-serif !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    top: 0 !important;
+    background: rgba(241, 74, 3, 0.45) !important;
+    z-index: 99999 !important;
+    .ant-modal-content {
+      width: 334px !important;
+      background: #ffffff !important;
+      border-radius: 20px !important;
+      margin: 0 auto !important;
+      margin-top: 50px !important;
+      .ant-modal-body {
+        padding: 0px !important;
+      }
+    }
+    .ant-modal-footer {
+      display: none !important;
+    }
+
+    .form_sub_container {
+      // width: 334px;
+      padding: 30px 26px 40px 26px;
+
+      .ant-row {
+        margin: 0px !important;
+        padding: 0px !important;
+      }
+
+      .each_input_fild {
+        padding-bottom: 25px;
+        .input_field_container {
+          position: relative;
+          width: 100%;
+
+          .icon {
+            position: absolute;
+            right: 0;
+            color: #0a1165 !important;
+            transform: scale(1.5);
+            bottom: 25px;
+            margin-right: 20px;
+            @media screen and (max-width: 1023px) {
+              bottom: 15px;
+            }
+          }
+          .ant-input-affix-wrapper {
+            font-size: 18px !important;
+            border: 1px solid #a3a3a3 !important;
+            border-radius: 10px !important;
+            padding-left: 3% !important;
+            height: 60px !important;
+          }
+          .ant-input:focus,
+          .ant-input-focused {
+            border-color: none;
+            box-shadow: 0 !important;
+          }
+          .ant-input {
+            font-size: 18px !important;
+          }
+        }
+        p {
+          margin-bottom: 0px !important;
+        }
+      }
+
+      .form_header {
+        font-weight: 600 !important;
+        font-size: 35px !important;
+      }
+
+      .forgot_password {
+        float: right;
+      }
+      .submit_btn {
+        width: 100% !important;
+        height: 69px !important;
+        border-radius: 15px !important;
+        margin-top: 37px;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .ant-modal-content {
+        width: 90% !important;
+        margin-top: 10px !important;
+        .ant-modal-body {
+          padding: 0px !important;
+        }
+      }
+      .form_sub_container {
+        padding: 20px 20px 20px 20px;
+
+        .each_input_fild {
+          padding-bottom: 25px;
+          .input_field_container {
+            position: relative;
+            width: 100%;
+            .icon {
+              bottom: 15px;
+              margin-right: 20px;
+            }
+
+            .ant-input-affix-wrapper {
+              border: 1px solid #a3a3a3 !important;
+              border-radius: 10px !important;
+              padding-left: 3% !important;
+              height: 40px !important;
+            }
+          }
+          p {
+            margin-bottom: 0px !important;
+          }
+        }
+
+        .form_header {
+          font-size: 30px !important;
+        }
+
+        .forgot_password {
+          float: right;
+        }
+        .submit_btn {
+          width: 100% !important;
+          height: 50px !important;
+          border-radius: 15px !important;
+          margin-top: 37px;
+        }
+      }
+    }
+  }
+}

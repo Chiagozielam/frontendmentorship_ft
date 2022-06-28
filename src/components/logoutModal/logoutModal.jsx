@@ -37,7 +37,7 @@ const LogoutModal = () => {
               height: "40px",
               fontWeight: "600",
               color: "white",
-              marginRight: "10px"
+              marginRight: "10px",
             }}
             onClick={() => logOut(push)}
           >
@@ -51,7 +51,7 @@ const LogoutModal = () => {
               borderRadius: "10px",
               height: "40px",
               fontWeight: "600",
-              color: "#061088"
+              color: "#061088",
             }}
             onClick={() => setLogOutModalOpened(false)}
           >

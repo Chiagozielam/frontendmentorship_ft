@@ -22,6 +22,7 @@ const TopNavigation = () => {
     setPaymentModalOpened,
     paymentModalOpened,
     setLogOutModalOpened,
+    setLogInmodalOpened,
   } = useContext(GeneralContext);
 
   const togglePaymentModal = () => {
@@ -93,7 +94,7 @@ const TopNavigation = () => {
               <Menu.Item className='each_menu_item'>View Curriculum</Menu.Item>
               <Menu.Item
                 className='each_menu_item'
-                onClick={() => push(LOGIN_PAGE)}
+                onClick={() => setLogInmodalOpened(true)}
               >
                 Login
               </Menu.Item>
@@ -169,7 +170,10 @@ const TopNavigation = () => {
             <Menu.Item className='each_menu_item'>View Curriculum</Menu.Item>
             <Menu.Item
               className='each_menu_item'
-              onClick={() => push(LOGIN_PAGE)}
+              onClick={() => {
+                setLogInmodalOpened(true);
+                setDrawerVisible(false);
+              }}
             >
               Login
             </Menu.Item>

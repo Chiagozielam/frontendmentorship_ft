@@ -56,7 +56,11 @@
       font-size: 12px;
     }
   }
-  .input ::active {
-    background-color: transparent !important;
+  .input ::focus {
+    background-color: blue !important;
+  }
+
+  .input ::focus {
+    border: 0px !important;
   }
 }
