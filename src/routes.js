@@ -1,13 +1,14 @@
-export const LANDING_PAGE = "/";
-export const REGISTRATION_PAGE = "/register";
-export const POST_AUTH_ROUTES = "/dashboard";
-export const CONGRATULATION_PAGE = "/registrationsuccess";
-export const PAYMENT_VERIFICATION_PAGE = "/paymentverification";
-export const FORGET_PASSWORD = "/forgetpassword";
-export const NEW_PASSWORD = "/newpassword";
+export const LANDING_PAGE = '/';
+export const REGISTRATION_PAGE = '/register';
+export const POST_AUTH_ROUTES = '/dashboard';
+export const CONGRATULATION_PAGE = '/registrationsuccess';
+export const PAYMENT_VERIFICATION_PAGE = '/paymentverification';
+export const FORGET_PASSWORD = '/forgetpassword';
+export const NEW_PASSWORD = '/newpassword';
+export const POST_SIGNUP = '/postsignup';
 
 // Post Authentication routes
-const dashboardEntry = "/dashboard";
+const dashboardEntry = '/dashboard';
 export const LESSONS_PAGE = `${dashboardEntry}/`;
 export const PROFILE_PAGE = `${dashboardEntry}/profile`;
 export const LESSON_FOLDER_PAGE = `${dashboardEntry}/lessonfolder/:id`;

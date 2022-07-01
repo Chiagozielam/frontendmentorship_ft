@@ -1,12 +1,13 @@
 .curriculum_container {
-  width: 65%;
+  width: 75%;
   margin: auto;
   text-align: center;
   position: relative;
   bottom: 20px;
-  @media screen and (max-width: 1440px) {
-    width: 70%;
-  }
+
+  // @media screen and (max-width: 1440px) {
+  //   width: 70%;
+  // }
 
   .curriculum {
     width: 100%;
@@ -17,6 +18,7 @@
     @media screen and (max-width: 1440px) {
       row-gap: 20px;
       height: 980px;
+      column-gap: 0px;
     }
     justify-content: space-between;
     text-align: left;

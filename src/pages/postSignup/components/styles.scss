@@ -1,0 +1,282 @@
+.section_container {
+  width: 60%;
+  height: 500px;
+  margin: auto;
+  padding-top: 63px;
+
+  .subHeader {
+    font-size: 24px !important;
+    line-height: 155.4% !important;
+    letter-spacing: 0.04em !important;
+    color: #374151 !important;
+    margin-top: 40px;
+  }
+
+  .join_our_community_header {
+    margin-top: 0px;
+  }
+  .newsletter_header {
+    margin-top: 24px;
+  }
+
+  .ant-avatar-group .ant-avatar:not(:first-child) {
+    margin-left: -15px !important;
+  }
+  .subText {
+    font-size: 16px !important;
+    line-height: 155.4%;
+    text-align: center;
+    letter-spacing: 0.04em;
+    color: #424242;
+  }
+
+  .join_these_and_others {
+    //A subtext in 'join our community' section
+    margin-top: 16px;
+  }
+
+  .important_resource {
+    //A subtext in 'join our community' section
+    margin-top: 32px !important;
+  }
+
+  .newsletter_subtext {
+    margin-top: 48px;
+  }
+
+  .btn {
+    width: 283px !important;
+    height: 45px !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    line-height: 155.4% !important;
+    text-align: center;
+    letter-spacing: 0.04em !important;
+    margin-top: 32px;
+    cursor: pointer;
+  }
+
+  .join_now_btn {
+    // 'join our community' btn
+    border-radius: 8px !important;
+    margin-top: 32px;
+  }
+
+  .input_form_container {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    border: 0px;
+    height: 65px;
+    margin: auto;
+    margin-top: 32px;
+    margin-bottom: 2%;
+
+    .newsletter-input {
+      width: 60%;
+      padding-left: 5%;
+      background: transparent;
+      border: 1px solid #4b5563;
+      border-radius: 8px;
+      height: 65px;
+      font-size: 14px;
+      font-family: Open sans;
+      font-weight: 400;
+      color: #b9b9b9;
+    }
+    .submit {
+      width: 219px;
+      height: 65px !important;
+    }
+
+    @media screen and (max-width: 1024px) {
+      width: 90%;
+
+      .newsletter-input {
+        width: 68%;
+      }
+
+      .submit {
+        width: 150px !important;
+        height: 65px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    width: 70%;
+
+    .subHeader {
+      font-size: 24px !important;
+      line-height: 155.4% !important;
+      letter-spacing: 0.04em !important;
+      color: #374151 !important;
+      margin-top: 20px;
+    }
+
+    .join_our_community_header {
+      margin-top: 0px;
+    }
+    .newsletter_header {
+      margin-top: 24px;
+    }
+
+    .ant-avatar-group .ant-avatar:not(:first-child) {
+      margin-left: -15px !important;
+    }
+    .subText {
+      font-size: 16px !important;
+      line-height: 155.4%;
+      text-align: center;
+      letter-spacing: 0.04em;
+      color: #424242;
+    }
+
+    .join_these_and_others {
+      //A subtext in 'join our community' section
+      margin-top: 16px;
+      width: 100%;
+    }
+
+    .important_resource {
+      //A subtext in 'join our community' section
+      margin-top: 32px !important;
+    }
+
+    .newsletter_subtext {
+      margin-top: 48px;
+    }
+
+    .join_now_btn {
+      // 'join our community' btn
+      border-radius: 8px !important;
+      margin-top: 32px;
+    }
+
+    .input_form_container {
+      width: 100%;
+      height: 50px;
+
+      .newsletter-input {
+        width: 65%;
+        height: 50px;
+        font-size: 14px;
+      }
+      .submit {
+        width: 219px;
+        height: 50px !important;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    padding-top: 30px;
+
+    .community_section {
+      height: 350px !important;
+    }
+
+    .subHeader {
+      font-size: 16px !important;
+    }
+
+    .join_our_community_header {
+      margin-top: 0px;
+      font-size: 14px !important;
+    }
+    .newsletter_header {
+      margin-top: 24px;
+    }
+
+    .ant-avatar-group .ant-avatar:not(:first-child) {
+      margin-left: -19px !important;
+    }
+    .subText {
+      font-size: 12px !important;
+      line-height: 155.4%;
+      text-align: center;
+      letter-spacing: 0.04em;
+      color: #424242;
+    }
+
+    .join_these_and_others {
+      //A subtext in 'join our community' section
+      margin-top: 16px;
+    }
+
+    .important_resource {
+      //A subtext in 'join our community' section
+      margin-top: 32px !important;
+      width: 100%;
+    }
+
+    .newsletter_subtext {
+      margin-top: 10px;
+    }
+
+    .btn {
+      width: 80% !important;
+      height: 35px !important;
+      border-radius: 8px !important;
+      font-size: 12px !important;
+      line-height: 155.4% !important;
+      text-align: center;
+      letter-spacing: 0.04em !important;
+      margin-top: 32px;
+      cursor: pointer;
+    }
+
+    .join_now_btn {
+      // 'join our community' btn
+      border-radius: 8px !important;
+      margin-top: 32px;
+      height: 35px !important;
+      font-size: 12px !important;
+    }
+
+    .input_form_container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      border: 0px;
+      height: 65px;
+      margin: auto;
+      margin-top: 32px;
+      margin-bottom: 2%;
+
+      .newsletter-input {
+        width: 69%;
+        padding-left: 5%;
+        background: transparent;
+        border: 1px solid #4b5563;
+        border-radius: 8px;
+        height: 50px;
+        font-size: 14px;
+      }
+      .submit {
+        width: 100px !important;
+        height: 50px !important;
+        font-size: 12px !important;
+      }
+
+      @media screen and (max-width: 320px) {
+        display: block;
+
+        .newsletter-input {
+          width: 100%;
+          height: 40px;
+          font-size: 14px;
+        }
+        .submit {
+          width: 100px !important;
+          height: 40px !important;
+          margin-top: 10px;
+          float: right;
+        }
+      }
+    }
+  }
+}
