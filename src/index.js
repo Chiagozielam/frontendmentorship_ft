@@ -5,11 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 import AuthState from './context/authContext/AuthState';
-import GeneneralState from './context/generalContext/GeneralState'
-import CourseState from './context/course-context/CourseState'
-import { transitions, positions, Provider as AlertProvider } from 'react-alert'
-import AlertTemplate from 'react-alert-template-basic'
-
+import GeneneralState from './context/generalContext/GeneralState';
+import CourseState from './context/course-context/CourseState';
+import { transitions, positions, Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 // optional configuration
 const options = {
@@ -18,8 +18,8 @@ const options = {
   timeout: 5000,
   offset: '30px',
   // you can also just use 'scale'
-  transition: transitions.SCALE
-}
+  transition: transitions.SCALE,
+};
 
 ReactDOM.render(
   <React.StrictMode>
@@ -27,7 +27,9 @@ ReactDOM.render(
       <GeneneralState>
         <AuthState>
           <CourseState>
-            <App />
+            <Router>
+              <App />
+            </Router>
           </CourseState>
         </AuthState>
       </GeneneralState>
