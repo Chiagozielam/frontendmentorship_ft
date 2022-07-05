@@ -1,8 +1,8 @@
 const ThinkingImage = () => {
   return (
     <svg
-      width='220'
-      height='212'
+      width='190'
+      height='190'
       viewBox='0 0 220 212'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'

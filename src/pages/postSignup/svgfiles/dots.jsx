@@ -1,8 +1,8 @@
 const DotsSvg = () => {
   return (
     <svg
-      width='235'
-      height='128'
+      width='150'
+      height='80'
       viewBox='0 0 235 128'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'

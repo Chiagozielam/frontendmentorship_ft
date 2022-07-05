@@ -1,8 +1,8 @@
 const NewsletterSvg = () => {
   return (
     <svg
-      width='151'
-      height='155'
+      width='120'
+      height='120'
       viewBox='0 0 151 155'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'

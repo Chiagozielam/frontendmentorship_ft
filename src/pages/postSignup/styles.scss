@@ -1,8 +1,9 @@
 .postsignup_container {
   position: relative;
   width: 100%;
+  height: 100vh;
   background: linear-gradient(0deg, #f5f5f5, #f5f5f5);
-  padding: 20px 50px 150px 50px;
+  padding: 20px 50px 10px 50px;
 
   text-align: center;
 
@@ -20,8 +21,8 @@
 
   .header {
     font-weight: 700;
-    font-size: 48px !important;
-    line-height: 108.4% !important;
+    font-size: 40px !important;
+    line-height: 50% !important;
     text-align: center;
     letter-spacing: 0.015em !important;
     color: #374151 !important;
@@ -33,7 +34,7 @@
 
   .slide_btn {
     width: 206px !important;
-    height: 57px !important;
+    height: 50px !important;
     border-radius: 8px !important;
     background-color: transparent !important;
     font-family: 'Open Sans' !important;
@@ -41,7 +42,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 16px !important;
-    line-height: 155.4% !important;
+    line-height: 0% !important;
     letter-spacing: 0.04em;
     color: #4b5563 !important;
   }
@@ -69,13 +70,13 @@
       height: 29px;
       &.left {
         position: absolute;
-        bottom: -100px;
+        bottom: -80px;
       }
 
       &.right {
         position: absolute;
         right: 0px;
-        bottom: -100px;
+        bottom: -80px;
       }
     }
 
@@ -90,13 +91,39 @@
 
     .slick-dots-bottom {
       position: relative;
-      bottom: -100px !important;
+      bottom: -70px !important;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .slick-slider {
+      .carousel_arrow {
+        cursor: pointer;
+        z-index: 2;
+        height: 29px;
+        &.left {
+          position: absolute;
+          bottom: -10px;
+        }
+
+        &.right {
+          position: absolute;
+          right: 0px;
+          bottom: -10px;
+        }
+      }
+
+      .slick-dots-bottom {
+        position: relative;
+        bottom: -10px !important;
+      }
     }
   }
 
   @media screen and (max-width: 1023px) {
     position: relative;
     width: 100%;
+    height: auto !important;
     background: linear-gradient(0deg, #f5f5f5, #f5f5f5);
     padding: 20px 50px 70px 50px;
 
@@ -148,7 +175,7 @@
     position: relative;
     width: 100%;
     background: linear-gradient(0deg, #f5f5f5, #f5f5f5);
-    padding: 20px 20px 50px 20px;
+    padding: 20px 20px 10px 20px;
 
     text-align: center;
 
@@ -198,13 +225,13 @@
       .carousel_arrow {
         &.left {
           position: absolute;
-          bottom: -20px;
+          bottom: 10px;
         }
 
         &.right {
           position: absolute;
           right: 0px;
-          bottom: -20px;
+          bottom: 10px;
         }
       }
 
@@ -219,7 +246,7 @@
 
       .slick-dots-bottom {
         position: relative;
-        bottom: -10px !important;
+        bottom: 20px !important;
       }
     }
   }
